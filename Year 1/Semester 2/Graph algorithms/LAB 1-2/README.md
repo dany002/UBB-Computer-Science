@@ -8,8 +8,8 @@ Additionally, create a map that associates to an edge an integer value (for inst
 
 Required operations:
 
-get the number of vertices;
-parse (iterate) the set of vertices;
+get the number of vertices; \
+parse (iterate) the set of vertices; \
 given two vertices, find out whether there is an edge from the first one to the second one, and retrieve the Edge_id if there is an edge (the latter is not required if an edge is represented simply as a pair of vertex identifiers);
 get the in degree and the out degree of a specified vertex;
 parse (iterate) the set of outbound edges of a specified vertex (that is, provide an iterator). For each outbound edge, the iterator shall provide the Edge_id of the curren edge (or the target vertex, if no Edge_id is used).
