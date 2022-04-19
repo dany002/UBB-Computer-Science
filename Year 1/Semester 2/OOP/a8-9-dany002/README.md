@@ -20,7 +20,7 @@ For your solution to the previous assignment (Assignment 05-06), add the followi
     - create your own exception classes.
     - validate program input.
 
-4.	Depending on your assignment, store your (adoption list, movie watch list, shopping basket or tutorial watch list) in a file. When the application starts, the user should choose the type of file between `CSV` or `HTML`. Depending on the type, the application will save the list in the correct format.
+4.	Store your movie watch list in a file. When the application starts, the user should choose the type of file between `CSV` or `HTML`. Depending on the type, the application will save the list in the correct format.
 
     **Indications**\
     The CSV file will contain each entity on one line and the attributes will be separated by comma \
@@ -29,10 +29,8 @@ For your solution to the previous assignment (Assignment 05-06), add the followi
     `CSV` and `HTML` files are used to save and display data to the user; they act as program outputs, so data should not be read from them!
 
 5. Add a new command, allowing the user to see the:
-    * adoption list
     * movie watch list
-    * shopping basket
-    * tutorial watch list\
+
 Displaying the list means opening the saved file (`CSV` or `HTML`) with the correct application (`CSV` files using Notepad, Notepad++, Microsoft Excel etc. and `HTML` files using a browser)
 
 6. Create a UML class diagram for your entire application. For this, you can use any tool that you like ([StarUML](https://staruml.io/) or [LucidChart](https://www.lucidchart.com/) are only some examples. Many other options exist.
