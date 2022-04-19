@@ -1,6 +1,5 @@
 # Assignment 11
 ## Requirements
-- You will be given one of the problems below to solve
 - Use object oriented programming and layered architecture
 - All modules with the exception of the UI will be covered with specifications and PyUnit test cases
 - The program must protect itself against the user’s invalid input
@@ -16,21 +15,7 @@
 - Implement computer AI using a [minimax algorithm](https://en.wikipedia.org/wiki/Minimax). Computer play should be competitive against the human player
 - In the case where minimax cannot be applied (e.g. Battleship, which is not a [complete information](https://en.wikipedia.org/wiki/Complete_information) game), find a suitable alternative; talk to your lab professor about the bonus possibility in this case
 
-## Problem Statements
-### Connect Four
-The game is described [here](https://en.wikipedia.org/wiki/Connect_Four)
+## Problem Statement
 
-### Gomoku
-The game is described [here](https://en.wikipedia.org/wiki/Gomoku)
-
-### Obstruction
-The game is described [here](http://www.papg.com/show?2XMX)
-
-### Battleship
-The game is described [here](https://en.wikipedia.org/wiki/Battleship_(game))
-
-### Planes
+### Plane
 The game is described [here](https://ro.wikipedia.org/wiki/Avioane_(joc))
-
-### Other games!
-You are free to implement a different board game, as long as its complexity is similar to those above. Talk to your laboratory professor to validate your idea before starting work!
