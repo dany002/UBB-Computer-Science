@@ -21,19 +21,19 @@ The graph shall be copyable, that is, it should be possible to make an exact cop
 Read the graph from a text file (as an external function); see the format below. \
 Write the graph from a text file (as an external function); see the format below. \
 Create a random graph with specified number of vertices and of edges (as an external function). \
-The operations must take no more than: \
+The operations must take no more than: 
 
 O(deg(x)+deg(y)) for: verifying the existence of an edge and for retrieving the edge between two given vertices. \
 O(1) for: getting the first or the next edge, inbound or outbound to a given vertex; get the endpoints, get or set the attached integer for an edge (given by an Edge_id or, if no Edge_id is defined, then given by its source and target); get the total number of vertices or edges; get the in-degree or the out-degree of a given vertex. \
-Other requirements: \
+Other requirements: 
 
 The object returned by the parse functions shall not allow modifying the graph through its public functions. So, don't return sets by reference. Return iterators. \
 Generally, make sure the graph cannot be brought in an inconsistent state by applying public functions on various accessible objects. \
-Note: You are allowed to use, from existing libraries, data structures such as linked lists, double-linked lists, maps, etc. However, you are not allowed to use already-implemented graphs (though, you are encouraged to take a look at them). \
+Note: You are allowed to use, from existing libraries, data structures such as linked lists, double-linked lists, maps, etc. However, you are not allowed to use already-implemented graphs (though, you are encouraged to take a look at them). 
 
-Text file format: the graph will be read from a text file having the following format: \
+Text file format: the graph will be read from a text file having the following format: 
 
 On the first line, the number n of vertices and the number m of edges; \
-On each of the following m lines, three numbers, x, y and c, describing an edge: the origin, the target and the cost of that edge. \
+On each of the following m lines, three numbers, x, y and c, describing an edge: the origin, the target and the cost of that edge. 
 
-Write a program that, given a directed graph and two vertices, finds a lowest length path between them, by using a backward breadth-first search from the ending vertex. \
+Write a program that, given a directed graph and two vertices, finds a lowest length path between them, by using a backward breadth-first search from the ending vertex. 
