@@ -6,103 +6,95 @@
 using namespace std;
 
 ListIterator::ListIterator(const SortedIteratedList &list) : list(list){
-    this->current = 0;
-    relation = list.relation;
-    this->node_stack = std::vector<SortedIteratedList::bst_node*>();
-    this->current_node.right = -1;
-    this->current_node.left = -1;
-    this->current_node.key = NULL_TCOMP;
-    this->current_node.father = -1;
-    //this->current = 0;
-
-
-    if(list.root != -1) {
-
-        this->node_stack.push_back(list.nodes);
-        for(auto a : this->node_stack)
-            cout << a->value << "    ";
-
-        sort(this->node_stack.begin(), this->node_stack.end());
-
-        /*
-        SortedIteratedList::bst_node temp = this->node_stack.back();
-
-        //cout << temp.key;
-        while(temp.key != NULL_TCOMP){
-            this->node_stack.push_back(temp);
-            //cout << list.nodes[temp.left].key << endl;
-            temp = list.nodes[temp.left];
-        }
-        current_node = this->node_stack.back();
-        this->node_stack.pop_back();
-        temp = list.nodes[current_node.right];
-
-
-        while(temp.key != NULL_TCOMP){
-            this->node_stack.push_back(temp);
-            temp = list.nodes[temp.right];
-        }
-        */
-    }
-
-}
-/*
-ListIterator::ListIterator(const SortedIteratedList &list, int current) : list(list) {
-    this->current = current;
-}
-
- */
+    this->stack = new int[10000];
+    this->capacity = 10000;
+    this->current_size = 0;
+    this->first();
+} //Theta(1)
 
 
 
 void ListIterator::first() {
-    this->current = 0;
-    /*
-    if(list.root != -1) {
-        this->node_stack.push_back(list.nodes);
-        //for (auto a: this->node_stack)
-        //    cout << a->value << "    ";
-        sort(this->node_stack.begin(), this->node_stack.end());
+    this->empty();
+    this->current_node = this->list.root;
+    while(this->current_node != -1){
+        this->push(this->current_node);
+        this->current_node = this->list.nodes[current_node].left;
     }
-     */
-}
+    if(this->current_size != 0){
+        this->current_node = this->top();
+    }
+    else
+        this->current_node = -1;
+} // Theta(n)
 
 void ListIterator::next() {
     if(!valid())
         throw std::exception();
-
-    this->current++;
-
-    //while(list.nodes[current].left != -1);
-    /*
-    if(list.nodes[current].right != -1 && list.relation(list.nodes[current].key, list.nodes[list.nodes[current].right].key) == 1){
-        current = list.nodes[current].right;
+    int node = this->pop();
+    previous_node = node;
+    if(this->list.nodes[node].right != -1){
+        node = this->list.nodes[node].right;
+        while(node != -1){
+            this->push(node);
+            node = this->list.nodes[node].left;
+        }
+    }
+    if(this->current_size != 0){
+        this->current_node = this->top();
     }
     else
-    {
-        int next = current;
-        while (next != -1 && (list.nodes[next].right == -1 ||
-                              list.nodes[list.nodes[next].right].key == this->list.nodes[current].key ||
-                              this->list.relation(list.nodes[current].key, list.nodes[list.nodes[next].right].key) ==
-                              0)) {
-            next = list.nodes[next].father;
-        }
-        current = next;
-    }
-    if(current != -1){
-        while(list.nodes[current].left != -1){
-            current = list.nodes[current].left;
-        }
-    }
-     */
-}
+        this->current_node = -1;
+
+} // Theta(n)
 
 bool ListIterator::valid() const {
-    return this->current < list.size();
-}
+    return this->current_node != -1;
+} // Theta(1)
 
 TComp ListIterator::getCurrent() const {
     if(!valid())
         throw std::exception();
-    return list.nodes[this->current].value;
-}
+    return list.nodes[current_node].value;
+} // Theta(1)
+
+void ListIterator::push(int data) {
+    if(this->current_size == this->capacity)
+        this->resize();
+    this->stack[this->current_size] = data;
+    this->current_size++;
+} //Theta(1)
+
+int ListIterator::pop() {
+    if(this->current_size > 0){
+        int elem = this->stack[this->current_size - 1];
+        this->current_size--;
+        return elem;
+    }
+} //Theta(1)
+
+int ListIterator::top() {
+    if(this->current_size > 0){
+        return this->stack[this->current_size - 1];
+    }
+} //Theta(1)
+
+void ListIterator::resize() {
+    this->capacity *= 2;
+    int* temp = new int[this->capacity];
+    for(int i = 0; i < this->current_size; i++)
+        temp[i] = this->stack[i];
+    delete[] this->stack;
+    this->stack = temp;
+} //Theta(n)
+
+void ListIterator::empty() {
+    this->current_size = 0;
+} //Theta(1)
+
+void ListIterator::previous() {
+    if(previous_node == -1)
+        throw std::exception();
+    current_node = previous_node;
+    previous_node = list.nodes[current_node].father;
+} //Theta(1)

@@ -7,12 +7,17 @@ class ListIterator{
 private:
 	const SortedIteratedList& list;
 	ListIterator(const SortedIteratedList& list);
-    //ListIterator(const SortedIteratedList& list, int current);
-    int current;
-    Relation relation;
-    std::vector<SortedIteratedList::bst_node*> node_stack;
-    SortedIteratedList::bst_node current_node;
-
+    int current_node;
+    int previous_node;
+    int* stack;
+    int current_size;
+    int capacity;
+    void push(int data);
+    int pop();
+    int top();
+    void resize();
+    void empty();
+    void previous();
 	//TODO - Representation
 public:
 	void first();

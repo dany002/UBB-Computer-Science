@@ -10,6 +10,7 @@ typedef bool (*Relation)(TComp, TComp);
 #define NULL_TCOMP -11111
 #define CAP 10000
 
+
 class SortedIteratedList {
 private:
 	friend class ListIterator;

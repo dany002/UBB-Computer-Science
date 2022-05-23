@@ -15,7 +15,7 @@ int SortedIteratedList::create_node(TComp elem, int left = -1, int right = -1){
     nodes[i].number_of_nodes = 1;
     nodes[i].father = -1;
     return i;
-}
+} // Theta(1)
 
 SortedIteratedList::SortedIteratedList(Relation r) {
     this->relation = r;
@@ -26,7 +26,7 @@ SortedIteratedList::SortedIteratedList(Relation r) {
     for(int i = 0; i < cap; i++)
         this->nodes[i].key = NULL_TCOMP;
     this->sizee = 0;
-}
+} // Theta(n)
 
 
 
@@ -43,30 +43,30 @@ int SortedIteratedList::recursive_add(int root, TComp elem) {
         nodes[root].right = recursive_add(nodes[root].right, elem);
     recalculate(root);
     return root;
-}
+} // WC = AC = Theta(n) chain tree
 
 void SortedIteratedList::add(TComp e) {
     this->root = recursive_add(this->root, e);
     this->_size++;
-}
+} //Theta(1)
 
 
 int SortedIteratedList::size() const {
 	return this->_size;
-}
+} // Theta(1)
 
 bool SortedIteratedList::isEmpty() const {
 	return this->_size == 0;
-}
+} // Theta(1)
 
 ListIterator SortedIteratedList::first() const {
     ListIterator it{*this};
     return it;
-}
+} // Theta(1)
 
 TComp SortedIteratedList::getElement(ListIterator poz) const {
 	return poz.getCurrent();
-}
+} // Theta(1)
 
 void SortedIteratedList::recalculate(int root) {
     nodes[root].number_of_nodes = 1;
@@ -78,7 +78,7 @@ void SortedIteratedList::recalculate(int root) {
         nodes[root].number_of_nodes += nodes[nodes[root].right].number_of_nodes;
         nodes[nodes[root].right].father = root;
     }
-}
+} // Theta(1)
 
 int SortedIteratedList::recursive_remove(int root, TComp elem) {
     if(root == -1)
@@ -109,7 +109,7 @@ int SortedIteratedList::recursive_remove(int root, TComp elem) {
         nodes[root].right = recursive_remove(nodes[root].right, elem);
     recalculate(root);
     return root;
-}
+} // AC = Theta(log(n)). WC = Theta(n) chain tree
 
 TComp SortedIteratedList::remove(ListIterator& poz) {
     TComp elem;
@@ -127,7 +127,7 @@ TComp SortedIteratedList::remove(ListIterator& poz) {
     }
     this->_size--;
     return elem;
-}
+} // Theta(1)
 
 
 
@@ -137,24 +137,12 @@ ListIterator SortedIteratedList::search(TComp e) const{
     while(it.valid() && it.getCurrent() != e)
         it.next();
     return it;
-
-    /*
-    int current = root;
-    while(current != -1 && nodes[current].key != e){
-        if(this->relation(e, nodes[current].key)){
-            current = nodes[current].left;
-        }else{
-            current = nodes[current].right;
-        }
-    }
-    return ListIterator{*this,current};
-     */
-}
+} // Theta(n)
 
 
 SortedIteratedList::~SortedIteratedList() {
     delete[] nodes;
-}
+} // Theta(1)
 
 
 int SortedIteratedList::allocate() {
@@ -173,12 +161,12 @@ int SortedIteratedList::allocate() {
             this->sizee++;
             return i;
         }
-}
+} // WC = Theta(2*cap) BC=Theta(1) AC=Theta(n)
 
 void SortedIteratedList::deallocate(int i) {
     this->nodes[i].key = NULL_TCOMP;
     this->sizee--;
-}
+} // Theta(1)
 
 
 
