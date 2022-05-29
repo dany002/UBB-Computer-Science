@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>usergui</class>
+ <widget class="QMainWindow" name="usergui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>696</width>
+    <height>621</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Genre</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="Genre_lineEdit"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="movie_listWidget">
+      <column>
+       <property name="text">
+        <string>Title</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Genre</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Trailer</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Year of release</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Number of likes</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="watch_list_tableWidget">
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Title</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Genre</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Trailer</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Year of release</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Number of likes</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="play_Button">
+        <property name="text">
+         <string>Play</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Add_Button">
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Csv_Button">
+        <property name="text">
+         <string>CSV</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Delete_Button">
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Like_Button">
+        <property name="text">
+         <string>Like</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Html_Button">
+        <property name="text">
+         <string>HTML</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Undo_Button">
+        <property name="text">
+         <string>Undo</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Redo_Button">
+        <property name="text">
+         <string>Redo</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>696</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
