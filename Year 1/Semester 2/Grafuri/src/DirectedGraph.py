@@ -610,6 +610,15 @@ class DirectedGraph:
         file.close()
 
     def find_clique(self, potential_clique = [], remaining_nodes = [], skip_nodes = [], depth = 0):
+        """
+        A clique is a subset of vertices of an undirected graph such that every two distinct
+        vertices in the clique are adjacent
+        :param potential_clique: list
+        :param remaining_nodes: list
+        :param skip_nodes: list
+        :param depth: integer
+        :return: number of cliques found.
+        """
         if len(remaining_nodes) == 0 and len(skip_nodes) == 0:
             print("This is a clique: ", potential_clique)
             return 1
@@ -617,9 +626,8 @@ class DirectedGraph:
         for node in remaining_nodes:
             new_potential_clique = potential_clique + [node]
             new_remaining_nodes = [n for n in remaining_nodes if n in self.in_neighbours(node)]
-            #print("Potential ", new_potential_clique)
             new_skip_list = [n for n in skip_nodes if n in self.in_neighbours(node)]
-            #print("Skip list", new_skip_list)
+
             found_cliques += self.find_clique(new_potential_clique, new_remaining_nodes, new_skip_list, depth + 1)
 
 
@@ -628,36 +636,3 @@ class DirectedGraph:
         return found_cliques
 
 
-    # def k_cliques(self):
-    #     cliques = []
-    #
-    #     i = 0
-    #     while i < len(self.__cost['edge']):
-    #         cliques.append({self.__cost['edge'][i][0], self.__cost['edge'][i][1]})
-    #         i += 2
-    #
-    #     k = 2
-    #
-    #     while cliques:
-    #         yield k, cliques
-    #
-    #         cliques_1 = set()
-    #         for u, v in combinations(cliques, 2):
-    #             w = u ^ v
-    #             if len(w) == 2 and self.find_edge_for_2_vertices(u, v):
-    #                 cliques_1.add(tuple(u | w))
-    #
-    #         cliques = list(map(set, cliques_1))
-    #         k += 1
-    #
-    #
-    #
-    # def print_cliques(self):
-    #     size = len(self.__vertices) - 1
-    #     for k, cliques in self.k_cliques():
-    #         print("HI")
-    #         if k == size and len(cliques) != 0:
-    #             print("HELO")
-    #             print(k, " ", len(cliques), " ", cliques)
-    #             break
-    #         #size -= 1

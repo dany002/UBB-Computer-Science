@@ -505,7 +505,10 @@ class UI:
     def clique_maximum_size(self):
         get_vertices = self._directed_graph.vertices()
         total_cliques = self._directed_graph.find_clique(remaining_nodes=get_vertices)
-        print(total_cliques)
+        if total_cliques == 0:
+            print("There are no maximal cliques in the given graph.")
+        else:
+            print(total_cliques)
 
     def run_console(self):
         """ This function is the heart of the UI. It gets the input and it connects all the functions from UI.
