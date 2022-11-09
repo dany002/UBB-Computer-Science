@@ -156,6 +156,9 @@ VALUES(5,'Ionel',5);
 INSERT INTO Controller(controller_id, name, rating)
 VALUES(6,'Andreea',9);
 
+INSERT INTO Controller(controller_id, name, rating)
+VALUES(7,'George',10);
+
 SELECT * FROM Controller;
 
 INSERT INTO ControllerPassengerRelation(passenger_id, controller_id)
@@ -361,4 +364,83 @@ INSERT INTO Harbor(harbor_id, number_of_ships, capacity, location, ship_id)
 VALUES(6, 100, 150, 'Colombo', 4);
 
 SELECT * FROM Harbor;
+
+
+-- sub a
+
+SELECT harbor_id FROM Harbor
+UNION 
+SELECT bus_id FROM Bus;
+
+SELECT harbor_id FROM Harbor
+UNION ALL
+SELECT bus_id FROM Bus;
+
+SELECT * FROM Passenger
+WHERE name = 'Dani' OR name = 'Florin';
+
+-- sub b
+
+SELECT passenger_id FROM Passenger
+INTERSECT
+SELECT bus_id FROM Bus;
+
+SELECT passenger_id, name FROM Passenger
+WHERE passenger_id IN (1,2,3);
+
+-- sub c
+
+SELECT passenger_id FROM Passenger
+EXCEPT
+SELECT bus_id FROM Bus;
+
+SELECT passenger_id, name FROM Passenger
+WHERE passenger_id NOT IN (1,2,3);
+
+-- sub d
+
+SELECT * FROM Passenger
+INNER JOIN Controller
+ON Passenger.name = Controller.name; 
+
+SELECT * FROM Passenger
+LEFT JOIN Controller
+ON Passenger.name = Controller.name; 
+
+SELECT * FROM Passenger
+RIGHT JOIN Controller
+ON Passenger.name = Controller.name; 
+
+SELECT * FROM Passenger
+FULL JOIN Controller
+ON Passenger.name = Controller.name; 
+
+-- sub e
+
+SELECT name FROM Passenger
+WHERE Passenger.name IN ( SELECT Controller.name FROM Controller WHERE Controller.name = 'George');
+
+SELECT * FROM Ship
+WHERE Ship.first_class_number_of_seats IN(
+SELECT Coach.number_of_seats  FROM Coach
+WHERE Coach.number_of_seats IN (100,300,200));
+
+-- sub f
+
+
+SELECT number_of_seats FROM Coach
+WHERE EXISTS ( SELECT number_of_buses FROM Garage WHERE Garage.number_of_buses = Coach.number_of_seats AND Garage.capacity > 10);
+
+SELECT number_of_seats FROM Coach
+WHERE EXISTS ( SELECT price_first_class FROM Plane WHERE Plane.price_first_class = Coach.number_of_seats OR Plane.second_class_number_of_seats > 1000);
+
+-- sub g
+
+SELECT * FROM Plane;
+
+SELECT AVG(capacitate) FROM ( SELECT SUM(capacity) AS capacitate FROM Harbor) AS average;
+
+SELECT AVG(plane_tickets) FROM (SELECT SUM(price_first_class) AS plane_tickets FROM Plane) as average;
+
+
 
