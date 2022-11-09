@@ -60,3 +60,4 @@ remove_k_occurences([H|T], E, K, [H|R]) :- H =\= E,
 % remove_3_occurences(i, i, o)
 
 remove_3_occurences(L, E, R) :- remove_k_occurences(L, E, 3, R).
+

@@ -43,3 +43,4 @@ heterList([H|T], R) :- is_list(H), !,
     my_merge(H, RH, R).
 heterList([_|T], R) :-
     heterList(T, R).
+
