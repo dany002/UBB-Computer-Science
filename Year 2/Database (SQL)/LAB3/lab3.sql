@@ -365,14 +365,39 @@ VALUES(6, 100, 150, 'Colombo', 4);
 
 SELECT * FROM Harbor;
 
+SELECT * FROM Tram;
+
+-- updates
+
+UPDATE Tram 
+SET departure = 'Franta'
+WHERE departure = 'Piata Mica' OR departure = 'China';
+
+UPDATE Tram 
+SET company = 'CTP Iasi'
+WHERE number_of_seats = 170 AND departure = 'Floresti';
+
+UPDATE Tram
+SET destionation = 'Barcelona'
+WHERE destionation LIKE '%Apahid'
+
+
+-- DELETE 
+
+DELETE FROM Harbor
+WHERE capacity = 500 AND location = 'Caracas';
+
+DELETE FROM Harbor
+WHERE location = 'Constanta' OR capacity = 1400;
+
 
 -- sub a
 
-SELECT harbor_id FROM Harbor
+SELECT TOP 4 harbor_id FROM Harbor
 UNION 
 SELECT bus_id FROM Bus;
 
-SELECT harbor_id FROM Harbor
+SELECT TOP 5 harbor_id FROM Harbor
 UNION ALL
 SELECT bus_id FROM Bus;
 
@@ -443,4 +468,73 @@ SELECT AVG(capacitate) FROM ( SELECT SUM(capacity) AS capacitate FROM Harbor) AS
 SELECT AVG(plane_tickets) FROM (SELECT SUM(price_first_class) AS plane_tickets FROM Plane) as average;
 
 
+-- sub h
+
+
+
+SELECT COUNT(number_of_seats)
+FROM PLANE
+GROUP BY first_class_number_of_seats 
+HAVING COUNT(number_of_seats) > 0
+ORDER BY COUNT(second_class_number_of_seats) ASC;
+
+
+SELECT AVG(price_first_class)
+FROM Ship
+GROUP BY first_class_number_of_seats 
+HAVING MAX(price_second_class) > 10;
+
+SELECT * FROM Harbor;
+
+SELECT MAX(capacity)
+FROM Harbor
+GROUP BY number_of_ships
+HAVING COUNT(capacity) < 5000;
+
+SELECT * FROM Controller;
+
+SELECT COUNT(name)
+FROM Controller
+GROUP BY rating;
+
+SELECT * FROM Garage;
+SELECT * FROM AIRPORT;
+-- sub i
+
+SELECT capacity
+FROM Harbor
+WHERE number_of_ships = ANY
+	(
+	SELECT number_of_trams
+	FROM Garage
+	WHERE number_of_buses > 10
+) ;
+
+SELECT airport_id, plane_id
+FROM Airport
+WHERE number_of_planes = ANY 
+(
+	SELECT number_of_buses
+	FROM Garage
+	WHERE number_of_buses < 1000
+);
+
+
+SELECT capacity
+FROM Harbor
+WHERE number_of_ships = ALL
+	(
+	SELECT number_of_trams
+	FROM Garage
+	WHERE number_of_buses = 10
+) ;
+
+SELECT airport_id, plane_id
+FROM Airport
+WHERE number_of_planes = ALL
+(
+	SELECT number_of_buses
+	FROM Garage
+	WHERE number_of_buses = 1000
+);
 
