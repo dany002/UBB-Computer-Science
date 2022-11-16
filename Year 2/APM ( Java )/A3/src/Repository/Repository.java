@@ -19,6 +19,11 @@ public class Repository implements IRepository{
         this.logFilePath = logFilePath;
     }
 
+    public Repository(List<ProgState> programs, String logFilePath){
+        this.programs = programs;
+        this.logFilePath = logFilePath;
+    }
+
     @Override
     public ProgState getCurrentProgram() {
         return this.programs.get(0);

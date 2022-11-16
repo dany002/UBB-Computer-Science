@@ -33,7 +33,7 @@ public class ExecutionStack implements IExecutionStack{
     }
 
     @Override
-    public String toDebug(){
+    public String toString(){
         StringBuilder ans = new StringBuilder("Execution stack:\n");
         MyIStack<IStatement> tmp = new MyStack<>();
         try{

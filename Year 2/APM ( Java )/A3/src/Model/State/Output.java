@@ -21,7 +21,7 @@ public class Output implements IOutput{
     public String getOutput() {
         StringBuilder ans = new StringBuilder();
         for(String elem: this.data.getAll())
-            ans.append(elem);
+            ans.append(elem).append(" ");
         return ans.toString();
     }
 
@@ -37,8 +37,8 @@ public class Output implements IOutput{
     }
 
     @Override
-    public String toDebug(){
-        return "Output: " + this.getOutput();
+    public String toString(){
+        return "Output: " + this.getOutput() + " ";
     }
 
 

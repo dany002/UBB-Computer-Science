@@ -14,16 +14,16 @@ public class Controller implements IController{
     boolean displayFlag;
 
     public Controller(boolean displayFlag){
-        this.repo = new Repository();
+
         this.displayFlag = displayFlag;
         if(this.displayFlag)
             this.displayCurrentState();
     }
 
-    public Controller(IStatement statement){
-        this.repo = new Repository();
-        this.displayFlag = false;
-        this.setProgram(statement);
+    public Controller(IRepository repo, boolean displayFlag){
+
+        this.displayFlag = displayFlag;
+        this.repo = repo;
     }
 
     @Override

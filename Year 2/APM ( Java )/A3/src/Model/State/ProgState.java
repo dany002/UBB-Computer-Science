@@ -1,5 +1,8 @@
 package Model.State;
 
+import Model.ADT.MyDictionary;
+import Model.ADT.MyIStack;
+import Model.ADT.MyStack;
 import Model.Statements.IStatement;
 
 public class ProgState {
@@ -16,6 +19,7 @@ public class ProgState {
         this.fileTable = fileTable;
         this.executionStack.push(statement);
     }
+
 
     public IExecutionStack getExecutionStack(){
         return this.executionStack;
