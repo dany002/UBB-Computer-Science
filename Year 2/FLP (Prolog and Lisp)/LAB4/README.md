@@ -1,0 +1,1 @@
+A player wants to choose the predictionsfor 4 games.The predictions can be 1, X, 2. Write a predicate to  generate  all  possible  variants considering that:last prediction can’t be 2 and nomore  than  twopossiblepredictions X.
