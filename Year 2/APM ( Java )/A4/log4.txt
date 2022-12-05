@@ -1,0 +1,166 @@
+Execution stack:
+StringType varf
+varf = "test.in"; OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable:
+Output:
+Filetable:
+Execution stack:
+varf = "test.in"; OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> ""
+Output:
+Filetable:
+Execution stack:
+varf = "test.in"
+OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> ""
+Output:
+Filetable:
+Execution stack:
+OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+Output:
+Filetable:
+Execution stack:
+OpenRFile( varf)
+StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+Output:
+Filetable:
+Execution stack:
+NOP
+SymTable:
+Output:
+Filetable:
+Execution stack:
+StringType varf
+varf = "test.in"; OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable:
+Output:
+Filetable:
+Execution stack:
+varf = "test.in"; OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> ""
+Output:
+Filetable:
+Execution stack:
+varf = "test.in"
+OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> ""
+Output:
+Filetable:
+Execution stack:
+OpenRFile( varf); StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+Output:
+Filetable:
+Execution stack:
+OpenRFile( varf)
+StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+Output:
+Filetable:
+Execution stack:
+StringType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+Output:
+Filetable: 
+test.in
+Execution stack:
+StringType varc
+readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+Output:
+Filetable: 
+test.in
+Execution stack:
+readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(StringType):-> ""
+Output:
+Filetable: 
+test.in
+Execution stack:
+readFile(varf, varc)
+print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(StringType):-> ""
+Output:
+Filetable: 
+test.in
+Execution stack:
+print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 15
+Output:
+Filetable: 
+test.in
+Execution stack:
+print(varc)
+readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 15
+Output:
+Filetable: 
+test.in
+Execution stack:
+readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 15
+Output: 15
+Filetable: 
+test.in
+Execution stack:
+readFile(varf, varc)
+print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 15
+Output: 15
+Filetable: 
+test.in
+Execution stack:
+print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 50
+Output: 15
+Filetable: 
+test.in
+Execution stack:
+print(varc)
+CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 50
+Output: 15
+Filetable: 
+test.in
+Execution stack:
+CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 50
+Output: 15 50
+Filetable: 
+test.in
+Execution stack:
+SymTable: 
+varf(StringType):-> "test.in"
+varc(IntegerType):-> 50
+Output: 15 50
+Filetable:

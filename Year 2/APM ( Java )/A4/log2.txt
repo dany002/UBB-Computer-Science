@@ -1,0 +1,62 @@
+Execution stack:
+IntegerType a
+IntegerType b; a = (2 + (3 * 5)); b = (a + 1); print(b)
+SymTable:
+Output:
+Filetable:
+Execution stack:
+IntegerType b; a = (2 + (3 * 5)); b = (a + 1); print(b)
+SymTable: 
+a(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+IntegerType b
+a = (2 + (3 * 5)); b = (a + 1); print(b)
+SymTable: 
+a(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+a = (2 + (3 * 5)); b = (a + 1); print(b)
+SymTable: 
+a(IntegerType):-> 0
+b(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+a = (2 + (3 * 5))
+b = (a + 1); print(b)
+SymTable: 
+a(IntegerType):-> 0
+b(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+b = (a + 1); print(b)
+SymTable: 
+a(IntegerType):-> 17
+b(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+b = (a + 1)
+print(b)
+SymTable: 
+a(IntegerType):-> 17
+b(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+print(b)
+SymTable: 
+a(IntegerType):-> 17
+b(IntegerType):-> 18
+Output:
+Filetable:
+Execution stack:
+SymTable: 
+a(IntegerType):-> 17
+b(IntegerType):-> 18
+Output: 18
+Filetable:
