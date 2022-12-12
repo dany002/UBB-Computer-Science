@@ -19,6 +19,11 @@ public class Repository implements IRepository{
         this.logFilePath = logFilePath;
     }
 
+    public Repository(List<ProgState> programs, String logFilePath){
+        this.programs = programs;
+        this.logFilePath = logFilePath;
+    }
+
 
     @Override
     public List<ProgState> getProgramsList() {
@@ -48,6 +53,7 @@ public class Repository implements IRepository{
             logFile.close();
         }
     }
+
     @Override
     public void clear(){
         this.programs = new ArrayList<>();

@@ -1,0 +1,542 @@
+Execution stack:
+RefType IntegerType v
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable:
+Output:
+Filetable:
+Execution stack:
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Execution stack:
+new(v, 20)
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Execution stack:
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+RefType RefType IntegerType a
+new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+new(a, v); print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+new(a, v)
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+print(v)
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType)
+Filetable:
+Execution stack:
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType) Ref(2,RefType IntegerType)
+Filetable:
+Execution stack:
+RefType IntegerType v
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable:
+Output:
+Filetable:
+Execution stack:
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Execution stack:
+new(v, 20)
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Execution stack:
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+RefType RefType IntegerType a
+new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+new(a, v); print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+new(a, v)
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+print(v)
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Execution stack:
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType)
+Filetable:
+Execution stack:
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType) Ref(2,RefType IntegerType)
+Filetable:
+Execution stack:
+RefType IntegerType v
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable:
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20)
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+RefType RefType IntegerType a
+new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v); print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v)
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(v)
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType) Ref(2,RefType IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+RefType IntegerType v
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable:
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20)
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+RefType RefType IntegerType a
+new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v); print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v)
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(v)
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType) Ref(2,RefType IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+RefType IntegerType v
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable:
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20)
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+RefType RefType IntegerType a
+new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v); print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v)
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(v)
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType) Ref(2,RefType IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+RefType IntegerType v
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable:
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20); RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+new(v, 20)
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+Execution stack:
+RefType RefType IntegerType a; new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+RefType RefType IntegerType a
+new(a, v); print(v); print(a)
+SymTable: 
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v); print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+new(a, v)
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(0,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+Execution stack:
+print(v); print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(v)
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+print(a)
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)
+Execution stack:
+SymTable: 
+a(RefType RefType IntegerType):-> Ref(2,RefType IntegerType)
+v(RefType IntegerType):-> Ref(1,IntegerType)
+Output: Ref(1,IntegerType) Ref(2,RefType IntegerType)
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(RefType IntegerType):-> Ref(1,IntegerType)

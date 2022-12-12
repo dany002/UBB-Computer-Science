@@ -28,3 +28,68 @@ SymTable:
 v(IntegerType):-> 2
 Output: 2
 Filetable:
+Execution stack:
+IntegerType v
+v = 2; print(v)
+SymTable:
+Output:
+Filetable:
+Execution stack:
+v = 2; print(v)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+v = 2
+print(v)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Execution stack:
+print(v)
+SymTable: 
+v(IntegerType):-> 2
+Output:
+Filetable:
+Execution stack:
+SymTable: 
+v(IntegerType):-> 2
+Output: 2
+Filetable:
+Execution stack:
+IntegerType v
+v = 2; print(v)
+SymTable:
+Output:
+Filetable:
+Heap:
+Execution stack:
+v = 2; print(v)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+Execution stack:
+v = 2
+print(v)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+Execution stack:
+print(v)
+SymTable: 
+v(IntegerType):-> 2
+Output:
+Filetable:
+Heap:
+Execution stack:
+SymTable: 
+v(IntegerType):-> 2
+Output: 2
+Filetable:
+Heap:
