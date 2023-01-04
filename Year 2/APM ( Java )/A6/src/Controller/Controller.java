@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ADT.MyDictionary;
 import Model.Exception.ADTException;
 import Model.Exception.AppException;
 import Model.State.*;
@@ -77,6 +78,7 @@ public class Controller implements IController{
 
     @Override
     public void setProgram(IStatement statement) throws AppException{
+        statement.typeCheck(new MyDictionary<>());
         this.repo.clear();
         this.repo.addProgram(new ProgState(new ExecutionStack(), new SymTable(), new Output(), new FileTable(), new Heap(), statement));
         this.repo.logProgramState(this.repo.getProgramsList().get(0));
