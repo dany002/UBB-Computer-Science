@@ -1,4 +1,5 @@
 import Controller.Controller;
+import Model.Exception.AppException;
 import Model.Expressions.BinaryExpression;
 import Model.Expressions.ConstantExpression;
 import Model.Expressions.ReadHeapExpression;
@@ -14,18 +15,23 @@ import Model.Values.Types.RefType;
 import Model.Values.Types.StringType;
 import Repository.IRepository;
 import Repository.Repository;
-import View.TextMenu;
-import View.ExitCommand;
-import View.RunExample;
+import View.CLI.TextMenu;
+import View.CLI.ExitCommand;
+import View.CLI.RunExample;
 
-import java.awt.*;
+import Controller.IController;
+import View.IMainView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws AppException, IOException {
+        /*
         IStatement ex1 = new CompositeStatement(
                             new VariableDeclarationStatement("v",new IntegerType()),
                             new CompositeStatement(
@@ -111,10 +117,10 @@ public class Main {
         IRepository repo3 = new Repository(prg3,"log3.txt");
         Controller ctrl3 = new Controller(repo3, Executors.newFixedThreadPool(2), true);
 
-        /*
-        string varf;varf="test.in";openRFile(varf);int varc;readFile(varf,varc);print(varc); readFile(varf,varc);print(varc)   closeRFile(varf)
 
-         */
+        // string varf;varf="test.in";openRFile(varf);int varc;readFile(varf,varc);print(varc); readFile(varf,varc);print(varc)   closeRFile(varf)
+
+
         IStatement ex4 = new CompositeStatement(
                 new VariableDeclarationStatement(
                         "varf",
@@ -188,7 +194,7 @@ public class Main {
 
         List<ProgState> prg7 = new ArrayList<>();
         prg7.add(new ProgState(new ExecutionStack(), new SymTable(), new Output(), new FileTable(), new Heap(), ex7));
-        IRepository repo7 = new Repository(prg7, "log6.txt");
+        IRepository repo7 = new Repository(prg7, "log7.txt");
         Controller ctrl7 = new Controller(repo7, Executors.newFixedThreadPool(2), true);
 
         IStatement ex8 = new CompositeStatement(new VariableDeclarationStatement("v", new IntegerType()),
@@ -215,6 +221,18 @@ public class Main {
         menu.addCommand(new RunExample("7", ex7.toString(), ctrl7));
         menu.addCommand(new RunExample("8", ex8.toString(), ctrl8));
         menu.show();
+        */
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("LogFilePath: ");
+        String line = reader.readLine().trim();
+        if(line.equals(""))
+            line = null;
+        IRepository repo = new Repository(line);
+        IController control = new Controller(repo, Executors.newFixedThreadPool(2), false);
+        View.GUI.MainView.setControl(control);
+        IMainView view = new View.GUI.MainView();
+        view.run(args);
     }
 }
 

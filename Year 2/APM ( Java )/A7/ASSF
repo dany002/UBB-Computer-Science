@@ -1,0 +1,94 @@
+ID: 0
+Execution stack:
+IntegerType a; a = (2 + (3 * 5)); IntegerType b; b = ((a - (4 / 2)) + 7); print(b)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 1
+Execution stack:
+IntegerType a; a = (2 + (3 * 5)); IntegerType b; b = ((a - (4 / 2)) + 7); print(b)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+StringType varf; varf = "test.txt"; OpenRFile( varf); IntegerType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+StringType varf
+varf = "test.txt"; OpenRFile( varf); IntegerType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+varf = "test.txt"; OpenRFile( varf); IntegerType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> ""
+Output:
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+varf = "test.txt"
+OpenRFile( varf); IntegerType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> ""
+Output:
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+OpenRFile( varf); IntegerType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.txt"
+Output:
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+OpenRFile( varf)
+IntegerType varc; readFile(varf, varc); print(varc); readFile(varf, varc); print(varc); CloseRFile(varf)
+SymTable: 
+varf(StringType):-> "test.txt"
+Output:
+Filetable:
+Heap:
+
+ID: 3
+Execution stack:
+NOP
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 3
+Execution stack:
+NOP
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 3
+Execution stack:
+SymTable:
+Output:
+Filetable:
+Heap:
+

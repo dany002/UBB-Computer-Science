@@ -57,8 +57,12 @@ public class ProgState {
         return statement.execute(this);
     }
 
+    public int getId(){
+        return this.id;
+    }
+
     @Override
     public String toString(){
-        return this.executionStack.toString().strip() + "\n" + this.symTable.toString().strip() + "\n" + this.output.toString().strip() + "\n" + this.fileTable.toString().strip() + "\n" + this.heap.toString().strip() + '\n';
+        return "ID: " + Integer.toString(this.id) + "\n" + this.executionStack.toString().strip() + "\n" + this.symTable.toString().strip() + "\n" + this.output.toString().strip() + "\n" + this.fileTable.toString().strip() + "\n" + this.heap.toString().strip() + '\n';
     }
 }

@@ -5,6 +5,7 @@ SymTable:
 Output:
 Filetable:
 Heap:
+
 Execution stack:
 v = true; print(v)
 SymTable: 
@@ -12,6 +13,7 @@ v(IntegerType):-> 0
 Output:
 Filetable:
 Heap:
+
 Execution stack:
 v = true
 print(v)
@@ -20,20 +22,69 @@ v(IntegerType):-> 0
 Output:
 Filetable:
 Heap:
+
 Execution stack:
 NOP
 SymTable:
 Output:
 Filetable:
 Heap:
+
 Execution stack:
 NOP
 SymTable:
 Output:
 Filetable:
 Heap:
+
 Execution stack:
 SymTable:
 Output:
 Filetable:
 Heap:
+
+Execution stack:
+IntegerType v
+v = true; print(v)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+Execution stack:
+v = true; print(v)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+Execution stack:
+v = true
+print(v)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+Execution stack:
+NOP
+SymTable:
+Output:
+Filetable:
+Heap:
+
+Execution stack:
+NOP
+SymTable:
+Output:
+Filetable:
+Heap:
+
+Execution stack:
+SymTable:
+Output:
+Filetable:
+Heap:
+
