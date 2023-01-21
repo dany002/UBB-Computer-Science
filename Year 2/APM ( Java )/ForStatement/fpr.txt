@@ -1,0 +1,53 @@
+ID: 0
+Execution stack:
+IntegerType v; v = 20; For( v = 0; (v < 3); v = (v + 1)){ print((v * 10))};
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v
+v = 20; For( v = 0; (v < 3); v = (v + 1)){ print((v * 10))};
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = 20; For( v = 0; (v < 3); v = (v + 1)){ print((v * 10))};
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = 20
+For( v = 0; (v < 3); v = (v + 1)){ print((v * 10))};
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+For( v = 0; (v < 3); v = (v + 1)){ print((v * 10))};
+SymTable: 
+v(IntegerType):-> 20
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+SymTable: 
+v(IntegerType):-> 20
+Output:
+Filetable:
+Heap:
+
