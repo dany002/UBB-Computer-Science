@@ -1,4 +1,4 @@
-CREATE DATABASE PublicTransport
+CREATE DATABASE PublicTransport;
 
 CREATE TABLE Controller(
 	controller_id SMALLINT PRIMARY KEY,
@@ -9,7 +9,7 @@ CREATE TABLE Controller(
 
 CREATE TABLE Passenger(
 	passenger_id SMALLINT PRIMARY KEY,
-	name VARCHAR(200),
+	name VARCHAR(200)
 )
 
 CREATE TABLE ControllerPassengerRelation(
@@ -27,8 +27,7 @@ CREATE TABLE Bus(
   	number_of_seats TINYINT,
   	price FLOAT,
   	departure VARCHAR(200),
-  	destination VARCHAR(200),
-  	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+  	destination VARCHAR(200)
 )
 
 CREATE TABLE Train( 
@@ -39,8 +38,7 @@ CREATE TABLE Train(
 	first_class_number_of_seats SMALLINT,
 	second_class_number_of_seats SMALLINT,
 	departure VARCHAR(200),
-	destination VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destination VARCHAR(200)
 )
 
 CREATE TABLE Tram(
@@ -49,8 +47,7 @@ CREATE TABLE Tram(
 	number_of_seats SMALLINT,
 	price FLOAT,
 	departure VARCHAR(200),
-	destionation VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destionation VARCHAR(200)
 )
 
 CREATE TABLE Coach(
@@ -59,8 +56,7 @@ CREATE TABLE Coach(
 	number_of_seats SMALLINT,
 	price FLOAT,
 	departure VARCHAR(200),
-	destination VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destination VARCHAR(200)
 )
 
 CREATE TABLE Plane(
@@ -73,8 +69,7 @@ CREATE TABLE Plane(
 	second_class_number_of_seats SMALLINT,
 	departure VARCHAR(200),
 	destination VARCHAR(200),
-	transatlantic BIT,
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	transatlantic BIT
 )
 
 
@@ -83,8 +78,11 @@ CREATE TABLE Airport(
 	airport_id SMALLINT PRIMARY KEY,
 	location VARCHAR(200),
 	number_of_planes SMALLINT,
-	plane_id SMALLINT REFERENCES Plane(plane_id) /* 1:n */
-
+	plane_id SMALLINT NOT NULL,
+	CONSTRAINT FK_plane_id
+		FOREIGN KEY (plane_id)
+		REFERENCES Plane(plane_id)
+		ON DELETE CASCADE
 )
 
 CREATE TABLE Garage(
@@ -104,8 +102,7 @@ CREATE TABLE Ship(
 	price_first_class FLOAT,
 	price_second_class FLOAT,
 	departure VARCHAR(200),
-	destination VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destination VARCHAR(200)
 )
 
 CREATE TABLE Harbor(
@@ -116,6 +113,16 @@ CREATE TABLE Harbor(
 	ship_id SMALLINT REFERENCES Ship(ship_id)
 )
 
+CREATE TABLE Trip(
+	trip_id INT PRIMARY KEY,
+	passenger_id SMALLINT REFERENCES Passenger(passenger_id) NOT NULL,
+	bus_id SMALLINT REFERENCES Bus(bus_id),
+	train_id SMALLINT REFERENCES Train(train_id),
+	tram_id SMALLINT REFERENCES Tram(tram_id),
+	coach_id SMALLINT REFERENCES Coach(coach_id),
+	plane_id SMALLINT REFERENCES Plane(plane_id),
+	ship_id SMALLINT REFERENCES Ship(ship_id)
+)
 
 INSERT INTO Passenger(passenger_id, name)
 VALUES(1, 'Dani');
@@ -134,6 +141,43 @@ VALUES(5, 'Florin');
 
 INSERT INTO Passenger(passenger_id, name)
 VALUES(6, 'Alina');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(7, 'Sara');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(8, 'Tania');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(9, 'Diana');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(10, 'Denisa');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(11, 'Georgiana');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(12, 'Iulia');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(13, 'Daria');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(14, 'Sabina');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(15, 'Anca');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(16, 'Dragos');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(17, 'Ioan');
+
+INSERT INTO Passenger(passenger_id, name)
+VALUES(18, 'Vlad');
+
 
 
 SELECT * from Passenger;
@@ -182,103 +226,103 @@ VALUES(4,6);
 
 SELECT * FROM ControllerPassengerRelation;
 
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(25,'Renault',34,24.3,'Manastur','Ghiorgheni',1);
+INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination)
+VALUES(25,'Renault',34,24.3,'Manastur','Ghiorgheni');
 
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(26,'Renault',34,24.3,'Manastur','Ghiorgheni',2);
+INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination)
+VALUES(26,'Renault',34,24.3,'Manastur','Ghiorgheni');
 
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(27,'Renault',34,24.3,'Manastur','Ghiorgheni',3);
+INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination)
+VALUES(27,'Renault',34,24.3,'Manastur','Ghiorgheni');
 
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(3,'Renault',34,24.3,'Gara','Ghiorgheni',4);
+INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination)
+VALUES(3,'Renault',34,24.3,'Gara','Ghiorgheni');
 
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(4,'Renault',34,24.3,'Gara','Ghiorgheni',5);
+INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination)
+VALUES(4,'Renault',34,24.3,'Gara','Ghiorgheni');
 
 SELECT * FROM Bus;
 
-INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination, passenger_id)
-VALUES(1, 'CFR', 40, 100, 10, 17, 'Cluj', 'Brasov', 2);
+INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination)
+VALUES(1, 'CFR', 40, 100, 10, 17, 'Cluj', 'Brasov');
 
-INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination, passenger_id)
-VALUES(2, 'CFR', 130, 150, 100, 30, 'Constanta', 'Frant', 4);
+INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination)
+VALUES(2, 'CFR', 130, 150, 100, 30, 'Constanta', 'Frant');
 
-INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination, passenger_id)
-VALUES(3, 'CFR', 180, 300, 100, 80, 'Detroit', 'Chicago', 3);
+INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination)
+VALUES(3, 'CFR', 180, 300, 100, 80, 'Detroit', 'Chicago');
 
-INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination, passenger_id)
-VALUES(4, 'CFR', 100, 70, 30, 50, 'Bucharest', 'Mangalia', 1);
+INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination)
+VALUES(4, 'CFR', 100, 70, 30, 50, 'Bucharest', 'Mangalia');
 
-INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination, passenger_id)
-VALUES(5, 'CFR', 300, 140, 24, 37, 'Dorohoi', 'Lyon', 6);
+INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination)
+VALUES(5, 'CFR', 300, 140, 24, 37, 'Dorohoi', 'Lyon');
 
-INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination, passenger_id)
-VALUES(6, 'CFR', 400, 13, 240, 100, 'Bacau', 'Cernavoda', 5);
+INSERT INTO Train(train_id, company, number_of_seats, price, first_class_number_of_seats, second_class_number_of_seats, departure, destination)
+VALUES(6, 'CFR', 400, 13, 240, 100, 'Bacau', 'Cernavoda');
 
 SELECT * FROM Train;
 
 
-INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation, passenger_id)
-VALUES(1, 'CTP Botosani', 100, 30, 'Piata mica', 'Gara mare', 4);
+INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation)
+VALUES(1, 'CTP Botosani', 100, 30, 'Piata mica', 'Gara mare');
 
-INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation, passenger_id)
-VALUES(2, 'CTP', 180, 5, 'Mihai Viteazu', 'Avram Iancu', 2);
+INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation)
+VALUES(2, 'CTP', 180, 5, 'Mihai Viteazu', 'Avram Iancu');
 
-INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation, passenger_id)
-VALUES(3, 'RATB', 150, 10, 'Arcul de Triumf', 'Tei', 5);
+INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation)
+VALUES(3, 'RATB', 150, 10, 'Arcul de Triumf', 'Tei');
 
-INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation, passenger_id)
-VALUES(4, 'Mara Nord', 180, 3, 'Big', 'Independentei', 1);
+INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation)
+VALUES(4, 'Mara Nord', 180, 3, 'Big', 'Independentei');
 
-INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation, passenger_id)
-VALUES(5, 'RATBV', 130, 5, 'Livada Postei', 'Teatrul Dramatic', 6);
+INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation)
+VALUES(5, 'RATBV', 130, 5, 'Livada Postei', 'Teatrul Dramatic');
 
-INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation, passenger_id)
-VALUES(6, 'CTP', 170, 100, 'Floresti', 'Apahida', 3);
+INSERT INTO Tram(tram_id, company, number_of_seats, price, departure, destionation)
+VALUES(6, 'CTP', 170, 100, 'Floresti', 'Apahida');
 
 SELECT * FROM Tram;
 
 	
-INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(1,'Christian Tour', 100, 30, 'Cluj-Napoca', 'Mihai Viteazu', 4);
+INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination)
+VALUES(1,'Christian Tour', 100, 30, 'Cluj-Napoca', 'Mihai Viteazu');
 
-INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(2,'Christian Tour', 300, 50, 'Bucuresti', 'Brasov', 6);
+INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination)
+VALUES(2,'Christian Tour', 300, 50, 'Bucuresti', 'Brasov');
 
-INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(3,'Christian Tour', 250, 15, 'Dorohoi', 'Iasi', 2);
+INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination)
+VALUES(3,'Christian Tour', 250, 15, 'Dorohoi', 'Iasi');
 
-INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(4,'FlixBux', 170, 23, 'Chisinau', 'Cernavoda', 1);
+INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination)
+VALUES(4,'FlixBux', 170, 23, 'Chisinau', 'Cernavoda');
 
-INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(5, 'FlixBus', 200, 10, 'Sibiu', 'Timisoara', 3);
+INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination)
+VALUES(5, 'FlixBus', 200, 10, 'Sibiu', 'Timisoara');
 
-INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(6, 'FlixBus', 300, 7, 'Constanta', 'Vama Veche',5);
+INSERT INTO Coach(coach_id, company, number_of_seats, price, departure, destination)
+VALUES(6, 'FlixBus', 300, 7, 'Constanta', 'Vama Veche');
 
 SELECT * FROM Coach;
 
 
-INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic, passenger_id)
-VALUES(1, 'Wizz Air', 100, 30, 15, 70, 20, 'Cluj', 'London', 0, 4);
+INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic)
+VALUES(1, 'Wizz Air', 100, 30, 15, 70, 20, 'Cluj', 'London', 0);
 
-INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic, passenger_id)
-VALUES(2, 'Wizz Air', 300, 150, 100, 90, 100, 'Paris', 'New York',1, 5);
+INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic)
+VALUES(2, 'Wizz Air', 300, 150, 100, 90, 100, 'Paris', 'New York',1);
 
-INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic, passenger_id)
-VALUES(3, 'Wizz Air', 400, 120, 40, 100, 300, 'Tokyo', 'Las Vegas', 1, 2);
+INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic)
+VALUES(3, 'Wizz Air', 400, 120, 40, 100, 300, 'Tokyo', 'Las Vegas', 1);
 
-INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic, passenger_id)
-VALUES(4, 'Blue Air', 300, 100, 20, 150, 100, 'Moscova', 'Kiev', 0, 3);
+INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic)
+VALUES(4, 'Blue Air', 300, 100, 20, 150, 100, 'Moscova', 'Kiev', 0);
 
-INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic, passenger_id)
-VALUES(5, 'Blue Air', 370, 50, 30, 100, 30, 'Harare', 'Cairo', 0, 1);
+INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic)
+VALUES(5, 'Blue Air', 370, 50, 30, 100, 30, 'Harare', 'Cairo', 0);
 
-INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic, passenger_id)
-VALUES(6, 'Blue Air', 400, 100, 80, 100, 30, 'Madrid', 'Chicago', 1, 6);
+INSERT INTO Plane(plane_id, company, number_of_seats, price_first_class, price_second_class, first_class_number_of_seats, second_class_number_of_seats, departure, destination, transatlantic)
+VALUES(6, 'Blue Air', 400, 100, 80, 100, 30, 'Madrid', 'Chicago', 1);
 
 SELECT * FROM Plane;
 
@@ -324,23 +368,23 @@ VALUES(6, 'Brasov', 100, 200, 700, 4, 5);
 SELECT * FROM Garage;
 
 
-INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination, passenger_id)
-VALUES(1, 100, 20, 400, 200, 'New York', 'Porto', 3);
+INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination)
+VALUES(1, 100, 20, 400, 200, 'New York', 'Porto');
 
-INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination, passenger_id)
-VALUES(2, 300, 150, 200, 130, 'Lisabona', 'Miami', 5);
+INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination)
+VALUES(2, 300, 150, 200, 130, 'Lisabona', 'Miami');
 
-INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination, passenger_id)
-VALUES(3, 200, 100, 100, 50, 'Bahamas', 'Havana', 1);
+INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination)
+VALUES(3, 200, 100, 100, 50, 'Bahamas', 'Havana');
 
-INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination, passenger_id)
-VALUES(4, 300, 200, 150, 39, 'Ciudad de Panama', 'Barranquilla',2);
+INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination)
+VALUES(4, 300, 200, 150, 39, 'Ciudad de Panama', 'Barranquilla');
 
-INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination, passenger_id)
-VALUES(5, 100, 200, 300, 170, 'Caracas', 'Georgetown', 6);
+INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination)
+VALUES(5, 100, 200, 300, 170, 'Caracas', 'Georgetown');
 
-INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination, passenger_id)
-VALUES(6, 300, 150, 90, 70, 'Lima', 'Rio Janeiro', 4);
+INSERT INTO Ship(ship_id, first_class_number_of_seats, second_class_number_of_seats, price_first_class, price_second_class, departure, destination)
+VALUES(6, 300, 150, 90, 70, 'Lima', 'Rio Janeiro');
 
 SELECT * FROM Ship;
 
@@ -363,9 +407,65 @@ VALUES(5, 200, 751, 'Mogadishu', 6);
 INSERT INTO Harbor(harbor_id, number_of_ships, capacity, location, ship_id)
 VALUES(6, 100, 150, 'Colombo', 4);
 
+SELECT * FROM Bus;
+
 SELECT * FROM Harbor;
 
 SELECT * FROM Tram;
+
+SELECT * FROM Trip;
+
+SELECT * FROM Train;
+
+SELECT * FROM Coach;
+
+INSERT INTO Trip(trip_id,passenger_id,bus_id)
+VALUES(1,18,25);
+
+INSERT INTO Trip(trip_id,passenger_id,bus_id)
+VALUES(2,17,25);
+
+INSERT INTO Trip(trip_id,passenger_id,bus_id)
+VALUES(3,16,25);
+
+INSERT INTO Trip(trip_id,passenger_id,bus_id)
+VALUES(4,15,3);
+
+INSERT INTO Trip(trip_id,passenger_id,train_id)
+VALUES(5,14,5);
+
+INSERT INTO Trip(trip_id,passenger_id, train_id)
+VALUES(6,13,5);
+
+INSERT INTO Trip(trip_id,passenger_id, train_id)
+VALUES(7,12,6);
+
+INSERT INTO Trip(trip_id,passenger_id, train_id)
+VALUES(8,11,6);
+
+INSERT INTO Trip(trip_id,passenger_id,tram_id)
+VALUES(9,10,6);
+
+INSERT INTO Trip(trip_id,passenger_id, tram_id)
+VALUES(10,9,6);
+
+INSERT INTO Trip(trip_id,passenger_id, coach_id)
+VALUES(11,8,3);
+
+INSERT INTO Trip(trip_id,passenger_id, coach_id)
+VALUES(12,7,3);
+
+INSERT INTO Trip(trip_id,passenger_id, plane_id)
+VALUES(13,6,2);
+
+INSERT INTO Trip(trip_id, passenger_id, plane_id)
+VALUES(14,5,2);
+
+INSERT INTO Trip(trip_id, passenger_id, ship_id)
+VALUES(15,4,5);
+
+INSERT INTO Trip(trip_id, passenger_id, ship_id)
+VALUES(16,3,4);
 
 -- updates
 

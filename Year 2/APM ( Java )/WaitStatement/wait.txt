@@ -1,0 +1,382 @@
+ID: 0
+Execution stack:
+IntegerType v; v = 20; wait(10);; print((v * 10))
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v
+v = 20; wait(10);; print((v * 10))
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = 20; wait(10);; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = 20
+wait(10);; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(10);; print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(10);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(10); wait(9);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(10)
+wait(9);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(9);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(9); wait(8);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(9)
+wait(8);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(8);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(8); wait(7);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(8)
+wait(7);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(7);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(7); wait(6);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(7)
+wait(6);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(6);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(6); wait(5);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(6)
+wait(5);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(5);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(5); wait(4);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(5)
+wait(4);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(4);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(4); wait(3);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(4)
+wait(3);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(3);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(3); wait(2);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(3)
+wait(2);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(2);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(2); wait(1);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(2)
+wait(1);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(1);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(1); wait(0);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(1)
+wait(0);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+wait(0);
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3 2 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3 2 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+SymTable: 
+v(IntegerType):-> 20
+Output: 10 9 8 7 6 5 4 3 2 1 200
+Filetable:
+Heap:
+

@@ -1,0 +1,183 @@
+ID: 0
+Execution stack:
+BooleanType b; IntegerType c; b = true; c = b?100:200; print(c); c = false?100:200; print(c)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+BooleanType b
+IntegerType c; b = true; c = b?100:200; print(c); c = false?100:200; print(c)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType c; b = true; c = b?100:200; print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> false
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType c
+b = true; c = b?100:200; print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> false
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+b = true; c = b?100:200; print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> false
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+b = true
+c = b?100:200; print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> false
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = b?100:200; print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = b?100:200
+print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+if(b)then { c = 100} else {c = 200}
+print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = 100
+print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(c); c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 100
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(c)
+c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 100
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = false?100:200; print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 100
+Output: 100
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = false?100:200
+print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 100
+Output: 100
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+if(false)then { c = 100} else {c = 200}
+print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 100
+Output: 100
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = 200
+print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 100
+Output: 100
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(c)
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 200
+Output: 100
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+SymTable: 
+b(BooleanType):-> true
+c(IntegerType):-> 200
+Output: 100 200
+Filetable:
+Heap:
+

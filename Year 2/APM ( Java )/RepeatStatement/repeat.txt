@@ -1,0 +1,514 @@
+ID: 0
+Execution stack:
+IntegerType v; v = 0; (repeat (fork(print(v); v = (v - 1)); v = (v + 1)) until (v == 3)); IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v
+v = 0; (repeat (fork(print(v); v = (v - 1)); v = (v + 1)) until (v == 3)); IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = 0; (repeat (fork(print(v); v = (v - 1)); v = (v + 1)) until (v == 3)); IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = 0
+(repeat (fork(print(v); v = (v - 1)); v = (v + 1)) until (v == 3)); IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+(repeat (fork(print(v); v = (v - 1)); v = (v + 1)) until (v == 3)); IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+(repeat (fork(print(v); v = (v - 1)); v = (v + 1)) until (v == 3))
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+fork(print(v); v = (v - 1)); v = (v + 1); While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+fork(print(v); v = (v - 1)); v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+fork(print(v); v = (v - 1))
+v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 1
+Execution stack:
+print(v); v = (v - 1)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 1
+Output:
+Filetable:
+Heap:
+
+ID: 1
+Execution stack:
+print(v)
+v = (v - 1)
+SymTable: 
+v(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+fork(print(v); v = (v - 1)); v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 1
+Output: 0
+Filetable:
+Heap:
+
+ID: 1
+Execution stack:
+v = (v - 1)
+SymTable: 
+v(IntegerType):-> 0
+Output: 0
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+fork(print(v); v = (v - 1))
+v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 1
+Output: 0
+Filetable:
+Heap:
+
+ID: 1
+Execution stack:
+SymTable: 
+v(IntegerType):-> -1
+Output: 0
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 1
+Output: 0
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+print(v); v = (v - 1)
+SymTable: 
+v(IntegerType):-> 1
+Output: 0
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 2
+Output: 0
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+print(v)
+v = (v - 1)
+SymTable: 
+v(IntegerType):-> 1
+Output: 0
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+fork(print(v); v = (v - 1)); v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 2
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+v = (v - 1)
+SymTable: 
+v(IntegerType):-> 1
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+fork(print(v); v = (v - 1))
+v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 2
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 2
+Execution stack:
+SymTable: 
+v(IntegerType):-> 0
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v = (v + 1)
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 2
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 3
+Execution stack:
+print(v); v = (v - 1)
+SymTable: 
+v(IntegerType):-> 2
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+While((!(v == 3))){fork(print(v); v = (v - 1)); v = (v + 1)};
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 3
+Execution stack:
+print(v)
+v = (v - 1)
+SymTable: 
+v(IntegerType):-> 2
+Output: 0 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType x; x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 3
+Execution stack:
+v = (v - 1)
+SymTable: 
+v(IntegerType):-> 2
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType x
+x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 3
+Execution stack:
+SymTable: 
+v(IntegerType):-> 1
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+x = 1; IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 0
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+x = 1
+IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 0
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType y; y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType y
+y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+y = 2; IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 0
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+y = 2
+IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 0
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType z; z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType z
+z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+z = 3; IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 0
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+z = 3
+IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 0
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType w; w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 3
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType w
+w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 3
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+w = 4; print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+w(IntegerType):-> 0
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 3
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+w = 4
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+w(IntegerType):-> 0
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 3
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print((v * 10))
+SymTable: 
+v(IntegerType):-> 3
+w(IntegerType):-> 4
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 3
+Output: 0 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+SymTable: 
+v(IntegerType):-> 3
+w(IntegerType):-> 4
+x(IntegerType):-> 1
+y(IntegerType):-> 2
+z(IntegerType):-> 3
+Output: 0 1 2 30
+Filetable:
+Heap:
+

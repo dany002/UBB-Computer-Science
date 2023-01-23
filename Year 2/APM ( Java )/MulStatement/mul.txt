@@ -1,0 +1,210 @@
+ID: 0
+Execution stack:
+IntegerType v1; v1 = 2; IntegerType v2; v2 = 3; if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v1
+v1 = 2; IntegerType v2; v2 = 3; if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v1 = 2; IntegerType v2; v2 = 3; if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v1 = 2
+IntegerType v2; v2 = 3; if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v2; v2 = 3; if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v2
+v2 = 3; if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v2 = 3; if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v2 = 3
+if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+if((v1 > 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 3
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(MUL( v1,v2))
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 3
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 3
+Output: 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v1; v1 = 2; IntegerType v2; v2 = 3; if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v1
+v1 = 2; IntegerType v2; v2 = 3; if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v1 = 2; IntegerType v2; v2 = 3; if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v1 = 2
+IntegerType v2; v2 = 3; if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v2; v2 = 3; if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType v2
+v2 = 3; if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v2 = 3; if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+v2 = 3
+if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+if((v1 != 0))then { print(MUL( v1,v2))} else {print(v1)}
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 3
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(MUL( v1,v2))
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 3
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+SymTable: 
+v1(IntegerType):-> 2
+v2(IntegerType):-> 3
+Output: 1
+Filetable:
+Heap:
+

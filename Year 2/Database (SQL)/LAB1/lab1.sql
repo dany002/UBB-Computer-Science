@@ -1,4 +1,4 @@
-CREATE DATABASE PublicTransport
+CREATE DATABASE PublicTransport;
 
 CREATE TABLE Controller(
 	controller_id SMALLINT PRIMARY KEY,
@@ -9,7 +9,7 @@ CREATE TABLE Controller(
 
 CREATE TABLE Passenger(
 	passenger_id SMALLINT PRIMARY KEY,
-	name VARCHAR(200),
+	name VARCHAR(200)
 )
 
 CREATE TABLE ControllerPassengerRelation(
@@ -27,8 +27,7 @@ CREATE TABLE Bus(
   	number_of_seats TINYINT,
   	price FLOAT,
   	departure VARCHAR(200),
-  	destination VARCHAR(200),
-  	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+  	destination VARCHAR(200)
 )
 
 CREATE TABLE Train( 
@@ -39,8 +38,7 @@ CREATE TABLE Train(
 	first_class_number_of_seats SMALLINT,
 	second_class_number_of_seats SMALLINT,
 	departure VARCHAR(200),
-	destination VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destination VARCHAR(200)
 )
 
 CREATE TABLE Tram(
@@ -49,8 +47,7 @@ CREATE TABLE Tram(
 	number_of_seats SMALLINT,
 	price FLOAT,
 	departure VARCHAR(200),
-	destionation VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destionation VARCHAR(200)
 )
 
 CREATE TABLE Coach(
@@ -59,8 +56,7 @@ CREATE TABLE Coach(
 	number_of_seats SMALLINT,
 	price FLOAT,
 	departure VARCHAR(200),
-	destination VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destination VARCHAR(200)
 )
 
 CREATE TABLE Plane(
@@ -73,8 +69,7 @@ CREATE TABLE Plane(
 	second_class_number_of_seats SMALLINT,
 	departure VARCHAR(200),
 	destination VARCHAR(200),
-	transatlantic BIT,
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	transatlantic BIT
 )
 
 
@@ -83,8 +78,11 @@ CREATE TABLE Airport(
 	airport_id SMALLINT PRIMARY KEY,
 	location VARCHAR(200),
 	number_of_planes SMALLINT,
-	plane_id SMALLINT REFERENCES Plane(plane_id) /* 1:n */
-
+	plane_id SMALLINT NOT NULL,
+	CONSTRAINT FK_plane_id
+		FOREIGN KEY (plane_id)
+		REFERENCES Plane(plane_id)
+		ON DELETE CASCADE
 )
 
 CREATE TABLE Garage(
@@ -95,7 +93,6 @@ CREATE TABLE Garage(
 	capacity SMALLINT,
 	bus_id SMALLINT REFERENCES Bus(bus_id),
 	trams_id SMALLINT REFERENCES Tram(tram_id)
-	
 )
 
 CREATE TABLE Ship(
@@ -105,8 +102,7 @@ CREATE TABLE Ship(
 	price_first_class FLOAT,
 	price_second_class FLOAT,
 	departure VARCHAR(200),
-	destination VARCHAR(200),
-	passenger_id SMALLINT REFERENCES Passenger(passenger_id)
+	destination VARCHAR(200)
 )
 
 CREATE TABLE Harbor(
@@ -117,102 +113,14 @@ CREATE TABLE Harbor(
 	ship_id SMALLINT REFERENCES Ship(ship_id)
 )
 
-
-INSERT INTO Passenger(passenger_id, name)
-VALUES(1, 'Dani');
-
-INSERT INTO Passenger(passenger_id, name)
-VALUES(2, 'Alin');
-
-INSERT INTO Passenger(passenger_id, name)
-VALUES(3, 'George');
-
-INSERT INTO Passenger(passenger_id, name)
-VALUES(4, 'Maria');
-
-INSERT INTO Passenger(passenger_id, name)
-VALUES(5, 'Florin');
-
-INSERT INTO Passenger(passenger_id, name)
-VALUES(6, 'Alina');
-
-
-SELECT * from Passenger;
-
-INSERT INTO Controller(controller_id, name, rating)
-VALUES(1,'Ioan',3);
-
-INSERT INTO Controller(controller_id, name, rating)
-VALUES(2,'Matei',7);
-
-INSERT INTO Controller(controller_id, name, rating)
-VALUES(3,'Georgiana',10);
-
-INSERT INTO Controller(controller_id, name, rating)
-VALUES(4,'Marius',1);
-
-INSERT INTO Controller(controller_id, name, rating)
-VALUES(5,'Ionel',5);
-
-INSERT INTO Controller(controller_id, name, rating)
-VALUES(6,'Andreea',9);
-
-SELECT * FROM Controller;
-
-INSERT INTO ControllerPassengerRelation(passenger_id, controller_id)
-VALUES(1,4);
-
-INSERT INTO ControllerPassengerRelation(passenger_id, controller_id)
-VALUES(1,5);
-
-INSERT INTO ControllerPassengerRelation(passenger_id, controller_id)
-VALUES(1,1);
-
-INSERT INTO ControllerPassengerRelation(passenger_id, controller_id)
-VALUES(2,3);
-
-INSERT INTO ControllerPassengerRelation(passenger_id, controller_id)
-VALUES(2,5);
-
-INSERT INTO ControllerPassengerRelation(passenger_id, controller_id)
-VALUES(4,6);
-
-
-SELECT * FROM ControllerPassengerRelation;
-
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(25,'Renault',34,24.3,'Manastur','Ghiorgheni',1);
-
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(26,'Renault',34,24.3,'Manastur','Ghiorgheni',2);
-
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(27,'Renault',34,24.3,'Manastur','Ghiorgheni',3);
-
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(3,'Renault',34,24.3,'Gara','Ghiorgheni',4);
-
-INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, passenger_id)
-VALUES(4,'Renault',34,24.3,'Gara','Ghiorgheni',5);
-
-
-SELECT * FROM Bus;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+CREATE TABLE Trip(
+	trip_id INT PRIMARY KEY,
+	passenger_id SMALLINT REFERENCES Passenger(passenger_id) NOT NULL,
+	bus_id SMALLINT REFERENCES Bus(bus_id),
+	train_id SMALLINT REFERENCES Train(train_id),
+	tram_id SMALLINT REFERENCES Tram(tram_id),
+	coach_id SMALLINT REFERENCES Coach(coach_id),
+	plane_id SMALLINT REFERENCES Plane(plane_id),
+	ship_id SMALLINT REFERENCES Ship(ship_id)
+)
 

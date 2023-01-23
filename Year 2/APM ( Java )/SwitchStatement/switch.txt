@@ -1,0 +1,257 @@
+ID: 0
+Execution stack:
+IntegerType a; a = 1; IntegerType b; b = 2; IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType a
+a = 1; IntegerType b; b = 2; IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+a = 1; IntegerType b; b = 2; IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+a = 1
+IntegerType b; b = 2; IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType b; b = 2; IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType b
+b = 2; IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+b = 2; IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+b = 2
+IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType c; c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+IntegerType c
+c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = 5; Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+c = 5
+Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 0
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+; print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 5
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+Switch((a * 10))
+	(case ((b * c))print(a); print(b))
+	(case (10)print(100); print(200))
+	print(300)
+
+print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 5
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(a); print(b)
+print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 5
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(a)
+print(b)
+print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 5
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(b)
+print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 5
+Output: 1
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+print(300)
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 5
+Output: 1 2
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+SymTable: 
+a(IntegerType):-> 1
+b(IntegerType):-> 2
+c(IntegerType):-> 5
+Output: 1 2 300
+Filetable:
+Heap:
+
