@@ -1,0 +1,1104 @@
+ID: 0
+Execution stack:
+RefType IntegerType v1; RefType IntegerType v2; IntegerType x; IntegerType q; new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable:
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+RefType IntegerType v1
+RefType IntegerType v2; IntegerType x; IntegerType q; new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable:
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+RefType IntegerType v2; IntegerType x; IntegerType q; new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+RefType IntegerType v2
+IntegerType x; IntegerType q; new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+IntegerType x; IntegerType q; new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+IntegerType x
+IntegerType q; new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+IntegerType q; new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+IntegerType q
+new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+new(v1, 20); new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+new(v1, 20)
+new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(0,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+LockTable:
+
+ID: 0
+Execution stack:
+new(v2, 30); NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+LockTable:
+
+ID: 0
+Execution stack:
+new(v2, 30)
+NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+LockTable:
+
+ID: 0
+Execution stack:
+NewLock(x); fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+
+ID: 0
+Execution stack:
+NewLock(x)
+fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 0
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+
+ID: 0
+Execution stack:
+fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)); NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+
+ID: 0
+Execution stack:
+fork(fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x))
+NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+
+ID: 0
+Execution stack:
+NewLock(q); fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+
+ID: 1
+Execution stack:
+fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)); Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+
+ID: 0
+Execution stack:
+NewLock(q)
+fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+
+ID: 1
+Execution stack:
+fork(Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x))
+Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+
+ID: 0
+Execution stack:
+fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)); NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 1
+Execution stack:
+Lock(x); WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 2
+Execution stack:
+Lock(x); WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 0
+Execution stack:
+fork(fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q))
+NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 1
+Execution stack:
+Lock(x)
+WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 2
+Execution stack:
+Lock(x)
+WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 0
+Execution stack:
+NOP; NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 1
+Execution stack:
+WriteHeap(v1, (readHeap(v2) + 5)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 2
+Execution stack:
+WriteHeap(v1, (readHeap(v1) - 1)); Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 3
+Execution stack:
+fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)); Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 0
+Execution stack:
+NOP
+NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 1
+Execution stack:
+WriteHeap(v1, (readHeap(v2) + 5))
+Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 2
+Execution stack:
+WriteHeap(v1, (readHeap(v1) - 1))
+Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 3
+Execution stack:
+fork(Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q))
+Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 0
+Execution stack:
+NOP; NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 1
+Execution stack:
+Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 2
+Execution stack:
+Unlock( x)
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 3
+Execution stack:
+Lock(q); WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 4
+Execution stack:
+Lock(q); WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> 1
+2:-> -1
+
+ID: 0
+Execution stack:
+NOP
+NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 1
+Execution stack:
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 2
+Execution stack:
+SymTable: 
+q(IntegerType):-> 0
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 3
+Execution stack:
+Lock(q)
+WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 4
+Execution stack:
+Lock(q)
+WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> -1
+
+ID: 0
+Execution stack:
+NOP; NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 3
+Execution stack:
+WriteHeap(v2, (readHeap(v2) * 10)); Lock(q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 4
+Execution stack:
+WriteHeap(v2, (readHeap(v2) + 5)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+NOP
+NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 3
+Execution stack:
+WriteHeap(v2, (readHeap(v2) * 10))
+Lock(q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 4
+Execution stack:
+WriteHeap(v2, (readHeap(v2) + 5))
+Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 30
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+NOP; Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 3
+Execution stack:
+Lock(q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 4
+Execution stack:
+Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+NOP
+Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 3
+Execution stack:
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 4
+Execution stack:
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+Lock(x); print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+Lock(x)
+print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+print(readHeap(v1)); Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> 0
+2:-> 3
+
+ID: 0
+Execution stack:
+print(readHeap(v1))
+Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> 0
+2:-> 3
+
+ID: 0
+Execution stack:
+Unlock( x); Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> 0
+2:-> 3
+
+ID: 0
+Execution stack:
+Unlock( x)
+Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> 0
+2:-> 3
+
+ID: 0
+Execution stack:
+Lock(q); print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+Lock(q)
+print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+print(readHeap(v2)); Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+print(readHeap(v2))
+Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+Unlock( q)
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19 305
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+
+ID: 0
+Execution stack:
+SymTable: 
+q(IntegerType):-> 2
+x(IntegerType):-> 1
+v1(RefType IntegerType):-> Ref(1,IntegerType)
+v2(RefType IntegerType):-> Ref(2,IntegerType)
+Output: 19 305
+Filetable:
+Heap:
+1(IntegerType):-> 19
+2(IntegerType):-> 305
+LockTable:
+1:-> -1
+2:-> 3
+

@@ -1,0 +1,80 @@
+ID: 0
+Execution stack:
+RefType IntegerType a; new(a, 20); For( v = 1;  v < 3;  v = (v + 1)){ fork(print(v); v = (v * readHeap(v)))};; print(readHeap(a))
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+RefType IntegerType a
+new(a, 20); For( v = 1;  v < 3;  v = (v + 1)){ fork(print(v); v = (v * readHeap(v)))};; print(readHeap(a))
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+new(a, 20); For( v = 1;  v < 3;  v = (v + 1)){ fork(print(v); v = (v * readHeap(v)))};; print(readHeap(a))
+SymTable: 
+a(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+new(a, 20)
+For( v = 1;  v < 3;  v = (v + 1)){ fork(print(v); v = (v * readHeap(v)))};; print(readHeap(a))
+SymTable: 
+a(RefType IntegerType):-> Ref(0,IntegerType)
+Output:
+Filetable:
+Heap:
+
+ID: 0
+Execution stack:
+For( v = 1;  v < 3;  v = (v + 1)){ fork(print(v); v = (v * readHeap(v)))};; print(readHeap(a))
+SymTable: 
+a(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+
+ID: 0
+Execution stack:
+For( v = 1;  v < 3;  v = (v + 1)){ fork(print(v); v = (v * readHeap(v)))};
+print(readHeap(a))
+SymTable: 
+a(RefType IntegerType):-> Ref(1,IntegerType)
+Output:
+Filetable:
+Heap:
+1(IntegerType):-> 20
+
+ID: 1
+Execution stack:
+NOP
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 1
+Execution stack:
+NOP
+SymTable:
+Output:
+Filetable:
+Heap:
+
+ID: 1
+Execution stack:
+SymTable:
+Output:
+Filetable:
+Heap:
+

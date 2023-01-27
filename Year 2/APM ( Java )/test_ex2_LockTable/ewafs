@@ -1,0 +1,9 @@
+ID: 0
+Execution stack:
+IntegerType v; RefType IntegerType a; v = 10; new(a, 22); fork(WriteHeap(a, 30); v = 32; print(v); print(readHeap(a))); print(v); print(readHeap(a))
+SymTable:
+Output:
+Filetable:
+Heap:
+LockTable:
+

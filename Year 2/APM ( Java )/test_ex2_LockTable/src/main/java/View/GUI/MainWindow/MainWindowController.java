@@ -25,7 +25,7 @@ public class MainWindowController {
     IOutput currentOutput;
     IFileTable currentFileTable;
 
-    ISemaphoreTable currentSemaphoreTable;
+    ILockTable currentLockTable;
 
     public MainWindowController(IController control){
         this.controller = control;
@@ -71,16 +71,13 @@ public class MainWindowController {
     private Button runButton;
 
     @FXML
-    private TableView<Pair<Integer,Pair<Integer,String>>> semaphoreTableTableView;
+    private TableView<Pair<Integer, Integer>> lockTableTableView;
 
     @FXML
-    private TableColumn<Pair<Integer,Pair<Integer,String>>,Integer> sempahoreIndexColumn;
+    private TableColumn<Pair<Integer, Integer>, Integer> lockAddressColumn;
 
     @FXML
-    private TableColumn<Pair<Integer,Pair<Integer,String>>,Integer> semaphoreValueColumn;
-
-    @FXML
-    private TableColumn<Pair<Integer,Pair<Integer,String>>,String> semaphoreListOfValues;
+    private TableColumn<Pair<Integer, Integer>, String> lockValueColumn;
 
     public void refresh(){
         Integer id = this.programStateListView.getSelectionModel().getSelectedItem();
@@ -90,7 +87,7 @@ public class MainWindowController {
         this.fileTableListView.getItems().clear();
         this.symbolTableTableView.getItems().clear();
         this.executionStackListView.getItems().clear();
-        this.semaphoreTableTableView.getItems().clear();
+        this.lockTableTableView.getItems().clear();
 
         this.programStateLabel.setText("Program states: " + Integer.toString(this.controller.getProgStates().size()));
         this.controller.getProgStates().forEach(x -> this.programStateListView.getItems().add(x.getId()));
@@ -99,6 +96,7 @@ public class MainWindowController {
             this.currentHeap = this.controller.getProgStates().get(0).getHeap();
             this.currentOutput = this.controller.getProgStates().get(0).getOutput();
             this.currentFileTable = this.controller.getProgStates().get(0).getFileTable();
+            this.currentLockTable = this.controller.getProgStates().get(0).getLockTable();
         }
         if(this.currentHeap != null)
             this.currentHeap.toMap().forEach((x, y) -> this.heapTableTableView.getItems().add(new Pair<>(x, y)));
@@ -113,8 +111,8 @@ public class MainWindowController {
                 this.fileTableListView.getItems().add(x);
             });
 
-        if(this.currentSemaphoreTable != null)
-            this.currentSemaphoreTable.toMap().forEach((x, y) -> this.semaphoreTableTableView.getItems().add(new Pair<>(x, new Pair<>(y.getKey(),y.getValue().toString()))));
+        if(this.currentLockTable != null)
+            this.currentLockTable.toMap().forEach((x,y) -> this.lockTableTableView.getItems().add(new Pair<>(x,y)));
 
         ProgState currentProgram;
         try{
@@ -132,7 +130,7 @@ public class MainWindowController {
             this.outputListView.refresh();
             this.symbolTableTableView.refresh();
             this.fileTableListView.refresh();
-            this.semaphoreTableTableView.refresh();
+            this.lockTableTableView.refresh();
         }
     }
 
@@ -142,14 +140,13 @@ public class MainWindowController {
         this.heapValueColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getValue().toString()));
         this.symbolNameColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getKey()));
         this.symbolValueColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getValue().toString()));
-        this.sempahoreIndexColumn.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().getKey()).asObject());
-        this.semaphoreValueColumn.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().getKey()).asObject());
-        this.semaphoreListOfValues.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getValue().toString()));
+        this.lockAddressColumn.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().getKey()).asObject());
+        this.lockValueColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getValue().toString()));
         this.refresh();
         this.runButton.setOnAction(actionEvent -> {
             try{
                 this.controller.executeAllSteps();
-            } catch(AppException | RuntimeException e){
+            } catch(AppException e){
                 Alert alert = new Alert(Alert.AlertType.ERROR, e.toString(), ButtonType.OK);
                 alert.showAndWait();
             } finally{
@@ -160,7 +157,7 @@ public class MainWindowController {
         this.stepButton.setOnAction(actionEvent -> {
             try{
                 this.controller.executeOneStep();
-            } catch(AppException | RuntimeException e){
+            } catch(AppException e){
                 Alert alert = new Alert(Alert.AlertType.ERROR, e.toString(), ButtonType.OK);
                 alert.showAndWait();
             } finally{
