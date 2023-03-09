@@ -20,17 +20,17 @@ def sample_chords_second_case(radius):
     radius_point_angle = np.random.rand() * 2 * np.pi
     radius_point = point_from_angle(radius, radius_point_angle)
     random_point = radius_point * np.random.rand()
-    perpendicular_vector = np.array([radius_point[1], -radius_point[0]])
-    perpendicular_vector /= np.linalg.norm(perpendicular_vector)
+    perpendicular_vector = np.array([radius_point[1], -radius_point[0]]) # (y,-x)
+    perpendicular_vector /= np.linalg.norm(perpendicular_vector) # v' = v/abs(v)
     d_random_point = np.linalg.norm(random_point)
     d_perpendicular = (radius ** 2 - d_random_point ** 2) ** 0.5
     return np.array([random_point - perpendicular_vector * d_perpendicular, random_point + perpendicular_vector * d_perpendicular])
 
 def sample_chords_third_case(radius):
-    random_point_r = np.random.rand() ** 0.5 * radius
+    random_point_r = np.random.rand() ** 0.5 * radius #U random variable, pdf f, cdf F; between (0,1); F^-1(U) has cdf F; it has to be uniformly distributed; we need to weight the radial distance by the square root
     random_point_angle = np.random.rand() * 2 * np.pi
     random_point = point_from_angle(random_point_r, random_point_angle)
-    perpendicular_vector = np.array([random_point[1], -random_point[0]])
+    perpendicular_vector = np.array([random_point[1], -random_point[0]]) # same as above (y,-x)
     perpendicular_vector /= np.linalg.norm(perpendicular_vector)
     d_perpendicular = (radius ** 2 - random_point_r ** 2) ** 0.5
     return np.array([random_point - perpendicular_vector * d_perpendicular, random_point + perpendicular_vector * d_perpendicular])
@@ -46,19 +46,17 @@ def get_probability_using_function(sample_function):
         if get_chord_length(chord) > RADIUS * 3 ** 0.5:
             count += 1
     axes.set_aspect(1)
-    plt.xlim([-RADIUS, RADIUS])
-    plt.ylim([-RADIUS, RADIUS])
     plt.show()
     return count / CHORDS
 
 while True:
-    option = int(input("Which case? 1/2/3/0"))
+    option = int(input("Which case? 1/2/3"))
     if option == 1:
-        get_probability_using_function(sample_chords_first_case)
+        print(get_probability_using_function(sample_chords_first_case))
     elif option == 2:
-        get_probability_using_function(sample_chords_second_case)
+        print(get_probability_using_function(sample_chords_second_case))
     elif option == 3:
-        get_probability_using_function(sample_chords_third_case)
+        print(get_probability_using_function(sample_chords_third_case))
     else:
         break
 
