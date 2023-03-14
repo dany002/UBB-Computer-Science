@@ -17,7 +17,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
 class EmployeeSerializer(serializers.ModelSerializer):
     team_id = serializers.IntegerField(write_only=True)
-    team = TeamSerializer(many=True, read_only=True)
+    team = TeamSerializer(read_only=True)
     firstName = serializers.CharField(max_length=50)
     lastName = serializers.CharField(max_length=50)
     employmentDate = serializers.DateField()
