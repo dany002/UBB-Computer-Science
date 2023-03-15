@@ -1,0 +1,48 @@
+body {
+    background-color: blue;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+.glow {
+    text-shadow: 0 0 20px #fff;
+}
+
+.shadow {
+    text-shadow: 2px 2px 4px #000;
+}
+
+.fire {
+    background: linear-gradient(to bottom, #ff0000, #ff6600);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: fire 5s infinite;
+}
+
+@keyframes fire {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0 0; }
+}
+
+.underline {
+    position: relative;
+    display: inline-block;
+}
+
+.underline::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid #fff;
+    z-index: -1;
+    transition: border-color 0.3s ease;
+}
+
+.underline:hover::before {
+    border-color: #ff6600;
+}

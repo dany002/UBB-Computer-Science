@@ -1,0 +1,59 @@
+body {
+    background-color: red;
+}
+
+.menu {
+    width: 200px;
+    background-color: yellow;
+    padding: 10px;
+    box-shadow: 0px 0px 5px #888;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    position: relative;
+}
+
+a {
+    display: block;
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: green;
+}
+
+ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: blue;
+    padding: 5px;
+    box-shadow: 0px 0px 5px #888;
+    display: none;
+}
+
+ul li:hover > ul {
+    display: block;
+}
+
+ul ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: purple;
+    padding: 5px;
+    box-shadow: 0px 0px 5px #888;
+    display: none;
+}
+
+ul ul li:hover > ul {
+    display: block;
+}

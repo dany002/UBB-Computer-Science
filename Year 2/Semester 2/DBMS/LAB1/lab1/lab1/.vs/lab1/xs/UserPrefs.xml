@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{247F8B5A-A4C2-488B-95A2-8874124FB301}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="lab1/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="lab1/MainWindow.cs">
     <Files>
-      <File FileName="lab1/Program.cs" Line="3" Column="1" />
+      <File FileName="lab1/Program.cs" Line="15" Column="6" />
       <File FileName="lab1/MainWindow.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -10,7 +10,7 @@
           <Node name="lab1" expanded="True">
             <Node name="lab1" expanded="True">
               <Node name="UserInterface" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name="MainWindow.cs" selected="True" />
             </Node>
           </Node>
         </State>
