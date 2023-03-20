@@ -10,8 +10,6 @@ urlpatterns = [
     path('tasks/', views.TaskList.as_view()),
     path('tasks/<int:pk>/', views.TaskDetail.as_view()),
     path('employeeswage/<int:wage>/', views.MinimumWage.as_view()),
-    path('employees/<int:pk>/teams/', views.GetTeamForAnEmployer().as_view()),
-    path('teams/<int:pk>/employees/', views.GetEmployeesForATeam().as_view()),
 ]
 
 #urlpatterns = format_suffix_patterns(urlpatterns)

@@ -32,7 +32,7 @@ class Task(models.Model):
 
 class Employee(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE) # 1 to many; a team can have more employees.
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="employees") # 1 to many; a team can have more employees.
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     employmentDate = models.DateField()
