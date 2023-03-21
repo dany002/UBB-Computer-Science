@@ -1,3 +1,0 @@
-1,Ion
-2,Gheorghe
-3,Bobo
