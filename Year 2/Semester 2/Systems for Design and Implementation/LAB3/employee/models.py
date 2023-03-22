@@ -16,13 +16,26 @@ class Team(models.Model):
     class Meta:
         ordering = ['created']
 
+class Project(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    nameOfProject = models.CharField(max_length=200)
+    clientName = models.CharField(max_length=200)
+    budget = models.IntegerField()
+    description = models.CharField(max_length=200)
+    status = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.nameOfProject
+
+    class Meta:
+        ordering = ['created']
+
 class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     nameOfTask = models.CharField(max_length=200)
-    daysToImplement = models.IntegerField()
     difficulty = models.CharField(max_length=200)
-    language = models.CharField(max_length=100)
-    taken = models.BooleanField(default=False)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="teamTask") # many to many
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="projectTask") # many to many
 
     def __str__(self):
         return self.nameOfTask
@@ -32,7 +45,7 @@ class Task(models.Model):
 
 class Employee(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE) # 1 to many; a team can have more employees.
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="teamEmployee") # 1 to many; a team can have more employees.
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     employmentDate = models.DateField()
@@ -45,7 +58,7 @@ class Employee(models.Model):
     class Meta:
         ordering = ['created']
 
-class Assignment(models.Model): # many to many between Tasks and Teams
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    compan
+
+
+#team - task - project
 

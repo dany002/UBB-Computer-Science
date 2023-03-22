@@ -1,7 +1,11 @@
+from django.http import Http404
 from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from employee.models import Employee, Team, Task
-from employee.serializers import EmployeeSerializer, TeamSerializer, TaskSerializer
+from employee.models import Employee, Team, Task, Project
+from employee.serializers import EmployeeSerializer, TeamSerializer, TaskSerializer, DynamicEmployeeSerializer, \
+    DynamicTeamSerializer, ProjectSerializer
 
 
 class TeamList(generics.ListCreateAPIView):
@@ -11,7 +15,7 @@ class TeamList(generics.ListCreateAPIView):
 
 class TeamDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Team.objects.all()
-    serializer_class = TeamSerializer
+    serializer_class = DynamicTeamSerializer
 
 
 class TaskList(generics.ListCreateAPIView):
@@ -26,7 +30,8 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class EmployeeList(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
-    serializer_class = EmployeeSerializer
+    #serializer_class = EmployeeSerializer
+    serializer_class = DynamicEmployeeSerializer
 
 
 class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -44,3 +49,11 @@ class MinimumWage(generics.ListAPIView):
         if wage is not None:
             queryset = queryset.filter(wage__gt=wage)
         return queryset
+
+class ProjectList(generics.ListCreateAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
