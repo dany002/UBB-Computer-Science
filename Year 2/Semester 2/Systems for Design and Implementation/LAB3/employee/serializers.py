@@ -16,6 +16,13 @@ class TeamSerializer(serializers.ModelSerializer):
 
 
 class TaskSerializer(serializers.ModelSerializer):
+    teamTask = TeamSerializer()
+    projectTask = ProjectSerializer()
+    class Meta:
+        model = Task
+        fields = ('__all__')
+
+class TaskSerializer2(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ('__all__')
@@ -86,33 +93,22 @@ class DynamicTeamSerializer(DynamicFieldsModelSerializer):
         model = Team
         fields = [ 'nameOfTeam', 'freePlaces', 'purpose', 'admin', 'rating', 'teamEmployee']
 
+class TeamSerializer3(serializers.ModelSerializer):
+    class Meta:
+        model = Team
+        fields = ('__all__')
+        #fields = ('team_id','created', 'nameOfTeam', 'freePlaces', 'purpose', 'admin', 'rating')
 
 class ProjectTeamSerializer(DynamicFieldsModelSerializer):
+
     team_id = serializers.IntegerField()
-    project_id = serializers.IntegerField(default=id)
-    #print("id = ",id)
-    teamTask = TeamSerializer(many=True, read_only=True)
-    projectTask = ProjectSerializer(read_only=True)
-    #print("HEHE")
-    # firstName = serializers.CharField(max_length=50)
-    # lastName = serializers.CharField(max_length=50)
-    # employmentDate = serializers.DateField()
-    # phoneNumber = serializers.CharField(max_length=20)
-    # email = serializers.CharField(max_length=30)
-    # wage = serializers.IntegerField()
-    # created = serializers.DateTimeField()
-    # freePlaces = serializers.IntegerField()
-    # purpose = serializers.CharField(max_length=50)
-    # admin = serializers.CharField(max_length=50)
-    # rating = serializers.IntegerField()
     nameOfTask = serializers.CharField(max_length=200)
-    difficulty = serializers.CharField(max_length=200)
+    teamTask = TeamSerializer3(many=True, read_only=True)
+    projectTask = ProjectSerializer(many=True,read_only=True)
+
     class Meta:
         model = Task
-        fields = ['id', 'created', 'nameOfTask', 'difficulty', 'teamTask', 'projectTask', 'team_id', 'project_id']
-        #fields = ['__all__']
-        #fields = ('teamTask', 'projectTask', 'created', 'nameOfTask', 'difficulty')
-        #fields = ['id', 'firstName', 'lastName', 'employmentDate', 'phoneNumber', 'email', 'wage', 'team_id', 'purpose', 'admin', 'rating', 'freePlaces', 'created', 'teamTask', 'projectTask', 'difficulty', 'nameOfTask', 'project_id']
+        fields = ['nameOfTask','difficulty', 'teamTask', 'team_id', 'projectTask']
 
 
 class EmployeeWageSerializer(serializers.ModelSerializer):
