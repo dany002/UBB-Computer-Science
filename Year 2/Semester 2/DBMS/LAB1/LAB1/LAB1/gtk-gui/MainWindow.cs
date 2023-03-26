@@ -21,6 +21,26 @@ public partial class MainWindow
 
 	private global::Gtk.TreeView childTreeview;
 
+	private global::Gtk.Entry companyEntry;
+
+	private global::Gtk.Entry seatsEntry;
+
+	private global::Gtk.Entry priceEntry;
+
+	private global::Gtk.Entry departureEntry;
+
+	private global::Gtk.Entry destinationEntry;
+
+	private global::Gtk.Label label2;
+
+	private global::Gtk.Label label3;
+
+	private global::Gtk.Label label4;
+
+	private global::Gtk.Label label5;
+
+	private global::Gtk.Label label6;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -95,7 +115,7 @@ public partial class MainWindow
 		this.GtkScrolledWindow1.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow1.Gtk.Container+ContainerChild
 		this.childTreeview = new global::Gtk.TreeView();
-		this.childTreeview.WidthRequest = 500;
+		this.childTreeview.WidthRequest = 600;
 		this.childTreeview.HeightRequest = 300;
 		this.childTreeview.CanFocus = true;
 		this.childTreeview.Name = "childTreeview";
@@ -104,16 +124,109 @@ public partial class MainWindow
 		global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.GtkScrolledWindow1]));
 		w8.X = 703;
 		w8.Y = 91;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.companyEntry = new global::Gtk.Entry();
+		this.companyEntry.CanFocus = true;
+		this.companyEntry.Name = "companyEntry";
+		this.companyEntry.IsEditable = true;
+		this.companyEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.companyEntry);
+		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.companyEntry]));
+		w9.X = 868;
+		w9.Y = 513;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.seatsEntry = new global::Gtk.Entry();
+		this.seatsEntry.CanFocus = true;
+		this.seatsEntry.Name = "seatsEntry";
+		this.seatsEntry.IsEditable = true;
+		this.seatsEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.seatsEntry);
+		global::Gtk.Fixed.FixedChild w10 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.seatsEntry]));
+		w10.X = 867;
+		w10.Y = 562;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.priceEntry = new global::Gtk.Entry();
+		this.priceEntry.CanFocus = true;
+		this.priceEntry.Name = "priceEntry";
+		this.priceEntry.IsEditable = true;
+		this.priceEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.priceEntry);
+		global::Gtk.Fixed.FixedChild w11 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.priceEntry]));
+		w11.X = 867;
+		w11.Y = 611;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.departureEntry = new global::Gtk.Entry();
+		this.departureEntry.CanFocus = true;
+		this.departureEntry.Name = "departureEntry";
+		this.departureEntry.IsEditable = true;
+		this.departureEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.departureEntry);
+		global::Gtk.Fixed.FixedChild w12 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.departureEntry]));
+		w12.X = 867;
+		w12.Y = 657;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.destinationEntry = new global::Gtk.Entry();
+		this.destinationEntry.CanFocus = true;
+		this.destinationEntry.Name = "destinationEntry";
+		this.destinationEntry.IsEditable = true;
+		this.destinationEntry.InvisibleChar = '●';
+		this.fixed1.Add(this.destinationEntry);
+		global::Gtk.Fixed.FixedChild w13 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.destinationEntry]));
+		w13.X = 867;
+		w13.Y = 706;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label2 = new global::Gtk.Label();
+		this.label2.Name = "label2";
+		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString("Company");
+		this.fixed1.Add(this.label2);
+		global::Gtk.Fixed.FixedChild w14 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label2]));
+		w14.X = 729;
+		w14.Y = 519;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label3 = new global::Gtk.Label();
+		this.label3.Name = "label3";
+		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString("Number of seats");
+		this.fixed1.Add(this.label3);
+		global::Gtk.Fixed.FixedChild w15 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label3]));
+		w15.X = 736;
+		w15.Y = 568;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label4 = new global::Gtk.Label();
+		this.label4.Name = "label4";
+		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString("Price");
+		this.fixed1.Add(this.label4);
+		global::Gtk.Fixed.FixedChild w16 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label4]));
+		w16.X = 736;
+		w16.Y = 619;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label5 = new global::Gtk.Label();
+		this.label5.Name = "label5";
+		this.label5.LabelProp = global::Mono.Unix.Catalog.GetString("Departure");
+		this.fixed1.Add(this.label5);
+		global::Gtk.Fixed.FixedChild w17 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label5]));
+		w17.X = 737;
+		w17.Y = 665;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label6 = new global::Gtk.Label();
+		this.label6.Name = "label6";
+		this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("Destination");
+		this.fixed1.Add(this.label6);
+		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label6]));
+		w18.X = 737;
+		w18.Y = 714;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
 		this.DefaultWidth = 1447;
-		this.DefaultHeight = 723;
+		this.DefaultHeight = 789;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.connectButton.Clicked += new global::System.EventHandler(this.connectBtn);
 		this.parentTreeView.RowActivated += new global::Gtk.RowActivatedHandler(this.rowActiveParentTree);
+		this.deleteButton.Clicked += new global::System.EventHandler(this.deleteBtn);
+		this.updateButton.Clicked += new global::System.EventHandler(this.updateBtn);
+		this.addButton.Clicked += new global::System.EventHandler(this.addBtn);
 	}
 }

@@ -6,7 +6,7 @@
   <import>
     <widget-library name="../bin/Debug/LAB1.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="1447 723">
+  <widget class="Gtk.Window" id="MainWindow" design-size="1447 789">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -60,6 +60,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Delete</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="deleteBtn" />
           </widget>
           <packing>
             <property name="X">988</property>
@@ -74,6 +75,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Update</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="updateBtn" />
           </widget>
           <packing>
             <property name="X">844</property>
@@ -88,6 +90,7 @@
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Add</property>
             <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="addBtn" />
           </widget>
           <packing>
             <property name="X">687</property>
@@ -119,7 +122,7 @@
             <child>
               <widget class="Gtk.TreeView" id="childTreeview">
                 <property name="MemberName" />
-                <property name="WidthRequest">500</property>
+                <property name="WidthRequest">600</property>
                 <property name="HeightRequest">300</property>
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
@@ -129,6 +132,116 @@
           <packing>
             <property name="X">703</property>
             <property name="Y">91</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="companyEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">868</property>
+            <property name="Y">513</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="seatsEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">867</property>
+            <property name="Y">562</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="priceEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">867</property>
+            <property name="Y">611</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="departureEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">867</property>
+            <property name="Y">657</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="destinationEntry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">867</property>
+            <property name="Y">706</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Company</property>
+          </widget>
+          <packing>
+            <property name="X">729</property>
+            <property name="Y">519</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label3">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of seats</property>
+          </widget>
+          <packing>
+            <property name="X">736</property>
+            <property name="Y">568</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label4">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Price</property>
+          </widget>
+          <packing>
+            <property name="X">736</property>
+            <property name="Y">619</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label5">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Departure</property>
+          </widget>
+          <packing>
+            <property name="X">737</property>
+            <property name="Y">665</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label6">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Destination</property>
+          </widget>
+          <packing>
+            <property name="X">737</property>
+            <property name="Y">714</property>
           </packing>
         </child>
       </widget>

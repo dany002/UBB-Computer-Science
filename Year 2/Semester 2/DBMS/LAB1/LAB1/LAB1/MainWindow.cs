@@ -23,6 +23,7 @@ public partial class MainWindow : Gtk.Window
     DataSet ds = new DataSet();
     DataSet ds1 = new DataSet();
     bool createdChild = false;
+    int firstFree = -1;
 
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
@@ -172,7 +173,6 @@ for (int row_it = 0; row_it < table.Rows.Count; row_it++)
         {
             // Access the data in the active row
             id = (int)model.GetValue(iter, 0); // Assuming column 0 contains the data you want to access
-            Console.WriteLine(id);
         }
         if(id != -1)
         {
@@ -248,11 +248,7 @@ for (int row_it = 0; row_it < table.Rows.Count; row_it++)
 
                 ListStore storee = new ListStore(typeof(int), typeof(string), typeof(int), typeof(double), typeof(string), typeof(string), typeof(int));
 
-                foreach (DataRow row in ds1.Tables[0].Rows)
-                {
-                    //Console.WriteLine(row["bus_id"].ToString() + row["company"].ToString() + row["number_of_seats"].ToString() + row["price"].ToString() + row["departure"].ToString() + row["destination"].ToString() + row["garage_id"].ToString());
-                    Console.WriteLine(row["price"].GetType());
-                }
+
 
 
 
@@ -280,4 +276,150 @@ for (int row_it = 0; row_it < table.Rows.Count; row_it++)
             }
         }
     }
+
+    protected void addBtn(object sender, EventArgs e)
+    {
+        if (firstFree == -1) {
+            da.SelectCommand = new SqlCommand("SELECT * FROM Bus", cs);
+            DataSet helpData = new DataSet();
+            helpData.Clear();
+            da.Fill(helpData);
+            foreach (DataRow row in helpData.Tables[0].Rows)
+            {
+                firstFree = (int)row["bus_id"];
+            }
+        }
+
+            try
+            {
+            if (companyEntry.Text.Length == 0 || seatsEntry.Text.Length == 0 || priceEntry.Text.Length == 0 || departureEntry.Text.Length == 0 || destinationEntry.Text.Length == 0) {
+                MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "One of the fields is empty!");
+                md.Run();
+                md.Destroy();
+            }
+            da.InsertCommand = new SqlCommand("INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, garage_id) VALUES(@bus_id, @company, @number_of_seats, @price, @departure, @destination, @garage_id)", cs);
+            firstFree++;
+            da.InsertCommand.Parameters.Add("@bus_id", SqlDbType.Int).Value = firstFree;
+            da.InsertCommand.Parameters.Add("@company", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
+            da.InsertCommand.Parameters.Add("@number_of_seats", SqlDbType.Int).Value = int.Parse(seatsEntry.Text);
+            da.InsertCommand.Parameters.Add("@price", SqlDbType.Float).Value = Double.Parse(priceEntry.Text);
+            da.InsertCommand.Parameters.Add("@departure", SqlDbType.VarChar).Value = departureEntry.Text.Trim();
+            da.InsertCommand.Parameters.Add("@destination", SqlDbType.VarChar).Value = destinationEntry.Text.Trim();
+
+            TreeSelection selection = parentTreeView.Selection;
+            int id = -1;
+            if (selection.GetSelected(out TreeModel model, out TreeIter iter))
+            {
+                // Access the data in the active row
+                id = (int)model.GetValue(iter, 0); // Assuming column 0 contains the data you want to access
+            }
+            da.InsertCommand.Parameters.Add("@garage_id", SqlDbType.Int).Value = id;
+            cs.Open();
+            da.InsertCommand.ExecuteNonQuery();
+            MessageDialog mds = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Inserted succesfully to the Database");
+            mds.Run();
+            mds.Destroy();
+            cs.Close();
+
+        }
+        catch (Exception)
+        {
+            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "There was an error.");
+            mds1.Run();
+            mds1.Destroy();
+            cs.Close();
+        }
+    }
+
+    protected void deleteBtn(object sender, EventArgs e)
+    {
+        try
+        {
+            da.DeleteCommand = new SqlCommand("DELETE FROM Bus WHERE bus_id=@id", cs);
+
+            TreeSelection selection = childTreeview.Selection;
+            int id = -1;
+            if (selection.GetSelected(out TreeModel model, out TreeIter iter))
+            {
+                // Access the data in the active row
+                id = (int)model.GetValue(iter, 0); // Assuming column 0 contains the data you want to access
+            }
+            if(id == -1)
+            {
+                MessageDialog mds = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Yooo! Select a bus first..");
+                mds.Run();
+                mds.Destroy();
+                throw new Exception("error");
+            }
+            da.DeleteCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            cs.Open();
+            da.DeleteCommand.ExecuteNonQuery();
+            MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Deleted successfully!");
+            md.Run();
+            md.Destroy();
+            cs.Close();
+
+        }
+        catch (Exception)
+        {
+            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "There was an error.");
+            mds1.Run();
+            mds1.Destroy();
+            cs.Close();
+        }
+    }
+    protected void updateBtn(object sender, EventArgs e)
+    {
+        try
+        {
+            if (companyEntry.Text.Length == 0 || seatsEntry.Text.Length == 0 || priceEntry.Text.Length == 0 || departureEntry.Text.Length == 0 || destinationEntry.Text.Length == 0)
+            {
+                MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "One of the fields is empty!");
+                md.Run();
+                md.Destroy();
+            }
+            da.UpdateCommand = new SqlCommand("UPDATE Bus SET company=@company,number_of_seats=@number_of_seats, price=@price, departure=@departure, destination=@destination WHERE bus_id=@bus_id", cs);
+            da.UpdateCommand.Parameters.Add("@company", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
+            da.UpdateCommand.Parameters.Add("@number_of_seats", SqlDbType.Int).Value = int.Parse(seatsEntry.Text);
+            da.UpdateCommand.Parameters.Add("@price", SqlDbType.Float).Value = Double.Parse(priceEntry.Text);
+            da.UpdateCommand.Parameters.Add("@departure", SqlDbType.VarChar).Value = departureEntry.Text.Trim();
+            da.UpdateCommand.Parameters.Add("@destination", SqlDbType.VarChar).Value = destinationEntry.Text.Trim();
+
+            TreeSelection selection = childTreeview.Selection;
+            int id = -1;
+            if (selection.GetSelected(out TreeModel model, out TreeIter iter))
+            {
+                // Access the data in the active row
+                id = (int)model.GetValue(iter, 0); // Assuming column 0 contains the data you want to access
+            }
+            if (id == -1)
+            {
+                MessageDialog mdss = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Yooo! Select a bus first..");
+                mdss.Run();
+                mdss.Destroy();
+                throw new Exception("error");
+            }
+            da.UpdateCommand.Parameters.Add("@bus_id", SqlDbType.Int).Value = id;
+            Console.WriteLine("bus_id: ");
+            Console.WriteLine(id);
+            cs.Open();
+            Console.WriteLine("HI");
+            da.UpdateCommand.ExecuteNonQuery();
+            Console.WriteLine("WOW");
+            MessageDialog mds = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Updated succesfully to the Database");
+            mds.Run();
+            mds.Destroy();
+            cs.Close();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "There was an error.");
+            mds1.Run();
+            mds1.Destroy();
+            cs.Close();
+        }
+    }
+
 }
