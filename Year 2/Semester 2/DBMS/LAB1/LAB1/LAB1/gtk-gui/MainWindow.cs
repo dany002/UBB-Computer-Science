@@ -228,5 +228,6 @@ public partial class MainWindow
 		this.deleteButton.Clicked += new global::System.EventHandler(this.deleteBtn);
 		this.updateButton.Clicked += new global::System.EventHandler(this.updateBtn);
 		this.addButton.Clicked += new global::System.EventHandler(this.addBtn);
+		this.childTreeview.RowActivated += new global::Gtk.RowActivatedHandler(this.ChildActivated);
 	}
 }

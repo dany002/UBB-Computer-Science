@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{38EDEC3A-A0E9-4310-B1E3-BDE5E400A574}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="LAB1/MainWindow.cs">
     <Files>
-      <File FileName="LAB1/Program.cs" Line="9" Column="10" />
-      <File FileName="LAB1/MainWindow.cs" Line="5" Column="1" />
+      <File FileName="LAB1/Program.cs" Line="12" Column="24" />
+      <File FileName="LAB1/MainWindow.cs" Line="392" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

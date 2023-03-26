@@ -126,6 +126,7 @@
                 <property name="HeightRequest">300</property>
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
+                <signal name="RowActivated" handler="ChildActivated" />
               </widget>
             </child>
           </widget>

@@ -41,8 +41,6 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
-
-
     protected void connectBtn(object sender, EventArgs e)
     {
         da.SelectCommand = new SqlCommand("SELECT * FROM Garage", cs);
@@ -131,34 +129,6 @@ public partial class MainWindow : Gtk.Window
 
 
         parentTreeView.Model = store;
-
-
-        /*
-List<System.Type> colTypes = new List<System.Type>();
-for (int col_it = 0; col_it < table.Columns.Count; col_it++)
-{
-    colTypes.Add(typeof(string));
-}
-ListStore resultListStore = new ListStore(colTypes.ToArray());
-
-//Adding columns
-for (int col_it = 0; col_it < table.Columns.Count; col_it++)
-{
-   parentTreeView.AppendColumn(table.Columns[col_it].ColumnName, new CellRendererText(), "text", col_it);
-}
-
-//Adding values
-List<string> rowValues = new List<string>();
-for (int row_it = 0; row_it < table.Rows.Count; row_it++)
-{
-    for (int col_it = 0; col_it < table.Columns.Count; col_it++)
-    {
-        rowValues.Add(table.Rows[row_it][col_it].ToString());
-    }
-    resultListStore.AppendValues(rowValues.ToArray());
-    rowValues.Clear();
-}
-*/
         //updating model
 
         ShowAll();
@@ -422,4 +392,17 @@ for (int row_it = 0; row_it < table.Rows.Count; row_it++)
         }
     }
 
+    protected void ChildActivated(object o, RowActivatedArgs args)
+    {
+        TreeSelection selection = childTreeview.Selection;
+        if (selection.GetSelected(out TreeModel model, out TreeIter iter))
+        {
+            // Access the data in the active row
+            companyEntry.Text = model.GetValue(iter, 1).ToString();
+            seatsEntry.Text = model.GetValue(iter, 2).ToString();
+            priceEntry.Text = model.GetValue(iter, 3).ToString();
+            departureEntry.Text = model.GetValue(iter, 4).ToString();
+            destinationEntry.Text = model.GetValue(iter, 5).ToString();
+        }
+    }
 }
