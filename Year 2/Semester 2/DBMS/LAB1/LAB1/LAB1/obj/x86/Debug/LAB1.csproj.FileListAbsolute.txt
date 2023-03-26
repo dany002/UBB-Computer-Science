@@ -1,0 +1,9 @@
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/bin/Debug/LAB1.exe
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/bin/Debug/LAB1.pdb
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.csproj.AssemblyReference.cache
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.csproj.CoreCompileInputs.cache
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.exe
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.pdb
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/bin/Debug/System.Data.SqlClient.dll
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/bin/Debug/System.Data.SqlClient.xml
+/home/senzationall/Desktop/UBB-Computer-Science/Year 2/Semester 2/DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.csproj.CopyComplete
