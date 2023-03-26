@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from employee.models import Employee, Team, Task, Project
 from employee.serializers import EmployeeSerializer, TeamSerializer, TaskSerializer, DynamicEmployeeSerializer, \
     DynamicTeamSerializer, ProjectSerializer, ProjectTeamSerializer, TeamsByAvgWageSerializer, \
-    ProjectsByAvgDifficultySerializer, TaskSerializer2
+    ProjectsByAvgDifficultySerializer, TaskSerializer2, TeamByAvgBudgetSerializer, EmployeesByAvgDifficultySerializer
 
 
 class TeamList(generics.ListCreateAPIView):
@@ -124,4 +124,16 @@ class TeamsByAvgWage(APIView):
     def get(self, request):
         queryset = Team.objects.annotate(avg_wage=Avg('teamEmployee__wage')).order_by('-avg_wage')
         serializer = TeamsByAvgWageSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class TeamsByAvgBudget(APIView):
+    def get(self, request):
+        queryset = Team.objects.annotate(avg_budget=Avg('teamTask__difficulty')).order_by('-avg_difficulty')
+        serializer = TeamByAvgBudgetSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class EmployeesByAvgDifficulty(APIView):
+    def get(self, request):
+        queryset = Employee.objects.annotate(avg_difficulty=Avg('team__teamTask__difficulty')).order_by('-avg_difficulty')
+        serializer = EmployeesByAvgDifficultySerializer(queryset, many=True)
         return Response(serializer.data)

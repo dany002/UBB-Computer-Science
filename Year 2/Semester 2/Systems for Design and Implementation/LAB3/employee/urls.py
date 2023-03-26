@@ -15,6 +15,8 @@ urlpatterns = [
     path('projects/<int:pk>/teams', views.ProjectTeamsList.as_view()),
     path('projects/by-avg-difficulty', views.ProjectsByAvgDifficulty.as_view(), name='projects-by-avg-difficulty'),
     path('teams/by-avg-wage', views.TeamsByAvgWage.as_view(), name='teams-by-avg-wage'),
+    path('teams/by-avg-budget', views.TeamsByAvgBudget.as_view(), name='teams-by-avg-budget'),
+    path('employees/by-avg-difficulty', views.EmployeesByAvgDifficulty.as_view(), name='employees-by-avg-difficulty'),
 ]
 
 #urlpatterns = format_suffix_patterns(urlpatterns)

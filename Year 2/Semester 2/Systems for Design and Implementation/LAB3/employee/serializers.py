@@ -143,3 +143,27 @@ class ProjectsByAvgDifficultySerializer(serializers.ModelSerializer):
     def get_avg_difficulty(self, obj):
         avg_diff = obj.projectTask.aggregate(Avg('difficulty'))['difficulty__avg']
         return avg_diff if avg_diff else 0
+
+
+class TeamByAvgBudgetSerializer(serializers.ModelSerializer):
+    avg_difficulty = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Team
+        fields = ('id', 'created', 'nameOfTeam', 'freePlaces', 'purpose', 'admin', 'rating', 'avg_difficulty')
+
+    def get_avg_difficulty(self, obj):
+        avg_bud = obj.teamTask.aggregate(Avg('difficulty'))['difficulty__avg']
+        return avg_bud if avg_bud else 0
+
+class EmployeesByAvgDifficultySerializer(serializers.ModelSerializer):
+    avg_difficulty = serializers.SerializerMethodField()
+    #team = TeamSerializer(read_only=True, many=True)
+    class Meta:
+        model = Employee
+        fields = ('id', 'firstName', 'lastName', 'employmentDate', 'phoneNumber', 'email', 'wage', 'avg_difficulty')
+
+    def get_avg_difficulty(self, obj):
+
+        avg_dif = obj.team.teamTask.aggregate(Avg('difficulty'))['difficulty__avg']
+        return avg_dif if avg_dif else 0
