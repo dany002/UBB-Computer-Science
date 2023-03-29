@@ -33,7 +33,7 @@ class Project(models.Model):
 class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     nameOfTask = models.CharField(max_length=200)
-    difficulty = models.CharField(max_length=200)
+    difficulty = models.IntegerField()
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="teamTask") # many to many
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="projectTask") # many to many
 

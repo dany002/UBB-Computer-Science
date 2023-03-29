@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from employee.models import Employee, Team, Task, Project
-from employee.serializers import EmployeeSerializer, TeamSerializer, TaskSerializer, DynamicEmployeeSerializer, \
+from employee.serializers import EmployeeSerializer, TeamSerializer, DynamicEmployeeSerializer, \
     DynamicTeamSerializer, ProjectSerializer, ProjectTeamSerializer, TeamsByAvgWageSerializer, \
     ProjectsByAvgDifficultySerializer, TaskSerializer2, EmployeesByAvgDifficultySerializer
 
