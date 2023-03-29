@@ -10,6 +10,12 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class TeamSerializer(serializers.ModelSerializer):
+
+    def validate(self, data):
+        if data['freePlaces'] < 0:
+            raise serializers.ValidationError("Free places should be >= 0")
+        return data
+
     class Meta:
         model = Team
         fields = ('__all__')
@@ -74,12 +80,27 @@ class DynamicFieldsModelSerializer(serializers.ModelSerializer):
 
 
 class DynamicEmployeeSerializer(DynamicFieldsModelSerializer):
+    team_id = serializers.IntegerField()
+
+    def validate_team_id(self, value):
+        filter = Team.objects.filter(id=value)
+        if not filter.exists():
+            raise serializers.ValidationError("Team doesn't exist!")
+        return value
+
+    def validate(self, data):
+        if data['employmentDate'].year > 2023:
+            raise serializers.ValidationError("Year has to be less than 2023!")
+        return data
+
     class Meta:
         model = Employee
         fields = ['id', 'firstName', 'lastName', 'employmentDate', 'phoneNumber', 'email', 'wage', 'team_id']
 
 
+
 class EmployeeSerializerWithoutTeam(serializers.ModelSerializer):
+
     class Meta:
         model = Employee
         fields = ('id', 'firstName', 'lastName', 'employmentDate', 'phoneNumber', 'email', 'wage')
@@ -92,7 +113,6 @@ class DynamicTeamSerializer(DynamicFieldsModelSerializer):
     admin = serializers.CharField(max_length=50)
     rating = serializers.IntegerField()
     teamEmployee = EmployeeSerializerWithoutTeam(many=True, read_only=True)
-
     class Meta:
         model = Team
         fields = [ 'nameOfTeam', 'freePlaces', 'purpose', 'admin', 'rating', 'teamEmployee']
@@ -163,3 +183,6 @@ class EmployeesByAvgDifficultySerializer(serializers.ModelSerializer):
 
         avg_dif = obj.team.teamTask.aggregate(Avg('difficulty'))['difficulty__avg']
         return avg_dif if avg_dif else 0
+
+
+
