@@ -53,8 +53,8 @@ class Employee(models.Model):
     email = models.CharField(max_length=30)
     wage = models.IntegerField()
 
-    def __str__(self):
-        return self.firstName + " " + self.lastName + " " + self.email
+    # def __str__(self):
+    #     return self.firstName + " " + self.lastName + " " + self.email
     class Meta:
         ordering = ['created']
 

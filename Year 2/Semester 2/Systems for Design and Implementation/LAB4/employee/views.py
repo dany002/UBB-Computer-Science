@@ -3,11 +3,11 @@ from django.http import Http404
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.forms.models import model_to_dict
 from employee.models import Employee, Team, Task, Project
 from employee.serializers import EmployeeSerializer, TeamSerializer, DynamicEmployeeSerializer, \
     DynamicTeamSerializer, ProjectSerializer, ProjectTeamSerializer, TeamsByAvgWageSerializer, \
-    ProjectsByAvgDifficultySerializer, TaskSerializer2, EmployeesByAvgDifficultySerializer
+    ProjectsByAvgDifficultySerializer, TaskSerializer2, EmployeesByAvgDifficultySerializer, TeamEmployeeSerializer
 
 
 class TeamList(generics.ListCreateAPIView):
@@ -132,3 +132,88 @@ class EmployeesByAvgDifficulty(APIView):
         queryset = Employee.objects.annotate(avg_difficulty=Avg('team__teamTask__difficulty')).order_by('-avg_difficulty')
         serializer = EmployeesByAvgDifficultySerializer(queryset, many=True)
         return Response(serializer.data)
+
+# class EmployeeTeamView(APIView):
+#
+#     def get_object(self, pk):
+#         try:
+#             return Team.objects.get(pk=pk)
+#         except Team.DoesNotExist:
+#             raise Http404
+#
+#     def get_employee(self, pk):
+#         try:
+#             return Employee.objects.get(pk=pk)
+#         except Employee.DoesNotExist:
+#             raise Http404
+#
+#     def put(self, request, pk, format=None):
+#         team = self.get_object(pk)
+#         employee_ids = request.data['list_of_ids']
+#         print(employee_ids)
+#         data_with_employees = []
+#         for i in range(len(employee_ids)):
+#             employee = self.get_employee(employee_ids[i])
+#             employee.team_id = pk
+#             json_data = model_to_dict(employee)
+#             data_with_employees.append(json_data)
+#             #print(employee.phoneNumber)
+#         print(data_with_employees)
+#         employee = self.get_employee(employee_ids[0])
+#         serializer = TeamSerializer(team,data=data_with_employees,many=True)
+#
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#
+
+class EmployeeTeamView(APIView):
+    def get_object(self, pk):
+        try:
+            return Team.objects.get(pk=pk)
+        except Team.DoesNotExist:
+            raise Http404
+
+    def get_employee(self, pk):
+        try:
+            return Employee.objects.get(pk=pk)
+        except Employee.DoesNotExist:
+            raise Http404
+
+    # def put(self, request, pk, format=None):
+    #     team = self.get_object(pk)
+    #     employee_ids = request.data['list_of_ids']
+    #     print(employee_ids)
+    #     employees = []
+    #     for i in range(len(employee_ids)):
+    #         employee = self.get_employee(employee_ids[i])
+    #         employee.team_id = pk
+    #         employees.append(employee)
+    #     print({'employees' :employees})
+    #     serializer = TeamEmployeeSerializer(employees[0], data={'employees': employees})
+    #
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, pk, format=None):
+        team = self.get_object(pk)
+        employee_ids = request.data['list_of_ids']
+        employees = []
+        for i in range(len(employee_ids)):
+            employee = self.get_employee(employee_ids[i])
+            employee.team_id = pk
+            employee.save()
+            employees.append(employee)
+
+
+        serializer = TeamEmployeeSerializer(employees[0],data=model_to_dict(employees[0]))
+        #serializer = TeamEmployeeSerializer(employees[0],data={'employees' : model_to_dict(employees[0])})
+        #print({'employees' : [model_to_dict(employees[0]),model_to_dict(employees[1])]})
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

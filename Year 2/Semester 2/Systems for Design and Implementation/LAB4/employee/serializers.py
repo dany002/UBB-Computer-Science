@@ -186,3 +186,14 @@ class EmployeesByAvgDifficultySerializer(serializers.ModelSerializer):
 
 
 
+class EmployeeSerializer5(serializers.ModelSerializer):
+    class Meta:
+        model = Employee
+        fields = '__all__'
+
+
+class TeamEmployeeSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = Employee
+        fields = ['team_id']
