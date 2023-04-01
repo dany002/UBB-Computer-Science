@@ -32,15 +32,30 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
+    private string getParentTableNameAsString()
+    {
+        return ConfigurationManager.AppSettings["ParentTableName"];
+    }
+
+    private List<string> getParentLabelNamesAsList()
+    {
+        return ConfigurationManager.AppSettings["ParentLabelNames"].Split(',').ToList();
+    }
+
+    private List<string> getParentTypesAsList()
+    {
+        return ConfigurationManager.AppSettings["ParentTypes"].Split(',').ToList();
+    }
+
     protected void connectBtn(object sender, EventArgs e)
     {
-        string selectParent = "SELECT * FROM " + ConfigurationManager.AppSettings["ParentTableName"];
+        string selectParent = "SELECT * FROM " + getParentTableNameAsString();
         da.SelectCommand = new SqlCommand(selectParent, cs);
         ds.Clear();
 
         da.Fill(ds);
 
-        List<string> ParentLabelNames = ConfigurationManager.AppSettings["ParentLabelNames"].Split(',').ToList();
+        List<string> ParentLabelNames = getParentLabelNamesAsList();
 
 
         List<TreeViewColumn> columns = new List<TreeViewColumn>();
@@ -60,7 +75,7 @@ public partial class MainWindow : Gtk.Window
             columns.ElementAt(i).PackStart(cells.ElementAt(i), true); // Add the CellRenderers to the columns
             columns.ElementAt(i).AddAttribute(cells.ElementAt(i), "text", i); // Set the attrivutes for columns.
         }
-        List<string> list_of_types = ConfigurationManager.AppSettings["ParentTypes"].Split(',').ToList();
+        List<string> list_of_types = getParentTypesAsList();
 
 
         Type[] types = new Type[list_of_types.Count];
@@ -91,10 +106,14 @@ public partial class MainWindow : Gtk.Window
         ListStore store = new ListStore(types);
 
 
+        object[] data = new object[getParentLabelNamesAsList().Count];
+
         foreach (DataRow row in ds.Tables[0].Rows)
         {
             // Add a new node to the tree for each row in the DataSet
-            store.AppendValues(row["garage_id"], row["location"], row["number_of_trams"], row["number_of_buses"], row["capacity"]);
+            for (int j = 0; j < data.Length; j++)
+                data[j] = row[j];
+            store.AppendValues(data);
 
         }
 
@@ -103,6 +122,93 @@ public partial class MainWindow : Gtk.Window
         //updating model
 
         ShowAll();
+    }
+
+    private string getChildTableNameAsString()
+    {
+        return ConfigurationManager.AppSettings["ChildTableName"];
+    }
+
+    private List<string> getChildLabelNamesAsList()
+    {
+        return ConfigurationManager.AppSettings["ChildLabelNames"].Split(',').ToList();
+    }
+
+    private List<string> getChildTypesAsList()
+    {
+        return ConfigurationManager.AppSettings["ChildTypes"].Split(',').ToList();
+    }
+
+    private void makeEntriesEmpty()
+    {
+        foreach(Entry entry in entries)
+        {
+            entry.Text = "";
+        }
+    }
+
+    private void reloadChildTreeView()
+    {
+        TreeSelection selection = parentTreeView.Selection;
+        int id = -1;
+        if (selection.GetSelected(out TreeModel model, out TreeIter iter))
+        {
+            // Access the data in the active row
+            id = (int)model.GetValue(iter, 0); // Assuming column 0 contains the data you want to access
+        }
+        if (id != -1)
+        {
+            string sqlCommand = "SELECT * FROM " + getChildTableNameAsString() + " WHERE " + getParentLabelNamesAsList()[0] + "=@id";
+            //da.SelectCommand = new SqlCommand("SELECT * FROM Bus WHERE garage_id=@id", cs);
+            da.SelectCommand = new SqlCommand(sqlCommand, cs);
+            da.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            ds1.Clear();
+            ds1.Clear();
+            da.Fill(ds1);
+
+            List<string> list_of_types = getChildTypesAsList();
+            list_of_types.RemoveAt(list_of_types.Count - 1);
+
+            Type[] types = new Type[list_of_types.Count];
+
+            int i = 0;
+
+            foreach (string type in list_of_types)
+            {
+                if (type.Equals("int"))
+                {
+                    types[i] = typeof(int);
+                }
+                else if (type.Equals("string"))
+                {
+                    types[i] = typeof(string);
+                }
+                else if (type.Equals("float"))
+                {
+                    types[i] = typeof(double);
+                }
+                else if (type.Equals("short"))
+                {
+                    types[i] = typeof(Int16);
+                }
+                i++;
+            }
+
+            ListStore storee = new ListStore(types);
+
+            object[] data = new object[getChildLabelNamesAsList().Count];
+
+            foreach (DataRow row in ds1.Tables[0].Rows)
+            {
+                // Add a new node to the tree for each row in the DataSet
+                for (int j = 0; j < data.Length; j++)
+                    data[j] = row[j];
+                storee.AppendValues(data);
+
+            }
+
+            childTreeview.Model = storee;
+        }
     }
 
     protected void rowActiveParentTree(object o, RowActivatedArgs args)
@@ -117,7 +223,7 @@ public partial class MainWindow : Gtk.Window
         }
         if (id != -1)
         {
-            string sqlCommand = "SELECT * FROM " + ConfigurationManager.AppSettings["ChildTableName"] + " WHERE " + ConfigurationManager.AppSettings["ParentLabelNames"].Split(',').ToList()[0] + "=@id";
+            string sqlCommand = "SELECT * FROM " + getChildTableNameAsString() + " WHERE " + getParentLabelNamesAsList()[0] + "=@id";
             //da.SelectCommand = new SqlCommand("SELECT * FROM Bus WHERE garage_id=@id", cs);
             da.SelectCommand = new SqlCommand(sqlCommand, cs);
             da.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
@@ -129,8 +235,8 @@ public partial class MainWindow : Gtk.Window
             if (createdChild == false)
             {
 
-                List<string> ChildLabelNames = ConfigurationManager.AppSettings["ChildLabelNames"].Split(',').ToList();
-                ChildLabelNames.RemoveAt(ChildLabelNames.Count - 1);
+                List<string> ChildLabelNames = getChildLabelNamesAsList();
+                ChildLabelNames.RemoveAt(ChildLabelNames.Count - 1); // we dont need foreign key to parent.
 
                 List<TreeViewColumn> columns = new List<TreeViewColumn>();
                 int i = 0;
@@ -151,8 +257,8 @@ public partial class MainWindow : Gtk.Window
                 }
 
 
-                List<string> list_of_types = ConfigurationManager.AppSettings["ChildTypes"].Split(',').ToList();
-                list_of_types.RemoveAt(list_of_types.Count - 1);
+                List<string> list_of_types = getChildTypesAsList();
+                list_of_types.RemoveAt(list_of_types.Count - 1); // we dont need foreign key type to parent.
 
                 Type[] types = new Type[list_of_types.Count];
 
@@ -182,12 +288,17 @@ public partial class MainWindow : Gtk.Window
                 ListStore storee = new ListStore(types);
 
 
+                object[] data = new object[getChildLabelNamesAsList().Count];
+
                 foreach (DataRow row in ds1.Tables[0].Rows)
                 {
                     // Add a new node to the tree for each row in the DataSet
-                    TreeIter iters = storee.AppendValues((int)row["bus_id"], row["company"].ToString(), (int)row["number_of_seats"], (double)row["price"], row["departure"].ToString(), row["destination"].ToString());
+                    for (int j = 0; j < data.Length; j++)
+                        data[j] = row[j];
+                    storee.AppendValues(data);
 
                 }
+
 
                 childTreeview.Model = storee;
 
@@ -195,60 +306,69 @@ public partial class MainWindow : Gtk.Window
             }
             else
             {
-                List<string> list_of_types = ConfigurationManager.AppSettings["ChildTypes"].Split(',').ToList();
-                list_of_types.RemoveAt(list_of_types.Count - 1);
-
-                Type[] types = new Type[list_of_types.Count];
-
-                int i = 0;
-
-                foreach (string type in list_of_types)
-                {
-                    if (type.Equals("int"))
-                    {
-                        types[i] = typeof(int);
-                    }
-                    else if (type.Equals("string"))
-                    {
-                        types[i] = typeof(string);
-                    }
-                    else if (type.Equals("float"))
-                    {
-                        types[i] = typeof(double);
-                    }
-                    else if (type.Equals("short"))
-                    {
-                        types[i] = typeof(Int16);
-                    }
-                    i++;
-                }
-
-                ListStore storee = new ListStore(types);
-
-
-                foreach (DataRow row in ds1.Tables[0].Rows)
-                {
-                    // Add a new node to the tree for each row in the DataSet
-                    TreeIter iters = storee.AppendValues((int)row["bus_id"], row["company"].ToString(), (int)row["number_of_seats"], (double)row["price"], row["departure"].ToString(), row["destination"].ToString());
-
-                }
-
-                childTreeview.Model = storee;
+                reloadChildTreeView();
 
             }
         }
+    }
+
+    private bool checkEmptyEntries()
+    {
+        foreach (Entry entry in entries)
+        {
+            if (entry.Text.Length == 0)
+                return false;
+        }
+        return true;
+    }
+
+    private string getChildLabelNamesAsString()
+    {
+        return ConfigurationManager.AppSettings["ChildLabelNames"];
+    }
+
+    private List<SqlDbType> getSqlDbTypesAsList(List<string> types)
+    {
+
+        List<SqlDbType> dbTypes = new List<SqlDbType>();
+        int i = 0;
+        foreach (string type in types)
+        {
+            if (type.Equals("int"))
+            {
+                dbTypes.Add(new SqlDbType());
+                dbTypes[i] = SqlDbType.Int;
+            }
+            else if (type.Equals("string"))
+            {
+                dbTypes.Add(new SqlDbType());
+                dbTypes[i] = SqlDbType.VarChar;
+            }
+            else if (type.Equals("float"))
+            {
+                dbTypes.Add(new SqlDbType());
+                dbTypes[i] = SqlDbType.Float;
+            }
+            else if (type.Equals("short"))
+            {
+                dbTypes.Add(new SqlDbType());
+                dbTypes[i] = SqlDbType.SmallInt;
+            }
+            i++;
+        }
+        return dbTypes;
     }
 
     protected void addBtn(object sender, EventArgs e)
     {
         if (firstFree == -1)
         {
-            string helpCommand = "SELECT * FROM " + ConfigurationManager.AppSettings["ChildTableName"];
+            string helpCommand = "SELECT * FROM " + getChildTableNameAsString();
             da.SelectCommand = new SqlCommand(helpCommand, cs);
             DataSet helpData = new DataSet();
             helpData.Clear();
             da.Fill(helpData);
-            string id = ConfigurationManager.AppSettings["ChildLabelNames"].Split(',').ToList()[0];
+            string id = getChildLabelNamesAsList()[0];
             foreach (DataRow row in helpData.Tables[0].Rows)
             {
                 firstFree = (int)row[id];
@@ -257,17 +377,16 @@ public partial class MainWindow : Gtk.Window
 
         try
         {
-            foreach(Entry entry in entries)
+
+            if(checkEmptyEntries() == false)
             {
-                if(entry.Text.Length == 0)
-                {
-                    MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "One of the fields is empty!");
-                    md.Run();
-                    md.Destroy();
-                }
+                MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "One of the fields is empty!");
+                md.Run();
+                md.Destroy();
             }
-            string build_insert = "INSERT INTO " + ConfigurationManager.AppSettings["ChildTableName"] + "(" + ConfigurationManager.AppSettings["ChildLabelNames"] + ") VALUES(";
-            List<string> add_at_before_variables = ConfigurationManager.AppSettings["ChildLabelNames"].Split(',').ToList();
+
+            string build_insert = "INSERT INTO " + getChildTableNameAsString() + "(" + getChildLabelNamesAsString() + ") VALUES(";
+            List<string> add_at_before_variables = getChildLabelNamesAsList();
 
             for (int j = 0; j < add_at_before_variables.Count - 1; j++)
                 add_at_before_variables[j] = "@" + add_at_before_variables[j] + ", ";
@@ -280,7 +399,7 @@ public partial class MainWindow : Gtk.Window
             }
 
             build_insert += ")";
-            List<string> childLabelNames = ConfigurationManager.AppSettings["ChildLabelNames"].Split(',').ToList();
+            List<string> childLabelNames = getChildLabelNamesAsList();
 
             da.InsertCommand = new SqlCommand(build_insert, cs);
             firstFree++;
@@ -289,37 +408,13 @@ public partial class MainWindow : Gtk.Window
 
             childLabelNames.RemoveAt(0);
 
-            List<string> types = ConfigurationManager.AppSettings["ChildTypes"].Split(',').ToList();
-            types.RemoveAt(0);
+            List<string> types = getChildTypesAsList();
+            types.RemoveAt(0); // remove primary key.
 
 
-            List<SqlDbType> dbTypes = new List<SqlDbType>();
-            int i = 0;
-            foreach(string type in types)
-            {
-                if (type.Equals("int"))
-                {
-                    dbTypes.Add(new SqlDbType());
-                    dbTypes[i] = SqlDbType.Int;
-                }
-                else if(type.Equals("string"))
-                {
-                    dbTypes.Add(new SqlDbType());
-                    dbTypes[i] = SqlDbType.VarChar;
-                }
-                else if (type.Equals("float"))
-                {
-                    dbTypes.Add(new SqlDbType());
-                    dbTypes[i] = SqlDbType.Float;
-                }
-                else if(type.Equals("short"))
-                {
-                    dbTypes.Add(new SqlDbType());
-                    dbTypes[i] = SqlDbType.SmallInt;
-                }
-                i++;
-            }
+            List<SqlDbType> dbTypes = getSqlDbTypesAsList(types);
 
+            int i;
             for (i = 0; i < types.Count - 1; i++)
             {
                 if(dbTypes[i] == SqlDbType.Int)
@@ -356,10 +451,13 @@ public partial class MainWindow : Gtk.Window
             mds.Run();
             mds.Destroy();
             cs.Close();
+            reloadChildTreeView();
+            makeEntriesEmpty();
+
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "There was an error.");
+            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, ex.ToString());
             mds1.Run();
             mds1.Destroy();
             cs.Close();
@@ -370,7 +468,10 @@ public partial class MainWindow : Gtk.Window
     {
         try
         {
-            da.DeleteCommand = new SqlCommand("DELETE FROM Bus WHERE bus_id=@id", cs);
+            string helpCommand = "DELETE FROM " + getChildTableNameAsString() + " WHERE ";
+            List<string> ChildLabelNames = getChildLabelNamesAsList();
+            helpCommand += ChildLabelNames.ElementAt(0) + "=@id";
+            da.DeleteCommand = new SqlCommand(helpCommand, cs);
 
             TreeSelection selection = childTreeview.Selection;
             int id = -1;
@@ -381,11 +482,12 @@ public partial class MainWindow : Gtk.Window
             }
             if (id == -1)
             {
-                MessageDialog mds = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Yooo! Select a bus first..");
+                MessageDialog mds = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Yooo! Select the child first..");
                 mds.Run();
                 mds.Destroy();
                 throw new Exception("error");
             }
+
             da.DeleteCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cs.Open();
             da.DeleteCommand.ExecuteNonQuery();
@@ -393,11 +495,13 @@ public partial class MainWindow : Gtk.Window
             md.Run();
             md.Destroy();
             cs.Close();
+            reloadChildTreeView();
+            makeEntriesEmpty();
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "There was an error.");
+            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, ex.ToString());
             mds1.Run();
             mds1.Destroy();
             cs.Close();
@@ -407,20 +511,60 @@ public partial class MainWindow : Gtk.Window
     {
         try
         {
-            /*
-            if (companyEntry.Text.Length == 0 || seatsEntry.Text.Length == 0 || priceEntry.Text.Length == 0 || departureEntry.Text.Length == 0 || destinationEntry.Text.Length == 0)
+            if(checkEmptyEntries() == false)
             {
                 MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "One of the fields is empty!");
                 md.Run();
                 md.Destroy();
             }
-            da.UpdateCommand = new SqlCommand("UPDATE Bus SET company=@company,number_of_seats=@number_of_seats, price=@price, departure=@departure, destination=@destination WHERE bus_id=@bus_id", cs);
-            da.UpdateCommand.Parameters.Add("@company", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
-            da.UpdateCommand.Parameters.Add("@number_of_seats", SqlDbType.Int).Value = int.Parse(seatsEntry.Text);
-            da.UpdateCommand.Parameters.Add("@price", SqlDbType.Float).Value = Double.Parse(priceEntry.Text);
-            da.UpdateCommand.Parameters.Add("@departure", SqlDbType.VarChar).Value = departureEntry.Text.Trim();
-            da.UpdateCommand.Parameters.Add("@destination", SqlDbType.VarChar).Value = destinationEntry.Text.Trim();
-            */
+
+            string helpCommand = "UPDATE " + getChildTableNameAsString() + " SET ";
+            List<string> childLabelNamesWithoutFK = getChildLabelNamesAsList();
+            childLabelNamesWithoutFK.RemoveAt(childLabelNamesWithoutFK.Count - 1); // remove foreign key to parent.
+
+            int i;
+            for (i = 1; i < childLabelNamesWithoutFK.Count; i++)
+            {
+                if (i != childLabelNamesWithoutFK.Count - 1)
+                    helpCommand += childLabelNamesWithoutFK[i] + "=@" + childLabelNamesWithoutFK[i] + ", ";
+                else
+                    helpCommand += childLabelNamesWithoutFK[i] + "=@" + childLabelNamesWithoutFK[i];
+            }
+            helpCommand += " WHERE " + childLabelNamesWithoutFK[0] + "=@" + childLabelNamesWithoutFK[0];
+
+            Console.WriteLine(helpCommand);
+
+
+            da.UpdateCommand = new SqlCommand(helpCommand, cs);
+
+
+            List<string> types = getChildTypesAsList();
+            types.RemoveAt(0); // remove primary key
+            types.RemoveAt(types.Count - 1); // remove foreign key
+
+            List<SqlDbType> dbTypes = getSqlDbTypesAsList(types);
+
+
+            for (i = 0; i < types.Count; i++)
+            {
+
+                if (dbTypes[i] == SqlDbType.Int)
+                {
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = int.Parse(entries[i].Text);
+                }
+                else if (dbTypes[i] == SqlDbType.VarChar)
+                {
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = entries[i].Text.Trim();
+                }
+                else if (dbTypes[i] == SqlDbType.Float)
+                {
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = double.Parse(entries[i].Text);
+                }
+                else if (dbTypes[i] == SqlDbType.SmallInt)
+                {
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = short.Parse(entries[i].Text);
+                }
+            }
             TreeSelection selection = childTreeview.Selection;
             int id = -1;
             if (selection.GetSelected(out TreeModel model, out TreeIter iter))
@@ -435,23 +579,21 @@ public partial class MainWindow : Gtk.Window
                 mdss.Destroy();
                 throw new Exception("error");
             }
-            da.UpdateCommand.Parameters.Add("@bus_id", SqlDbType.Int).Value = id;
-            Console.WriteLine("bus_id: ");
-            Console.WriteLine(id);
+            da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[0], SqlDbType.Int).Value = id;
+
             cs.Open();
-            Console.WriteLine("HI");
             da.UpdateCommand.ExecuteNonQuery();
-            Console.WriteLine("WOW");
             MessageDialog mds = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Updated succesfully to the Database");
             mds.Run();
             mds.Destroy();
             cs.Close();
+            reloadChildTreeView();
+            makeEntriesEmpty();
 
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.ToString());
-            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "There was an error.");
+            MessageDialog mds1 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, ex.ToString());
             mds1.Run();
             mds1.Destroy();
             cs.Close();
@@ -463,15 +605,8 @@ public partial class MainWindow : Gtk.Window
         TreeSelection selection = childTreeview.Selection;
         if (selection.GetSelected(out TreeModel model, out TreeIter iter))
         {
-            /*
-            // Access the data in the active row
-            companyEntry.Text = model.GetValue(iter, 1).ToString();
-            seatsEntry.Text = model.GetValue(iter, 2).ToString();
-            priceEntry.Text = model.GetValue(iter, 3).ToString();
-            departureEntry.Text = model.GetValue(iter, 4).ToString();
-            destinationEntry.Text = model.GetValue(iter, 5).ToString();
-            */
-            return;
+            for (int i = 0; i < entries.Count; i++)
+                entries[i].Text = model.GetValue(iter, i + 1).ToString();
         }
     }
 
@@ -503,12 +638,9 @@ public partial class MainWindow : Gtk.Window
             i++;
         }
 
-
         // Add the table to the frame
         entriesFrame.Add(table);
 
         ShowAll();
     }
-
-
 }
