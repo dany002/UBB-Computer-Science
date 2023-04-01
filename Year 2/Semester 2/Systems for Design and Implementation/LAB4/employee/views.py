@@ -198,7 +198,7 @@ class EmployeeTeamView(APIView):
     #         return Response(serializer.data)
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def put(self, request, pk, format=None):
+    def post(self, request, pk, format=None):
         team = self.get_object(pk)
         employee_ids = request.data['list_of_ids']
         employees = []
