@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
+  <import>
+    <widget-library name="../bin/Debug/LAB2.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="1543 961">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.Fixed" id="fixed1">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Button" id="connectButton">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Connect</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="connectBtn" />
+          </widget>
+          <packing>
+            <property name="X">126</property>
+            <property name="Y">33</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TreeView" id="parentTreeView">
+                <property name="MemberName" />
+                <property name="WidthRequest">500</property>
+                <property name="HeightRequest">300</property>
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <signal name="RowActivated" handler="rowActiveParentTree" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">32</property>
+            <property name="Y">95</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="deleteButton">
+            <property name="MemberName" />
+            <property name="WidthRequest">100</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Delete</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="deleteBtn" />
+          </widget>
+          <packing>
+            <property name="X">988</property>
+            <property name="Y">456</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="updateButton">
+            <property name="MemberName" />
+            <property name="WidthRequest">100</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Update</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="updateBtn" />
+          </widget>
+          <packing>
+            <property name="X">844</property>
+            <property name="Y">454</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="addButton">
+            <property name="MemberName" />
+            <property name="WidthRequest">100</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Add</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="addBtn" />
+          </widget>
+          <packing>
+            <property name="X">687</property>
+            <property name="Y">456</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow1">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TreeView" id="childTreeview">
+                <property name="MemberName" />
+                <property name="WidthRequest">600</property>
+                <property name="HeightRequest">300</property>
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <signal name="RowActivated" handler="ChildActivated" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">703</property>
+            <property name="Y">91</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="loadButton">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">LoadButton</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="populateFrame" />
+          </widget>
+          <packing>
+            <property name="X">1138</property>
+            <property name="Y">455</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Frame" id="entriesFrame">
+            <property name="MemberName" />
+            <property name="WidthRequest">400</property>
+            <property name="HeightRequest">400</property>
+            <property name="ShadowType">None</property>
+            <child>
+              <widget class="Gtk.Alignment" id="GtkAlignment">
+                <property name="MemberName" />
+                <property name="Xalign">0</property>
+                <property name="Yalign">0</property>
+                <property name="LeftPadding">12</property>
+                <child>
+                  <placeholder />
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="GtkLabel5">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">&lt;b&gt;GtkFrame&lt;/b&gt;</property>
+                <property name="UseMarkup">True</property>
+              </widget>
+              <packing>
+                <property name="type">label_item</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">704</property>
+            <property name="Y">527</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
