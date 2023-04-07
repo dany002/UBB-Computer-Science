@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vertically Sliding Desktop</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .desktop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .desktop-1 {
+      background-color: rgba(255, 255, 255, 0.5);
+      background-image: url('resources/sun.jpg');
+    }
+    .desktop-2 {
+      background-color: rgba(255, 0, 0, 0.5);
+      background-image: url('resources/mercury.jpg');
+    }
+    .desktop-3 {
+      background-color: rgba(0, 255, 0, 0.5);
+      background-image: url('resources/venus.jpg');
+    }
+    .desktop-4 {
+      background-color: rgba(0, 0, 255, 0.5);
+      background-image: url('resources/earth.jpg');
+    }
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      font-size: 3em;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Hide all desktops except the first one
+      $('.desktop').not(':first').hide();
+
+      // Handle desktop click event
+      $('.desktop').on('click', function() {
+        // Check if the clicked desktop is not the last one
+        if (!$(this).next().length) {
+            $(this).slideUp('slow');
+            $('.desktop').first().slideDown('slow');
+        }
+        else {
+          // Slide down the current desktop
+          $(this).slideUp('slow');
+          // Slide up the next desktop
+          $(this).next().slideDown('slow');
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="desktop desktop-1">
+  <div class="content">
+    Desktop 1 Content
+  </div>
+</div>
+<div class="desktop desktop-2">
+  <div class="content">
+    Desktop 2 Content
+  </div>
+</div>
+<div class="desktop desktop-3">
+  <div class="content">
+    Desktop 3 Content
+  </div>
+</div>
+<div class="desktop desktop-4">
+  <div class="content">
+    Desktop 4 Content
+  </div>
+</div>
+</body>
+</html>

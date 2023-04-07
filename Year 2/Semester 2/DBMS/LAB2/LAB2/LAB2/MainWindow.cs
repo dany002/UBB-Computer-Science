@@ -141,7 +141,7 @@ public partial class MainWindow : Gtk.Window
 
     private void makeEntriesEmpty()
     {
-        foreach(Entry entry in entries)
+        foreach (Entry entry in entries)
         {
             entry.Text = "";
         }
@@ -193,10 +193,9 @@ public partial class MainWindow : Gtk.Window
                 }
                 i++;
             }
-
             ListStore storee = new ListStore(types);
 
-            object[] data = new object[getChildLabelNamesAsList().Count];
+            object[] data = new object[getChildLabelNamesAsList().Count - 1];
 
             foreach (DataRow row in ds1.Tables[0].Rows)
             {
@@ -288,7 +287,9 @@ public partial class MainWindow : Gtk.Window
                 ListStore storee = new ListStore(types);
 
 
-                object[] data = new object[getChildLabelNamesAsList().Count];
+                //object[] data = new object[getChildLabelNamesAsList().Count];
+
+                object[] data = new object[getChildLabelNamesAsList().Count - 1];
 
                 foreach (DataRow row in ds1.Tables[0].Rows)
                 {
@@ -298,14 +299,13 @@ public partial class MainWindow : Gtk.Window
                     storee.AppendValues(data);
 
                 }
-
-
                 childTreeview.Model = storee;
 
                 createdChild = true;
             }
             else
             {
+
                 reloadChildTreeView();
 
             }
@@ -378,7 +378,7 @@ public partial class MainWindow : Gtk.Window
         try
         {
 
-            if(checkEmptyEntries() == false)
+            if (checkEmptyEntries() == false)
             {
                 MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "One of the fields is empty!");
                 md.Run();
@@ -393,7 +393,7 @@ public partial class MainWindow : Gtk.Window
 
             add_at_before_variables[add_at_before_variables.Count - 1] = "@" + add_at_before_variables[add_at_before_variables.Count - 1];
 
-            foreach(string variable in add_at_before_variables)
+            foreach (string variable in add_at_before_variables)
             {
                 build_insert += variable;
             }
@@ -417,19 +417,19 @@ public partial class MainWindow : Gtk.Window
             int i;
             for (i = 0; i < types.Count - 1; i++)
             {
-                if(dbTypes[i] == SqlDbType.Int)
+                if (dbTypes[i] == SqlDbType.Int)
                 {
                     da.InsertCommand.Parameters.Add("@" + childLabelNames[i], dbTypes[i]).Value = int.Parse(entries[i].Text);
                 }
-                else if(dbTypes[i] == SqlDbType.VarChar)
+                else if (dbTypes[i] == SqlDbType.VarChar)
                 {
                     da.InsertCommand.Parameters.Add("@" + childLabelNames[i], dbTypes[i]).Value = entries[i].Text.Trim();
                 }
-                else if(dbTypes[i] == SqlDbType.Float)
+                else if (dbTypes[i] == SqlDbType.Float)
                 {
                     da.InsertCommand.Parameters.Add("@" + childLabelNames[i], dbTypes[i]).Value = double.Parse(entries[i].Text);
                 }
-                else if(dbTypes[i] == SqlDbType.SmallInt)
+                else if (dbTypes[i] == SqlDbType.SmallInt)
                 {
                     da.InsertCommand.Parameters.Add("@" + childLabelNames[i], dbTypes[i]).Value = short.Parse(entries[i].Text);
 
@@ -511,7 +511,7 @@ public partial class MainWindow : Gtk.Window
     {
         try
         {
-            if(checkEmptyEntries() == false)
+            if (checkEmptyEntries() == false)
             {
                 MessageDialog md = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "One of the fields is empty!");
                 md.Run();
@@ -550,19 +550,19 @@ public partial class MainWindow : Gtk.Window
 
                 if (dbTypes[i] == SqlDbType.Int)
                 {
-                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = int.Parse(entries[i].Text);
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i + 1], dbTypes[i]).Value = int.Parse(entries[i].Text);
                 }
                 else if (dbTypes[i] == SqlDbType.VarChar)
                 {
-                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = entries[i].Text.Trim();
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i + 1], dbTypes[i]).Value = entries[i].Text.Trim();
                 }
                 else if (dbTypes[i] == SqlDbType.Float)
                 {
-                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = double.Parse(entries[i].Text);
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i + 1], dbTypes[i]).Value = double.Parse(entries[i].Text);
                 }
                 else if (dbTypes[i] == SqlDbType.SmallInt)
                 {
-                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i+1], dbTypes[i]).Value = short.Parse(entries[i].Text);
+                    da.UpdateCommand.Parameters.Add("@" + childLabelNamesWithoutFK[i + 1], dbTypes[i]).Value = short.Parse(entries[i].Text);
                 }
             }
             TreeSelection selection = childTreeview.Selection;
