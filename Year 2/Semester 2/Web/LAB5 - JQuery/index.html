@@ -55,12 +55,13 @@
       $('.desktop').on('click', function() {
         // Check if the clicked desktop is not the last one
         if (!$(this).next().length) {
-            $(this).slideUp('slow');
+            $(this).slideDown('slow');
+
             $('.desktop').first().slideDown('slow');
         }
         else {
           // Slide down the current desktop
-          $(this).slideUp('slow');
+          $(this).slideDown('slow');
           // Slide up the next desktop
           $(this).next().slideDown('slow');
         }
