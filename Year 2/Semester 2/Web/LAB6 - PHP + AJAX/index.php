@@ -17,6 +17,7 @@ include 'database.php';
     <script src="ajax.js"></script>
 </head>
 <body>
+
 <div class="container">
     <p id="success"></p>
     <div class="table-wrapper">
@@ -30,6 +31,17 @@ include 'database.php';
                     <a href="JavaScript:void(0);" class="btn btn-danger" id="delete_multiple"><i class="material-icons"></i> <span>Delete</span></a>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-2">
+            <input type="text" id="filter" name="filter" class="form-control" placeholder="Filter by type or format">
+
+            <!--            <label for="typeFilter">Type:</label>-->
+<!--            <select id="typeFilter" class="form-control">-->
+<!--                <option value="">All</option>-->
+<!--                <option value="wddsa">dsa</option>-->
+<!--                <option value="Document Type 2">Document Type 2</option>-->
+<!--                Add more options based on your document types  -->
+<!--            </select>-->
         </div>
         <table class="table table-striped table-hover">
             <thead>

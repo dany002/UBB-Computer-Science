@@ -94,7 +94,7 @@ $(document).on("click", "#delete", function() {
     });
 });
 
-$(document).on("click", "#delete_multiple", function() {
+$(document).on("click", "#delete_mul", function() {
     var user = [];
     $(".user_checkbox:checked").each(function() {
         user.push($(this).data('user-id'));
@@ -148,3 +148,42 @@ $(document).ready(function(){
         }
     });
 });
+
+$(document).ready(function() {
+    // Retrieve the filter value from localStorage if available
+    var savedFilter = localStorage.getItem('filter');
+    if (savedFilter) {
+        $('#filter').val(savedFilter);
+        fetchFilteredDocuments(savedFilter);
+    }
+
+    // Bind keyup event to filter input
+    $('#filter').on('keyup', function() {
+        // Get the filter value
+        var filterValue = $(this).val();
+
+        // Save the filter value to localStorage
+        localStorage.setItem('filter', filterValue);
+
+        // Make AJAX request to fetch filtered documents
+        fetchFilteredDocuments(filterValue);
+    });
+});
+
+function fetchFilteredDocuments(filter) {
+    $.ajax({
+        url: 'fetch_documents.php', // Update with the correct server-side script
+        method: 'POST',
+        data: { filter: filter }, // Pass the filter value as data
+        success: function(response) {
+            // Handle the response and update the table with the filtered documents
+            // You can use jQuery to manipulate the table DOM elements
+            // For example, you can replace the table body with the filtered documents
+            $('tbody').html(response);
+        },
+        error: function(xhr, status, error) {
+            // Handle the error case if the AJAX request fails
+            console.log(error);
+        }
+    });
+}
