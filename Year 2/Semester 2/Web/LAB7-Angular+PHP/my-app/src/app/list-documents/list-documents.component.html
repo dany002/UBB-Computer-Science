@@ -1,0 +1,23 @@
+<table class="table table-stripped">
+  <thead class="list">
+  <th>Sr. No</th>
+  <th>Author</th>
+  <th>Title</th>
+  <th>Pages</th>
+  <th>Types</th>
+  <th>Format</th>
+  <th>Actions</th>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let document of documents; let i = index;">
+    <td>{{i+1}}</td>
+    <td>{{document.author}}</td>
+    <td>{{document.title}}</td>
+    <td>{{document.pages}}</td>
+    <td>{{document.types}}</td>
+    <td>{{document.format}}</td>
+    <td>  <a href="edit/{{document.id}}" class="btn btn-success btn2">EDIT</a>    <button (click)="deleteDocument(document)" class="btn btn-danger"> Delete</button>  </td>
+  </tr>
+  </tbody>
+</table>
