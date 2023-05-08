@@ -109,7 +109,7 @@ include 'database.php';
 <div id="addDocumentModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="user_form">
+            <form id="user_form" onsubmit="return validateForm('user_form');">
                 <div class="modal-header">
                     <h4 class="modal-title">Add Document</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -117,11 +117,11 @@ include 'database.php';
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Author</label>
-                        <input type="text" id="author" name="author" class="form-control" required>
+                        <input type="text" id="author" name="author" class="form-control" pattern=".*\S.*" required>
                     </div>
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" id="title" name="title" class="form-control" required>
+                        <input type="text" id="title" name="title" class="form-control" pattern=".*\S.*" required>
                     </div>
                     <div class="form-group">
                         <label>Pages</label>
@@ -129,11 +129,11 @@ include 'database.php';
                     </div>
                     <div class="form-group">
                         <label>Types</label>
-                        <input type="text" id="types" name="types" class="form-control" required>
+                        <input type="text" id="types" name="types" class="form-control" pattern=".*\S.*" required>
                     </div>
                     <div class="form-group">
                         <label>Format</label>
-                        <input type="text" id="format" name="format" class="form-control" required>
+                        <input type="text" id="format" name="format" class="form-control" pattern=".*\S.*" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -149,7 +149,7 @@ include 'database.php';
 <div id="editDocumentModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="update_form">
+            <form id="update_form" onsubmit="return validateForm('update_form');">
                 <div class="modal-header">
                     <h4 class="modal-title">Edit User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -158,23 +158,23 @@ include 'database.php';
                     <input type="hidden" id="id_u" name="id" class="form-control" required>
                     <div class="form-group">
                         <label>Author</label>
-                        <input type="text" id="author_u" name="author" class="form-control" required>
+                        <input type="text" id="author_u" name="author" class="form-control" pattern=".*\S.*" required>
                     </div>
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" id="title_u" name="title" class="form-control" required>
+                        <input type="text" id="title_u" name="title" class="form-control" pattern=".*\S.*" required>
                     </div>
                     <div class="form-group">
                         <label>Pages</label>
-                        <input type="text" id="pages_u" name="pages" class="form-control" pattern="\d+"required>
+                        <input type="text" id="pages_u" name="pages" class="form-control" pattern="\d+" required>
                     </div>
                     <div class="form-group">
                         <label>Types</label>
-                        <input type="text" id="types_u" name="types" class="form-control" required>
+                        <input type="text" id="types_u" name="types" class="form-control" pattern=".*\S.*" required>
                     </div>
                     <div class="form-group">
                         <label>Format</label>
-                        <input type="text" id="format_u" name="format" class="form-control" required>
+                        <input type="text" id="format_u" name="format" class="form-control" pattern=".*\S.*" required>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -5,7 +5,30 @@ $(document).on('click','#btn-add',function(e) {
         alert('Please enter a numeric value for the Pages field.');
         return;
     }
+    var authorInput = $('#author');
+    if(!authorInput[0].checkValidity()){
+        alert('Please enter an author');
+        return;
+    }
 
+    var titleInput = $('#title');
+    if(!titleInput[0].checkValidity()){
+        alert('Please enter a title.');
+        return;
+    }
+
+
+    var typesInput = $('#types');
+    if(!typesInput[0].checkValidity()){
+        alert('Please enter a type');
+        return;
+    }
+
+    var formatInput = $('#format');
+    if(!formatInput[0].checkValidity()){
+        alert('Please enter format');
+        return;
+    }
 
     var data = $("#user_form").serialize();
     $.ajax({
@@ -50,6 +73,31 @@ $(document).on('click','#update',function(e) {
         alert('Please enter a numeric value for the Pages field.');
         return;
     }
+
+    var titleInput = $('#title_u');
+    if(!titleInput[0].checkValidity()){
+        alert('Please enter a title.');
+        return;
+    }
+
+    var authorInput = $('#author_u');
+    if(!authorInput[0].checkValidity()){
+        alert('Please enter an author');
+        return;
+    }
+
+    var typesInput = $('#types_u');
+    if(!typesInput[0].checkValidity()){
+        alert('Please enter a type');
+        return;
+    }
+
+    var formatInput = $('#format_u');
+    if(!formatInput[0].checkValidity()){
+        alert('Please enter format');
+        return;
+    }
+
 
     var data = $("#update_form").serialize();
     $.ajax({
