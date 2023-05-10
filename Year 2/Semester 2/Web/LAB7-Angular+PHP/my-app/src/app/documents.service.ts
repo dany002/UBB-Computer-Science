@@ -7,7 +7,7 @@ import { Document } from './Document';
 export class DocumentsService {
 
   constructor( private http: HttpClient) { }
-  baseUrl: string = 'http://localhost/crudmysql/';
+  baseUrl: string = 'http://localhost:8000/';
 
   getDocuments() {
     return this.http.get<Document[]>(this.baseUrl+'view.php');
