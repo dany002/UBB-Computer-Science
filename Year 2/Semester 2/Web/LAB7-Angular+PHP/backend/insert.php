@@ -45,35 +45,21 @@ elseif (empty(trim($data->author)) || empty(trim($data->title)) || empty(trim($d
 endif;
 
 try {
-    $author = htmlspecialchars(trim($data->first_name));
-    $title = htmlspecialchars(trim($data->last_name));
-    $pages = htmlspecialchars(trim($data->email));
-    $types = htmlspecialchars(trim($data->password));
-    $format = htmlspecialchars(trim($data->format));
 
-    #TODO SQL INJECTION
-    $query = "INSERT INTO Document(
-    author
-    title,
-    pages,
-    types,
-    format
-    ) 
-    VALUES(
-    :author,
-    :title,
-    :pages,
-    :types,
-    :format
-    )";
+    $author = $data->author;
+    $title = $data->title;
+    $pages = $data->pages;
+    $types = $data->types;
+    $format = $data->format;
 
-    $stmt = $conn->prepare($query);
 
-    $stmt->bindValue(':author', $author, PDO::PARAM_STR);
-    $stmt->bindValue(':title', $title, PDO::PARAM_STR);
-    $stmt->bindValue(':pages', $pages, PDO::PARAM_STR);
-    $stmt->bindValue(':types', $types, PDO::PARAM_STR);
-    $stmt->bindValue(':format', $format, PDO::PARAM_STR);
+    $stmt = $conn->prepare("INSERT INTO Document (author, title, pages, types, format) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bindParam(1, $author);
+    $stmt->bindParam(2, $title);
+    $stmt->bindParam(3, $pages);
+    $stmt->bindParam(4, $types);
+    $stmt->bindParam(5, $format);
+
 
     if ($stmt->execute()) {
 

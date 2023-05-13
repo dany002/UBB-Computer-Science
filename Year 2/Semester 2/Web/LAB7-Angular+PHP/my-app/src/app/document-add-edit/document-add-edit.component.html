@@ -1,0 +1,34 @@
+
+<div mat-dialog-title>
+  <h1>Document forms</h1>
+</div>
+<form [formGroup]="documentForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Author</mat-label>
+        <input matInput type="text" placeholder="ex. Gates" formControlName="author">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" placeholder="ex. Practica" formControlName="title">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Pages</mat-label>
+        <input matInput type="number" placeholder="ex. 13" formControlName="pages">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <input matInput type="text" placeholder="ex. Birocratie" formControlName="types">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Format</mat-label>
+        <input matInput type="text" placeholder="ex. PDF" formControlName="format">
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Update' : 'Save'}}</button>
+  </div>
+</form>

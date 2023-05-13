@@ -1,32 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpParams } from '@angular/common/http';
-import { Document } from './Document';
+import {AddDocumentDto, Document} from './Document';
+import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentsService {
 
   constructor( private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8000/';
 
-  getDocuments() {
-    return this.http.get<Document[]>(this.baseUrl+'view.php');
+  baseUrl: string = 'http://127.0.0.1:8000/';
+
+  getDocuments() : Observable<any>{
+    return this.http.get(this.baseUrl+'view.php') as Observable<any>;
   }
 
-  getSingleDocument(id:any) {
-    return this.http.get<Document[]>(this.baseUrl+'view.php?id='+id);
+  getSingleDocument(id:number): Observable<Document> {
+    return this.http.get(this.baseUrl+'view.php?id='+id) as Observable<Document>;
   }
 
-  deleteDocument(id:any) {
-    console.log(id);
-    return this.http.delete(this.baseUrl+'delete.php?id='+ id);
+  deleteDocument(id: string): Observable<any> {
+    return this.http.delete(this.baseUrl+'delete.php?id='+ id) as Observable<any>;
   }
 
-  createDocument(document:any) {
-    return this.http.post(this.baseUrl+'insert.php', document);
+  createDocument(document:AddDocumentDto): Observable<any> {
+    return this.http.post(this.baseUrl+'insert.php', document) as Observable<any>;
   }
 
-  editDocument(document:any) {
-    return this.http.put(this.baseUrl+'update.php', document);
+  editDocument(documentId: number, document:Document): Observable<Document> {
+    return this.http.put(this.baseUrl+`update.php?id=${documentId}`, document) as Observable<Document>; // no id for document ?
   }
 }

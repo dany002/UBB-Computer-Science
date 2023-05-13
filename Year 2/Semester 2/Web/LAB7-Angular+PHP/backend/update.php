@@ -25,8 +25,10 @@ $database = new Operations();
 $conn = $database->dbConnection();
 
 $data = json_decode(file_get_contents("php://input"));
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
-if (!isset($data->id)) {
+
+if ($id == null) {
     echo json_encode(['success' => 0, 'message' => 'Please enter correct Documents id.']);
     exit;
 }
@@ -34,9 +36,9 @@ if (!isset($data->id)) {
 try {
     $fetch_post = "SELECT * FROM Document WHERE id=:id";
     $fetch_stmt = $conn->prepare($fetch_post);
-    $fetch_stmt->bindValue(':id', $data->id, PDO::PARAM_INT);
+    $fetch_stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $fetch_stmt->execute();
-
+    //echo "HI";
     if ($fetch_stmt->rowCount() > 0) :
         $row = $fetch_stmt->fetch(PDO::FETCH_ASSOC);
         $author = isset($data->author) ? $data->author : $row['author'];
@@ -45,23 +47,17 @@ try {
         $types = isset($data->types) ? $data->types : $row['types'];
         $format = isset($data->format) ? $data->format : $row['format'];
 
-        $update_query = "UPDATE Document SET author = :author, title = :title, pages = :pages, types = :types,
-        format = :format
-        WHERE id = :id";
+        $stmt = $conn->prepare("UPDATE Document SET author = ?, title = ?, pages = ?, types = ?, format = ? WHERE id = ?");
 
-        $update_stmt = $conn->prepare($update_query);
+        $stmt->bindParam(1, $author);
+        $stmt->bindParam(2, $title);
+        $stmt->bindParam(3, $pages);
+        $stmt->bindParam(4, $types);
+        $stmt->bindParam(5, $format);
+        $stmt->bindParam(6, $id);
 
-        $update_stmt->bindValue(':author', htmlspecialchars(strip_tags($author)), PDO::PARAM_STR);
-        $update_stmt->bindValue(':title', htmlspecialchars(strip_tags($title)), PDO::PARAM_STR);
-        $update_stmt->bindValue(':pages', $pages, PDO::PARAM_INT);
 
-        $update_stmt->bindValue(':types', htmlspecialchars(strip_tags($types)), PDO::PARAM_STR);
-
-        $update_stmt->bindValue(':format', htmlspecialchars(strip_tags($format)), PDO::PARAM_STR);
-
-        $update_stmt->bindValue(':id', $data->id, PDO::PARAM_INT);
-
-        if ($update_stmt->execute()) {
+        if ($stmt->execute()) {
             echo json_encode([
                 'success' => 1,
                 'message' => 'Record updated successfully'
