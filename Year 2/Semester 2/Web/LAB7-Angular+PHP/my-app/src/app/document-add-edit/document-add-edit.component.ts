@@ -13,7 +13,7 @@ import {Document} from "../Document";
 })
 export class DocumentAddEditComponent implements OnInit{
   documentForm: FormGroup;
-
+  errorMessage = "";
   constructor(
     private form_builder: FormBuilder,
     private apiSrv: DocumentsService,
@@ -43,7 +43,8 @@ export class DocumentAddEditComponent implements OnInit{
             this.dialogRef.close(true);
           },
           error: (err) =>{
-            console.error(err);
+            this.errorMessage = err.error.message;
+            this._coreService.openSnackBar(this.errorMessage, 'done');
           }
         })
       }
@@ -56,7 +57,8 @@ export class DocumentAddEditComponent implements OnInit{
             this.dialogRef.close(true);
           },
           error: (err) =>{
-            console.error(err);
+            this.errorMessage = err.error.message;
+            this._coreService.openSnackBar(this.errorMessage, 'done');
           }
         })
       }

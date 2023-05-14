@@ -17,10 +17,12 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DocumentAddEditComponent
+    DocumentAddEditComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

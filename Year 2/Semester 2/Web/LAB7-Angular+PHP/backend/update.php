@@ -56,6 +56,14 @@ try {
         $stmt->bindParam(5, $format);
         $stmt->bindParam(6, $id);
 
+        if (empty(trim($data->author)) || empty(trim($data->title)) || empty(trim($data->pages)) || empty(trim($data->types)) || empty($data->format)) {
+            http_response_code(400);
+            echo json_encode([
+                'success' => 0,
+                'message' => 'Field cannot be empty. Please fill all the fields.',
+            ]);
+            exit;
+        }
 
         if ($stmt->execute()) {
             echo json_encode([

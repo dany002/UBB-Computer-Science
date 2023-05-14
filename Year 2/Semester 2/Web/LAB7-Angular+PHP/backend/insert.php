@@ -28,6 +28,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 
 if (!isset($data->author) || !isset($data->title) || !isset($data->pages) || !isset($data->types) || !isset($data->format)):
+    http_response_code(400);
     echo json_encode([
         'success' => 0,
         'message' => 'Please enter compulsory fileds |  Author, Title, Pages, Types, Format',
@@ -35,7 +36,7 @@ if (!isset($data->author) || !isset($data->title) || !isset($data->pages) || !is
     exit;
 
 elseif (empty(trim($data->author)) || empty(trim($data->title)) || empty(trim($data->pages)) || empty(trim($data->types)) || empty($data->format)) :
-
+    http_response_code(400);
     echo json_encode([
         'success' => 0,
         'message' => 'Field cannot be empty. Please fill all the fields.',

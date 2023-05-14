@@ -7,6 +7,9 @@ import {MatDialog} from "@angular/material/dialog";
 import {DocumentsService} from "./documents.service";
 import {CoreService} from "./core/core.service";
 import {DocumentAddEditComponent} from "./document-add-edit/document-add-edit.component";
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+
+
 
 @Component({
   selector: 'app-root',
@@ -67,6 +70,19 @@ export class AppComponent implements OnInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  confirmDelete(documentId: string) {
+    const dialogRef = this._dialog.open(ConfirmationDialogComponent, {
+      data: 'Are you sure you want to delete this document?',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // User confirmed the deletion, call the deleteFruit method
+        this.deleteFruit(documentId);
+      }
+    });
   }
 
   deleteFruit(documentId: string){
