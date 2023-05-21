@@ -1,0 +1,56 @@
+<div class="main-body">
+  <h2>WESD</h2>
+  <h6>WESD</h6>
+
+
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let innerIndex = index">{{innerIndex + 1 + ((paginator.pageIndex)  * paginator.pageSize)}}.</td>
+      </ng-container>
+
+      <ng-container matColumnDef="content">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Content </th>
+        <td mat-cell *matCellDef="let row"> {{row.content}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_by">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Created by </th>
+        <td mat-cell *matCellDef="let row"> {{row.user.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="CommentDetails(row.commentId)">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of comments"></mat-paginator>
+  </div>
+
+  <div class="add-comment-container">
+    <mat-form-field>
+      <mat-label>Add a comment</mat-label>
+      <input matInput placeholder="Add a comment" (input)="onCommentNameChange($event)">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addComment()">Add Comment</button>
+  </div>
+
+</div>

@@ -1,0 +1,57 @@
+<div class="main-body">
+  <h2>WESD</h2>
+  <h6>WESD</h6>
+
+  <div class="add-topic-container">
+    <mat-form-field>
+      <mat-label>Topic Name</mat-label>
+      <input matInput placeholder="Enter topic name" (input)="onTopicNameChange($event)">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addTopic()">Add Topic</button>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let innerIndex = index">{{innerIndex + 1 + ((paginator.pageIndex)  * paginator.pageSize)}}.</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_by">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Created by </th>
+        <td mat-cell *matCellDef="let row"> {{row.user.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="TopicDetails(row.topicId)">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of topics"></mat-paginator>
+  </div>
+
+
+
+
+</div>
