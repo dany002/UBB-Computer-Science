@@ -34,9 +34,6 @@ public class TopicController {
 
     @GetMapping("")
     public List<Topic> getAllTopics() {
-        System.out.println("HI all topics");
-        System.out.println(topicService.getAllTopics());
-        System.out.println("TADAM");
         return this.topicService.getAllTopics();
     }
 

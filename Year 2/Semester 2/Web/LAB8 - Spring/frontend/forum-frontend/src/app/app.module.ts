@@ -23,6 +23,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialogModule} from "@angular/material/dialog";
 import { TopicDetailsComponent } from './topic-details/topic-details.component';
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { TopicDetailsComponent } from './topic-details/topic-details.component';
     LogInComponent,
     RegisterComponent,
     TopicsComponent,
-    TopicDetailsComponent
+    TopicDetailsComponent,
+    ConfirmationDialogComponent,
+
   ],
     imports: [
         BrowserModule,
@@ -50,7 +55,8 @@ import { TopicDetailsComponent } from './topic-details/topic-details.component';
         MatSortModule,
         MatIconModule,
         MatPaginatorModule,
-        MatDialogModule
+        MatDialogModule,
+        MatSnackBarModule
     ],
   providers: [],
   bootstrap: [AppComponent]

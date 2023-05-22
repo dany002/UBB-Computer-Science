@@ -7,8 +7,11 @@ import {AuthService} from "../auth.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
-import {Comment} from "../Model/Comment";
+import {Comment, CommentUpdateDTO} from "../Model/Comment";
 import {Observable} from "rxjs";
+import {CoreService} from "../core.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-topic-details',
@@ -21,16 +24,25 @@ export class TopicDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'content', 'created_by', 'action'];
   topicId: string | null = '';
   dataSource!: MatTableDataSource<Comment>;
+  commentUpdate: CommentUpdateDTO = {
+    content: '',
+    created_by: '',
+  }
+  contentUpdate: string = '';
+
+  errorMessage = "";
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  private comment: Comment;
+
   constructor(private route: ActivatedRoute,
               private topicSrv: TopicsService,
               private commentSrv: CommentsService,
               private AuthSrv: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private coreSrv: CoreService,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     const topicId = this.route.snapshot.paramMap.get('id');
@@ -42,8 +54,6 @@ export class TopicDetailsComponent implements OnInit{
   getCommentsList(){
     this.commentSrv.getCommentsForATopic(this.topicId).subscribe({
       next: (res) => {
-        console.log("Comment!");
-        console.log(res[0]);
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
@@ -59,6 +69,9 @@ export class TopicDetailsComponent implements OnInit{
     this.newComment = event.target.value;
   }
 
+  onCommentContentChange(event: any){
+    this.contentUpdate = event.target.value;
+  }
 
   addComment(): void {
     console.log(this.newComment);
@@ -79,21 +92,68 @@ export class TopicDetailsComponent implements OnInit{
     }
   }
 
-  CommentDetails(id: string): void{ //TODO !!!
-    console.log(id);
-    const comment_for_update = this.commentSrv.getAComment(id, this.topicId);
-    this.commentSrv.getAComment(id, this.topicId).subscribe({
-      next: (res) => {
-        console.log(res['user']['username']);
-        console.log(this.AuthSrv.getUsername());
-        if(res['user']['username'] == this.AuthSrv.getUsername()){
-          const help_comment: string = "ASD";
-          this.comment.content = help_comment;
-          this.comment.created_by = this.AuthSrv.getUsername();
-          this.commentSrv.updateComment(id, comment);
+  CommentDetails(id: string): void {
+
+
+    this.commentSrv.getAComment(id, this.topicId).subscribe(
+      (res) => {
+
+        if (res['user']['username'] === this.AuthSrv.getUsername()) {
+          this.commentUpdate.content = this.contentUpdate;
+          this.commentUpdate.created_by = <string>this.AuthSrv.getUsername();
+          this.commentSrv.updateComment(this.commentUpdate, res['topic']['topicId'], id).subscribe(
+            (response) => {
+              this.coreSrv.openSnackBar('Comment detail updated!', 'done');
+              this.getCommentsList();
+            },
+            (error) => {
+              this.errorMessage = error.error.message;
+              this.coreSrv.openSnackBar(this.errorMessage, 'done');
+            }
+          );
         }
+        else{
+          this.coreSrv.openSnackBar("You cant update a comment that is not yours!", 'done');
+        }
+      },
+      (error) => {
+        console.error('Error retrieving comment:', error);
       }
-    //this.router.navigate(['/comment-details/',id]);
-    })
+    );
   }
+
+  DeleteComment(id: string): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Are you sure you want to delete this document?',
+    });
+    let yes = 0;
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.commentSrv.getAComment(id, this.topicId).subscribe(
+          (res) => {
+            if (res['user']['username'] === this.AuthSrv.getUsername()) {
+              this.commentSrv.deleteComment(res['topic']['topicId'], id).subscribe(
+                (response) => {
+                  this.coreSrv.openSnackBar('Comment deleted!', 'done');
+                  this.getCommentsList();
+                },
+                (error) => {
+                  this.errorMessage = error.error.message;
+                  this.coreSrv.openSnackBar(this.errorMessage, 'done');
+                }
+              );
+            } else {
+              this.coreSrv.openSnackBar("You cant delete a comment that is not yours!", 'done');
+            }
+          },
+          (error) => {
+            console.error('Error retrieving comment:', error);
+          }
+        );
+      }
+    });
+
+    }
+
+
 }

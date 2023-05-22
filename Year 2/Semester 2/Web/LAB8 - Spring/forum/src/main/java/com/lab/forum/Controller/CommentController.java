@@ -1,9 +1,6 @@
 package com.lab.forum.Controller;
 
-import com.lab.forum.Model.AddCommentDTO;
-import com.lab.forum.Model.Comment;
-import com.lab.forum.Model.Topic;
-import com.lab.forum.Model.User;
+import com.lab.forum.Model.*;
 import com.lab.forum.Repository.IUserRepository;
 import com.lab.forum.Service.CommentService;
 import com.lab.forum.Service.TopicService;
@@ -29,8 +26,6 @@ public class CommentController {
     @GetMapping("")
     public List<Comment> getAllComments(@PathVariable("topicId") Long topicId){
         Topic topic = this.topicService.getTopic(topicId);
-        System.out.println(topic);
-        System.out.println("COMMENTS" + topic.getComments());
         return topic.getComments();
     }
 
@@ -41,6 +36,10 @@ public class CommentController {
 
     @DeleteMapping("/{commentId}")
     public void deleteComment(@PathVariable("commentId") Long commentId){
+        Comment comment = this.commentService.getComment(commentId);
+        Topic topic = comment.getTopic();
+        topic.removeComment(comment); // Remove the comment from the topic's comments collection
+
         this.commentService.deleteComment(commentId);
     }
 
@@ -60,9 +59,22 @@ public class CommentController {
         return comment.getCommentId();
     }
 
-    @PutMapping("")
-    public Comment updateComment(@RequestBody Comment comment){
-        this.commentService.saveOrUpdate(comment);
-        return comment;
+    @PutMapping("/{commentId}")
+    public Comment updateComment(@RequestBody UpdateCommentDTO comment, @PathVariable("topicId") Long topicId, @PathVariable("commentId") Long commentId){
+        Comment new_comment = new Comment();
+        new_comment.setContent(comment.getContent());
+
+        Optional<User> userOptional = userRepository.findByUsername(comment.getCreated_by());
+        User user = userOptional.orElseThrow(() -> new RuntimeException("User not found"));
+
+        new_comment.setUser(user);
+
+        Topic topic = topicService.getTopic(topicId);
+
+        new_comment.setTopic(topic);
+        new_comment.setCommentId(commentId);
+
+        this.commentService.saveOrUpdate(new_comment);
+        return new_comment;
     }
 }
