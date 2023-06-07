@@ -198,7 +198,7 @@
         <child>
           <widget class="Gtk.Label" id="label2">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Company</property>
+            <property name="LabelProp" translatable="yes">Purchase</property>
           </widget>
           <packing>
             <property name="X">729</property>
@@ -208,7 +208,7 @@
         <child>
           <widget class="Gtk.Label" id="label3">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Number of seats</property>
+            <property name="LabelProp" translatable="yes">Tracer</property>
           </widget>
           <packing>
             <property name="X">736</property>
@@ -218,7 +218,7 @@
         <child>
           <widget class="Gtk.Label" id="label4">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Price</property>
+            <property name="LabelProp" translatable="yes">Due</property>
           </widget>
           <packing>
             <property name="X">736</property>
@@ -228,7 +228,7 @@
         <child>
           <widget class="Gtk.Label" id="label5">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Departure</property>
+            <property name="LabelProp" translatable="yes">Type</property>
           </widget>
           <packing>
             <property name="X">737</property>

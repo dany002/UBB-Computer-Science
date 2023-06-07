@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public partial class MainWindow : Gtk.Window
 {
-    SqlConnection cs = new SqlConnection("Server=localhost;Database=TransportPublic;User Id=SA;Password=<daniel123456>;");
+    SqlConnection cs = new SqlConnection("Server=localhost;Database=Test;User Id=SA;Password=<daniel123456>;");
     //SqlConnection cs = new SqlConnection();
     //cs.ConnectionString = "Data source=sql1;" + "Initial Catalog=Transport" + "User  id=SA;" + "Password=<daniel123456>;";
     //http://172.17.0.2:1433/
@@ -43,7 +43,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void connectBtn(object sender, EventArgs e)
     {
-        da.SelectCommand = new SqlCommand("SELECT * FROM Garage", cs);
+        da.SelectCommand = new SqlCommand("SELECT * FROM Players", cs);
         ds.Clear();
 
         da.Fill(ds);
@@ -72,26 +72,26 @@ public partial class MainWindow : Gtk.Window
         parentTable.Attach(capacity, 4, 5, 0, 1);
         */
 
-        TreeViewColumn garage_id = new TreeViewColumn();
-        garage_id.Title = "ID";
+        TreeViewColumn player_id = new TreeViewColumn();
+        player_id.Title = "ID";
 
-        TreeViewColumn location = new TreeViewColumn();
-        location.Title = "Location";
+        TreeViewColumn name = new TreeViewColumn();
+        name.Title = "Name";
 
-        TreeViewColumn number_of_trams = new TreeViewColumn();
-        number_of_trams.Title = "Number of trams";
+        TreeViewColumn surname = new TreeViewColumn();
+        surname.Title = "Surname";
 
-        TreeViewColumn number_of_buses = new TreeViewColumn();
-        number_of_buses.Title = "Number of buses";
+        TreeViewColumn date_of_birth = new TreeViewColumn();
+        date_of_birth.Title = "Date of birth";
 
-        TreeViewColumn capacity = new TreeViewColumn();
-        capacity.Title = "Capacity";
+        TreeViewColumn gender = new TreeViewColumn();
+        gender.Title = "Gender";
 
-        parentTreeView.AppendColumn(garage_id);
-        parentTreeView.AppendColumn(location);
-        parentTreeView.AppendColumn(number_of_trams);
-        parentTreeView.AppendColumn(number_of_buses);
-        parentTreeView.AppendColumn(capacity);
+        parentTreeView.AppendColumn(player_id);
+        parentTreeView.AppendColumn(name);
+        parentTreeView.AppendColumn(surname);
+        parentTreeView.AppendColumn(date_of_birth);
+        parentTreeView.AppendColumn(gender);
 
 
         CellRendererText idRenderer = new CellRendererText();
@@ -102,29 +102,29 @@ public partial class MainWindow : Gtk.Window
 
 
         // Add the CellRenderers to the columns
-        garage_id.PackStart(idRenderer, true);
-        location.PackStart(locationRenderer, true);
-        number_of_trams.PackStart(tramsRenderer, true);
-        number_of_buses.PackStart(busesRenderer, true);
-        capacity.PackStart(capacityRenderer, true);
+        player_id.PackStart(idRenderer, true);
+        name.PackStart(locationRenderer, true);
+        surname.PackStart(tramsRenderer, true);
+        date_of_birth.PackStart(busesRenderer, true);
+        gender.PackStart(capacityRenderer, true);
 
 
 
         // Set the attributes for the CellRenderers
-        garage_id.AddAttribute(idRenderer, "text", 0);
-        location.AddAttribute(locationRenderer, "text", 1);
-        number_of_trams.AddAttribute(tramsRenderer, "text", 2);
-        number_of_buses.AddAttribute(busesRenderer, "text", 3);
-        capacity.AddAttribute(capacityRenderer, "text", 4);
+        player_id.AddAttribute(idRenderer, "text", 0);
+        name.AddAttribute(locationRenderer, "text", 1);
+        surname.AddAttribute(tramsRenderer, "text", 2);
+        date_of_birth.AddAttribute(busesRenderer, "text", 3);
+        gender.AddAttribute(capacityRenderer, "text", 4);
         //Console.WriteLine(ds.Tables[0]);
 
-        ListStore store = new ListStore(typeof(int), typeof(string), typeof(int), typeof(int), typeof(int));
+        ListStore store = new ListStore(typeof(int), typeof(string), typeof(string), typeof(string), typeof(string));
 
 
         foreach (DataRow row in ds.Tables[0].Rows)
         {
             // Add a new node to the tree for each row in the DataSet
-            TreeIter iter = store.AppendValues((int)row["garage_id"], row["location"].ToString(), (int)row["number_of_trams"], (int)row["number_of_buses"], (int)row["capacity"]);
+            TreeIter iter = store.AppendValues((int)row["player_id"], row["name"].ToString(), row["surname"].ToString(), row["date_of_birth"].ToString(), row["gender"].ToString());
         }
 
 
@@ -146,7 +146,7 @@ public partial class MainWindow : Gtk.Window
         }
         if(id != -1)
         {
-            da.SelectCommand = new SqlCommand("SELECT * FROM Bus WHERE garage_id=@id", cs);
+            da.SelectCommand = new SqlCommand("SELECT * FROM Cards WHERE player_id=@id", cs);
             da.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
             ds1.Clear();
             ds1.Clear();
@@ -160,27 +160,27 @@ public partial class MainWindow : Gtk.Window
                 TreeViewColumn bus_id = new TreeViewColumn();
                 bus_id.Title = "ID";
 
-                TreeViewColumn company = new TreeViewColumn();
-                company.Title = "Company";
+                //TreeViewColumn company = new TreeViewColumn();
+                //company.Title = "Type";
 
                 TreeViewColumn number_of_seats = new TreeViewColumn();
-                number_of_seats.Title = "Number of seats";
+                number_of_seats.Title = "Purchase date";
 
                 TreeViewColumn price = new TreeViewColumn();
-                price.Title = "Price";
+                price.Title = "Tracer";
 
                 TreeViewColumn departure = new TreeViewColumn();
-                departure.Title = "Departure";
+                departure.Title = "Due Date";
 
                 TreeViewColumn destination = new TreeViewColumn();
-                destination.Title = "Destination";
+                destination.Title = "Type id";
 
                 TreeViewColumn garagee_id = new TreeViewColumn();
-                garagee_id.Title = "Garage id";
+                garagee_id.Title = "Player id";
 
 
                 childTreeview.AppendColumn(bus_id);
-                childTreeview.AppendColumn(company);
+                //childTreeview.AppendColumn(company);
                 childTreeview.AppendColumn(number_of_seats);
                 childTreeview.AppendColumn(price);
                 childTreeview.AppendColumn(departure);
@@ -189,7 +189,7 @@ public partial class MainWindow : Gtk.Window
 
 
                 CellRendererText bus_idRenderer = new CellRendererText();
-                CellRendererText companyRenderer = new CellRendererText();
+                //CellRendererText companyRenderer = new CellRendererText();
                 CellRendererText seatsRenderer = new CellRendererText();
                 CellRendererText priceRenderer = new CellRendererText();
                 CellRendererText departureRenderer = new CellRendererText();
@@ -198,7 +198,7 @@ public partial class MainWindow : Gtk.Window
 
                 // Add the CellRenderers to the columns
                 bus_id.PackStart(bus_idRenderer, true);
-                company.PackStart(companyRenderer, true);
+                //company.PackStart(companyRenderer, true);
                 number_of_seats.PackStart(seatsRenderer, true);
                 price.PackStart(priceRenderer, true);
                 departure.PackStart(departureRenderer, true);
@@ -208,24 +208,22 @@ public partial class MainWindow : Gtk.Window
 
                 // Set the attributes for the CellRenderers
                 bus_id.AddAttribute(bus_idRenderer, "text", 0);
-                company.AddAttribute(companyRenderer, "text", 1);
-                number_of_seats.AddAttribute(seatsRenderer, "text", 2);
-                price.AddAttribute(priceRenderer, "text", 3);
-                departure.AddAttribute(departureRenderer, "text", 4);
-                destination.AddAttribute(destinationRenderer, "text", 5);
-                garagee_id.AddAttribute(garageRenderer, "text", 6);
+                //company.AddAttribute(companyRenderer, "text", 1);
+                number_of_seats.AddAttribute(seatsRenderer, "text",1);
+                price.AddAttribute(priceRenderer, "text", 2);
+                departure.AddAttribute(departureRenderer, "text", 3);
+                destination.AddAttribute(destinationRenderer, "text", 4);
+                garagee_id.AddAttribute(garageRenderer, "text", 5);
                 //Console.WriteLine(ds.Tables[0]);
 
-                ListStore storee = new ListStore(typeof(int), typeof(string), typeof(int), typeof(double), typeof(string), typeof(string), typeof(int));
-
-
+                ListStore storee = new ListStore(typeof(int), typeof(string), typeof(string), typeof(string), typeof(int), typeof(int));
 
 
 
                 foreach (DataRow row in ds1.Tables[0].Rows)
                 {
                     // Add a new node to the tree for each row in the DataSet
-                    TreeIter iters = storee.AppendValues((int)row["bus_id"], row["company"].ToString(), (int)row["number_of_seats"], (double)row["price"], row["departure"].ToString(), row["destination"].ToString(), (int)row["garage_id"]);
+                    TreeIter iters = storee.AppendValues((int)row["card_id"], row["purchase_date"].ToString(), row["tracer"].ToString(), row["due_date"].ToString(), (int)row["player_id"], (int)row["type_id"]);
                 }
 
 
@@ -234,12 +232,12 @@ public partial class MainWindow : Gtk.Window
             }
             else
             {
-                ListStore storee = new ListStore(typeof(int), typeof(string), typeof(int), typeof(double), typeof(string), typeof(string), typeof(int));
+                ListStore storee = new ListStore(typeof(int), typeof(string), typeof(string), typeof(string), typeof(int), typeof(int));
 
                 foreach (DataRow row in ds1.Tables[0].Rows)
                 {
                     // Add a new node to the tree for each row in the DataSet
-                    TreeIter iters = storee.AppendValues((int)row["bus_id"], row["company"].ToString(), (int)row["number_of_seats"], (double)row["price"], row["departure"].ToString(), row["destination"].ToString(), (int)row["garage_id"]);
+                    TreeIter iters = storee.AppendValues((int)row["card_id"], row["purchase_date"].ToString(), row["tracer"].ToString(), row["due_date"].ToString(), (int)row["player_id"], (int)row["type_id"]);
                 }
                 childTreeview.Model = storee;
 
@@ -250,13 +248,13 @@ public partial class MainWindow : Gtk.Window
     protected void addBtn(object sender, EventArgs e)
     {
         if (firstFree == -1) {
-            da.SelectCommand = new SqlCommand("SELECT * FROM Bus", cs);
+            da.SelectCommand = new SqlCommand("SELECT * FROM Cards", cs);
             DataSet helpData = new DataSet();
             helpData.Clear();
             da.Fill(helpData);
             foreach (DataRow row in helpData.Tables[0].Rows)
             {
-                firstFree = (int)row["bus_id"];
+                firstFree = (int)row["card_id"];
             }
         }
 
@@ -267,14 +265,18 @@ public partial class MainWindow : Gtk.Window
                 md.Run();
                 md.Destroy();
             }
-            da.InsertCommand = new SqlCommand("INSERT INTO Bus(bus_id, company, number_of_seats, price, departure, destination, garage_id) VALUES(@bus_id, @company, @number_of_seats, @price, @departure, @destination, @garage_id)", cs);
+            da.InsertCommand = new SqlCommand("INSERT INTO Cards(type_id, purchase_date, tracer, due_date, player_id) VALUES(@type_id, @purchase_date, @tracer, @due_date, @player_id)", cs);
             firstFree++;
-            da.InsertCommand.Parameters.Add("@bus_id", SqlDbType.Int).Value = firstFree;
-            da.InsertCommand.Parameters.Add("@company", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
-            da.InsertCommand.Parameters.Add("@number_of_seats", SqlDbType.Int).Value = int.Parse(seatsEntry.Text);
-            da.InsertCommand.Parameters.Add("@price", SqlDbType.Float).Value = Double.Parse(priceEntry.Text);
-            da.InsertCommand.Parameters.Add("@departure", SqlDbType.VarChar).Value = departureEntry.Text.Trim();
-            da.InsertCommand.Parameters.Add("@destination", SqlDbType.VarChar).Value = destinationEntry.Text.Trim();
+            //da.InsertCommand.Parameters.Add("@card_id", SqlDbType.Int).Value = firstFree;
+            da.InsertCommand.Parameters.Add("@type_id", SqlDbType.Int).Value = int.Parse(departureEntry.Text);
+
+            //da.InsertCommand.Parameters.Add("@type_id", SqlDbType.Int).Value = int.Parse(companyEntry.Text);
+            da.InsertCommand.Parameters.Add("@purchase_date", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
+            da.InsertCommand.Parameters.Add("@tracer", SqlDbType.VarChar).Value = seatsEntry.Text.Trim();
+            da.InsertCommand.Parameters.Add("@due_date", SqlDbType.VarChar).Value = priceEntry.Text.Trim();
+            //da.InsertCommand.Parameters.Add("@destination", SqlDbType.VarChar).Value = destinationEntry.Text.Trim();
+
+
 
             TreeSelection selection = parentTreeView.Selection;
             int id = -1;
@@ -283,7 +285,11 @@ public partial class MainWindow : Gtk.Window
                 // Access the data in the active row
                 id = (int)model.GetValue(iter, 0); // Assuming column 0 contains the data you want to access
             }
-            da.InsertCommand.Parameters.Add("@garage_id", SqlDbType.Int).Value = id;
+            Console.WriteLine("ID =    ");
+            Console.WriteLine(id);
+
+            da.InsertCommand.Parameters.Add("@player_id", SqlDbType.Int).Value = id;
+            Console.WriteLine("HI THERE");
             cs.Open();
             da.InsertCommand.ExecuteNonQuery();
             MessageDialog mds = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "Inserted succesfully to the Database");
@@ -305,7 +311,7 @@ public partial class MainWindow : Gtk.Window
     {
         try
         {
-            da.DeleteCommand = new SqlCommand("DELETE FROM Bus WHERE bus_id=@id", cs);
+            da.DeleteCommand = new SqlCommand("DELETE FROM Cards WHERE card_id=@id", cs);
 
             TreeSelection selection = childTreeview.Selection;
             int id = -1;
@@ -348,12 +354,20 @@ public partial class MainWindow : Gtk.Window
                 md.Run();
                 md.Destroy();
             }
-            da.UpdateCommand = new SqlCommand("UPDATE Bus SET company=@company,number_of_seats=@number_of_seats, price=@price, departure=@departure, destination=@destination WHERE bus_id=@bus_id", cs);
-            da.UpdateCommand.Parameters.Add("@company", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
-            da.UpdateCommand.Parameters.Add("@number_of_seats", SqlDbType.Int).Value = int.Parse(seatsEntry.Text);
-            da.UpdateCommand.Parameters.Add("@price", SqlDbType.Float).Value = Double.Parse(priceEntry.Text);
-            da.UpdateCommand.Parameters.Add("@departure", SqlDbType.VarChar).Value = departureEntry.Text.Trim();
-            da.UpdateCommand.Parameters.Add("@destination", SqlDbType.VarChar).Value = destinationEntry.Text.Trim();
+            //INSERT INTO Card(card_id, type_id, purchase_date, tracer, due_date) VALUES(@card_id, @type_id, @purchase_date, @tracer, @due_date, @player_id)
+            da.UpdateCommand = new SqlCommand("UPDATE Cards SET type_id=@type_id,purchase_date=@purchase_date, tracer=@tracer, due_date=@due_date WHERE card_id=@card_id", cs);
+            //da.UpdateCommand.Parameters.Add("@company", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
+            //da.UpdateCommand.Parameters.Add("@number_of_seats", SqlDbType.Int).Value = int.Parse(seatsEntry.Text);
+            //da.UpdateCommand.Parameters.Add("@price", SqlDbType.Float).Value = Double.Parse(priceEntry.Text);
+            //da.UpdateCommand.Parameters.Add("@departure", SqlDbType.VarChar).Value = departureEntry.Text.Trim();
+            //da.UpdateCommand.Parameters.Add("@destination", SqlDbType.VarChar).Value = destinationEntry.Text.Trim();
+
+
+            //da.UpdateCommand.Parameters.Add("@type_id", SqlDbType.Int).Value = int.Parse(companyEntry.Text);
+            da.UpdateCommand.Parameters.Add("@purchase_date", SqlDbType.VarChar).Value = companyEntry.Text.Trim();
+            da.UpdateCommand.Parameters.Add("@tracer", SqlDbType.VarChar).Value = seatsEntry.Text.Trim();
+            da.UpdateCommand.Parameters.Add("@type_id", SqlDbType.Int).Value = int.Parse(departureEntry.Text);
+            da.UpdateCommand.Parameters.Add("@due_date", SqlDbType.VarChar).Value = priceEntry.Text.Trim();
 
             TreeSelection selection = childTreeview.Selection;
             int id = -1;
@@ -369,7 +383,7 @@ public partial class MainWindow : Gtk.Window
                 mdss.Destroy();
                 throw new Exception("error");
             }
-            da.UpdateCommand.Parameters.Add("@bus_id", SqlDbType.Int).Value = id;
+            da.UpdateCommand.Parameters.Add("@card_id", SqlDbType.Int).Value = id;
             Console.WriteLine("bus_id: ");
             Console.WriteLine(id);
             cs.Open();

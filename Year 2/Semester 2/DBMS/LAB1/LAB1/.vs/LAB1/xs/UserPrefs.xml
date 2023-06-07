@@ -2,13 +2,15 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="LAB1/MainWindow.cs">
     <Files>
       <File FileName="LAB1/Program.cs" Line="12" Column="24" />
-      <File FileName="LAB1/MainWindow.cs" Line="392" Column="10" />
+      <File FileName="LAB1/MainWindow.cs" Line="368" Column="89" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="LAB1" expanded="True">
             <Node name="LAB1" expanded="True">
+              <Node name="UserInterface" expanded="True" />
+              <Node name="Properties" expanded="True" />
               <Node name="MainWindow.cs" selected="True" />
             </Node>
           </Node>
