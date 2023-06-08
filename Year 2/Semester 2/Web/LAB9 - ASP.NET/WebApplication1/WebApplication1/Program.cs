@@ -33,8 +33,17 @@ app.UseCors(options =>
     options.AllowAnyHeader(); // Allow any header
 });
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(
+        name: "documents",
+        pattern: "Documents/{id?}",
+        defaults: new { controller = "Documents", action = "Index" });
+});
+
 
 app.Run();

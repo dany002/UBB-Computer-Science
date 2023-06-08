@@ -11,4 +11,25 @@
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Remove="Pages\Documents\Privacy.cshtml" />
+      <Content Remove="Pages\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Pages\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Pages\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Pages\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Documents\Privacy.cshtml" />
+    </ItemGroup>
+
 </Project>

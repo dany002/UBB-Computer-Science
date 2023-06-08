@@ -8,15 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="615aad6c-4805-4e31-ad80-a39ab36cee62" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/.vs/LAB1/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/.vs/LAB1/xs/UserPrefs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/MainWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/MainWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/bin/Debug/LAB1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/bin/Debug/LAB1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/bin/Debug/LAB1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/bin/Debug/LAB1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/gtk-gui/MainWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/gtk-gui/MainWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/gtk-gui/gui.stetic" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/gtk-gui/gui.stetic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DBMS/LAB1/LAB1/LAB1/obj/x86/Debug/LAB1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/Controllers/DocumentsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/Controllers/DocumentsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/WebApplication1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/WebApplication1.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/bin/Debug/net6.0/WebApplication1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/bin/Debug/net6.0/WebApplication1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/bin/Debug/net6.0/WebApplication1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/bin/Debug/net6.0/WebApplication1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/WebApplication1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/WebApplication1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/WebApplication1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/WebApplication1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/ref/WebApplication1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/ref/WebApplication1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/refint/WebApplication1.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/obj/Debug/net6.0/refint/WebApplication1.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApplication1/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplication1/obj/staticwebassets.pack.sentinel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +99,7 @@
       <updated>1685795151620</updated>
       <workItem from="1685795151912" duration="1938000" />
       <workItem from="1685797553336" duration="7627000" />
+      <workItem from="1686261144466" duration="3047000" />
     </task>
     <servers />
   </component>

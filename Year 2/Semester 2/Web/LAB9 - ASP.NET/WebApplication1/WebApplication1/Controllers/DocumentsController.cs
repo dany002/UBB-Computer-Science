@@ -41,9 +41,10 @@ public class DocumentsController : Controller
 
     [HttpPut]
     [ActionName("Index")]
-    public IActionResult UpdateIndex([FromBody] Document edit_document)
+    public IActionResult UpdateIndex(int? id, [FromBody] Document edit_document)
     {
-        Document? document = _documentsRepository.Find<Document>(edit_document.id);
+        Console.WriteLine("ID UPDATE" + id);
+        Document? document = _documentsRepository.Find<Document>(id);
         if (document == null)
         {
             return BadRequest();
@@ -60,7 +61,8 @@ public class DocumentsController : Controller
     }
 
     [HttpDelete]
-    public IActionResult Index(int id)
+    [ActionName("Index")]
+    public IActionResult Delete(int? id)
     {
         Console.WriteLine("IDD" + id);
         Document? document = _documentsRepository.Find<Document>(id);
@@ -74,12 +76,8 @@ public class DocumentsController : Controller
         _documentsRepository.SaveChanges();
         return NoContent();
     }
-/*
-    public IActionResult Privacy()
-    {
-        return View();
-    }*/
-
+    
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
