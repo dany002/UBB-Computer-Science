@@ -1,5 +1,9 @@
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using WebApplication1.Models;
 using WebApplication1.Repository;
 
@@ -15,10 +19,49 @@ public class DocumentsController : Controller
         _logger = logger;
         _documentsRepository = documentsRepository;
     }
-
+    
     [HttpGet]
     public IActionResult Index(int? id)
     {
+        Console.WriteLine("HMM");
+        string token = Request.Headers["Authorization"];
+
+        // Validate and process the token
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var validationParameters = new TokenValidationParameters
+        {
+            // Set the issuer, audience, signing key, etc., for token validation
+            // You need to configure these parameters based on your token setup
+            // ...
+
+            // Example: Validate the token and extract its claims
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "your_issuer",
+            ValidAudience = "your_audience",
+            IssuerSigningKey = your_signing_key
+        };
+
+        try
+        {
+            // Validate the token and extract its claims
+            var principal = tokenHandler.ValidateToken(token, validationParameters, out _);
+
+            // Example: Access the user's identity and claims
+            var userId = principal.FindFirstValue("sub");
+            var username = principal.FindFirstValue("username");
+
+            // Further processing with the token claims...
+        }
+        catch (SecurityTokenException ex)
+        {
+            // Token validation failed, handle the exception
+            // ...
+            return Unauthorized();
+        }
+        Console.WriteLine(token);
+        Console.WriteLine("ETC");
         if (id != null)
         {
             var document = _documentsRepository.Document.Where(e => e.id.Equals(id)).Single<Document>();
@@ -30,7 +73,9 @@ public class DocumentsController : Controller
             return Json(documents);
         }
     }
-
+    
+    
+    [Authorize]
     [HttpPost]
     public IActionResult Index([FromBody] Document document)
     {
@@ -39,6 +84,7 @@ public class DocumentsController : Controller
         return Ok();
     }
 
+    [Authorize]
     [HttpPut]
     [ActionName("Index")]
     public IActionResult UpdateIndex(int? id, [FromBody] Document edit_document)
@@ -59,7 +105,8 @@ public class DocumentsController : Controller
         _documentsRepository.SaveChanges();
         return Ok();
     }
-
+    
+    [Authorize]
     [HttpDelete]
     [ActionName("Index")]
     public IActionResult Delete(int? id)

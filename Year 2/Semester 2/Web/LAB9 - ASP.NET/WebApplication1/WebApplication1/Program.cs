@@ -1,4 +1,22 @@
+using System.Configuration;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using WebApplication1.Controllers;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -8,30 +26,48 @@ IConfiguration configuration = new ConfigurationBuilder()
     .Build();
 builder.Services.AddSingleton(configuration);
 builder.Services.AddDbContext<WebApplication1.Repository.DocumentsRepository>();
+builder.Services.AddDbContext<WebApplication1.Repository.UserRepository>();
+builder.Services.AddSingleton<UserController>();
+
+
+// Configure JWT authentication
+var secretKey = Encoding.ASCII.GetBytes("ejroigjeoifgjsroigfkapwdofwefawdfwaegeafwdfwd");
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(secretKey),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+
+
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    //app.UseHsts();
-}
 
-app.UseHttpsRedirection();
+
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 
 app.UseRouting();
 
-app.UseAuthorization();
 
-app.UseCors(options =>
-{
-    options.AllowAnyOrigin(); // Allow requests from any origin
-    options.AllowAnyMethod(); // Allow any HTTP method
-    options.AllowAnyHeader(); // Allow any header
-});
+
+app.UseCors();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.UseEndpoints(endpoints =>
@@ -43,6 +79,14 @@ app.UseEndpoints(endpoints =>
         name: "documents",
         pattern: "Documents/{id?}",
         defaults: new { controller = "Documents", action = "Index" });
+    endpoints.MapControllerRoute(
+        name: "signin",
+        pattern: "auth/signin",
+        defaults: new { controller = "User", action = "SignIn" });
+    endpoints.MapControllerRoute(
+        name: "signup",
+        pattern: "auth/signup",
+        defaults: new { controller = "User", action = "SignUp" });
 });
 
 
