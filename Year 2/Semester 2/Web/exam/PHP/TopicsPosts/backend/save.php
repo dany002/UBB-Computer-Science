@@ -68,3 +68,21 @@ if (count($_POST) > 0){
 
     }
 }
+
+if (count($_POST) > 0) {
+    if($_POST['type'] == 3) {
+        $id = $_POST['id'];
+        $text = $_POST['text'];
+        $user = $_SESSION['user'];
+        $stmt = $conn->prepare("UPDATE Posts SET text = ?, date = NOW(), user = ? WHERE id = ?");
+        $stmt->bind_param("ssi", $text, $user, $id);
+        if($stmt->execute()){
+            echo json_encode(array("statusCode" => 200));
+        }
+        else{
+            echo json_encode(array("statusCode" => 400));
+        }
+
+
+    }
+}

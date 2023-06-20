@@ -52,6 +52,7 @@ $(document).on('click','#topic_name_btn', function (e){
             console.log(dataResult)
             var dataResult = JSON.parse(dataResult);
             console.log(this.data);
+            refreshTable();
         }
     })
 })
@@ -59,6 +60,60 @@ $(document).on('click','#topic_name_btn', function (e){
 
 
 
+$(document).on('click', '.update-btn', function() {
+    var postId = $(this).data('id');
+    var newText = $('#update-text-input').val();
+
+    if (newText.length === 0) {
+        alert("Text is empty!");
+        return 0;
+    }
+
+    $.ajax({
+        data: {
+            type: 3,
+            id: postId,
+            text: newText,
+        },
+        type: 'POST',
+        url: 'save.php',
+        success: function (response) {
+            console.log(response);
+            refreshTable();
+        }
+    });
+});
+
+
+
+
+function refreshTable() {
+    $.ajax({
+        url: 'fetch-posts.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            $('#post-table-body').empty();
+
+            $.each(data, function(index, row) {
+                $('#post-table-body').append(`
+                    <tr id="${row.id}">
+                        <td>${index+1}</td>
+                        <td>${row.user}</td>
+                        <td>${row.topic}</td>
+                        <td>${row.text}</td>
+                        <td>${row.date}</td>
+                        <td>
+                          <button class="update-btn" data-id="${row.id}">Update</button>
+                        </td>
+                    </tr>
+        `       );
+            });
+        }
+    });
+}
+
+refreshTable();
 
 
 

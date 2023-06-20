@@ -74,29 +74,14 @@ if (!isset($_SESSION['user'])) {
             <th>Topicid</th>
             <th>Text</th>
             <th>Date</th>
+            <th>Action</th>
         </tr>
         </thead>
-        <tbody>
-        <?php
-        $result = mysqli_query($conn,"SELECT * FROM Posts");
-
-        $i = 1; // Start index for the displayed rows
-        while ($row = mysqli_fetch_array($result)) {
-            ?>
-            <tr id="<?php echo $row["id"]; ?>">
-                <td><?php echo $i; ?></td>
-                <td><?php echo $row["user"]; ?></td>
-                <td><?php echo $row["topicid"]; ?></td>
-                <td><?php echo $row["text"]; ?></td>
-                <td><?php echo $row["date"]; ?></td>
-            </tr>
-            <?php
-            $i++;
-        }
-        ?>
-        </tbody>
+        <tbody id="post-table-body"></tbody>
     </table>
-
+    <label>
+        <input id="update-text-input" type="text" placeholder="Text to update">
+    </label>
 
 </div>
 
