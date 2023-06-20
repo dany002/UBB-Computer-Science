@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/utils.js"></script>
+</head>
+<body>
+<div>
+    <input id="journal_input" type="text" placeholder="Journal">
+    <button id="get_articles_btn" type="submit">Get articles</button>
+</div>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Summary</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody id="articles-for-a-specific-journal-table"></tbody>
+    </table>
+</div>
+<div>
+    <label>
+        <input id="journal_input_add_article" type="text" placeholder="Journal">
+        <input id="summary_input_add_article" type="text" placeholder="Summary">
+    </label>
+    <button id="add_article_btn" type="submit">Add an article</button>
+</div>
+</body>
+</html>

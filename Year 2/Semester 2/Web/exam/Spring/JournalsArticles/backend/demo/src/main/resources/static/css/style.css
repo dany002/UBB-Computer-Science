@@ -1,0 +1,27 @@
+
+body {
+    background: cadetblue;
+}
+
+form {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.login {
+    font-size: 40px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
