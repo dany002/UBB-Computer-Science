@@ -7,18 +7,15 @@
 
 
 #include "Inventory.h"
-#include "Bill.h"
 
 class SalesManager {
 private:
     Inventory& inventory;
-    std::vector<Bill> salesHistory;
-    mutable std::mutex salesMutex;
 
 public:
     explicit SalesManager(Inventory& inventory);
-    void performSale(const std::vector<std::pair<Product, int>>& items);
-    std::vector<Bill> getSalesHistory() const;
+    void performSale(const std::vector<std::pair<int, int>>& items);
+
 };
 
 

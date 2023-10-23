@@ -4,7 +4,7 @@
 
 #include "Bill.h"
 
-Bill::Bill(const std::vector<std::pair<Product, int>> &listOfProducts){
+Bill::Bill(const std::vector<std::pair<Product, int>> &listOfProducts): list_of_products(listOfProducts){
 }
 
 

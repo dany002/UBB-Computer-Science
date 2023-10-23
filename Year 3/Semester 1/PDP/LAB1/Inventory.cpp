@@ -1,49 +1,59 @@
-//
-// Created by senzationall on 10/6/23.
-//
-
+// Inventory.cpp
 #include "Inventory.h"
 
-Inventory::Inventory() {
-    this->moneyAmount = 0;
-}
-
-void Inventory::addProduct(const Product &product, int quantity) {
-    std::lock_guard<std::mutex> lock(this->inventoryMutex);
-    productQuantityMap[product] += quantity;
-}
+Inventory::Inventory() : moneyAmount(0) {}
 
 
-// Sell products and update the inventory and money amount
-void Inventory::sellProducts(const std::vector<std::pair<Product, int>>& items) {
+void Inventory::addProduct(const Product& product) {
     std::lock_guard<std::mutex> lock(inventoryMutex);
+    productMap[product.getId()] = product;
+}
+
+
+void Inventory::sellProducts(const std::vector<std::pair<int, int>>& items) {
+    double totalSale = 0.0;
+    std::vector<std::pair<int, int>> soldItems;
+
     for (const auto& item : items) {
-        const Product& product = item.first;
+        int productId = item.first;
         int quantity = item.second;
 
-        auto it = productQuantityMap.find(product);
-        if (it != productQuantityMap.end() && it->second >= quantity) {
-            it->second -= quantity;
-            moneyAmount += quantity * product.getPrice();
+        std::lock_guard<std::mutex> lock(inventoryMutex);
+        auto productIt = productMap.find(productId);
+
+        if (productIt != productMap.end() && productIt->second.getQuantity() >= quantity) {
+            productIt->second.setQuantity(productIt->second.getQuantity() - quantity);
+            totalSale += quantity * productIt->second.getPrice();
+            soldItems.push_back(item);
         }
-        // Handle cases where the product is not found or the quantity is insufficient
+    }
+
+    if (!soldItems.empty()) {
+        std::lock_guard<std::mutex> lock(moneyMutex);
+        salesRecord.push_back(soldItems);
+        moneyAmount += totalSale;
     }
 }
 
 bool Inventory::performInventoryCheck() {
     std::lock_guard<std::mutex> lock(inventoryMutex);
 
-    // Check if all product quantities are non-negative
-    for (const auto& pair : productQuantityMap) {
-        if (pair.second < 0) {
-            return false;
+    for (const auto& record : salesRecord) {
+        for (const auto& item : record) {
+            int productId = item.first;
+            int quantity = item.second;
+
+            auto productIt = productMap.find(productId);
+
+            if (productIt == productMap.end() || productIt->second.getQuantity() < quantity) {
+                return false; // Sold more than available
+            }
         }
     }
 
-    // Check if the money amount is non-negative
-    if (moneyAmount < 0) {
-        return false;
-    }
+    return moneyAmount >= 0;
+}
 
-    return true;
+int Inventory::getMoneyAmount() const {
+    return moneyAmount;
 }

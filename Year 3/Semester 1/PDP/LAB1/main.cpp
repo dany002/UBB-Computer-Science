@@ -1,56 +1,47 @@
-#include <iostream>
-#include <thread>
-#include <vector>
+#include "Product.h"
 #include "Inventory.h"
 #include "SalesManager.h"
+#include <iostream>
+#include <thread>
 
 int main() {
-    // Create an inventory
-    Inventory inventory;
+    // Create products
+    Product productA(1, 10, 100);
+    Product productB(2, 15, 50);
+    Product productC(3, 5, 200);
+    Product productD(4, 8, 75);
 
-    // Create a sales manager
+    // Create inventory
+    Inventory inventory;
+    inventory.addProduct(productA);
+    inventory.addProduct(productB);
+    inventory.addProduct(productC);
+    inventory.addProduct(productD);
+
+    // Create sales manager
     SalesManager salesManager(inventory);
 
-    // Add initial products to the inventory
-    Product product1(1, 100, 10); // Product ID: 1, Initial Quantity: 100, Unit Price: $10
-    Product product2(2, 50, 20);  // Product ID: 2, Initial Quantity: 50, Unit Price: $20
-    Product product3(3, 75, 15);  // Product ID: 3, Initial Quantity: 75, Unit Price: $15
+    // Simulate concurrent sales
+    std::thread saleThread1([&](){
+        std::vector<std::pair<int, int>> items1 = {{1, 5}, {2, 10}, {3, 20}};
+        salesManager.performSale(items1);
+    });
 
-    inventory.addProduct(product1, product1.getQuantity());
-    inventory.addProduct(product2, product2.getQuantity());
-    inventory.addProduct(product3, product3.getQuantity());
+    std::thread saleThread2([&](){
+        std::vector<std::pair<int, int>> items2 = {{1, 3}, {2, 20}, {3, 15}};
+        salesManager.performSale(items2);
+    });
 
-    // Create threads for sales operations
-    std::vector<std::thread> salesThreads;
+    saleThread1.join();
+    saleThread2.join();
 
-    // Simulate concurrent sales operations
-    for (int i = 0; i < 5; ++i) {
-        salesThreads.emplace_back([&, product1, product2, product3]() { // Capture by value
-            std::vector<std::pair<Product, int>> items;
+    // Perform inventory check
+    bool isValid = inventory.performInventoryCheck();
 
-            // Simulate a sale (e.g., random products and quantities)
-            items.emplace_back(product1, rand() % 10 + 1); // Random quantity between 1 and 10
-            items.emplace_back(product2, rand() % 10 + 1);
-            items.emplace_back(product3, rand() % 10 + 1);
-
-            // Perform a sale
-            salesManager.performSale(items);
-        });
-    }
-
-
-    // Start the sales threads
-    for (auto& thread : salesThreads) {
-        thread.join();
-    }
-
-    // Perform an inventory check
-    bool isInventoryValid = inventory.performInventoryCheck();
-
-    if (isInventoryValid) {
-        std::cout << "Inventory check passed." << std::endl;
+    if (isValid) {
+        std::cout << "Inventory check passed. Money: $" << inventory.getMoneyAmount() << std::endl;
     } else {
-        std::cout << "Inventory check failed. There are inconsistencies." << std::endl;
+        std::cout << "Inventory check failed." << std::endl;
     }
 
     return 0;
