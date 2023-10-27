@@ -88,11 +88,11 @@ void createTransaction() {
         accountsMutexes[operation.sourceAccountId].unlock();
         accountsMutexes[operation.destinationAccountId].unlock();
     } else {
-        accountsMutexes[operation.destinationAccountId].lock();
         accountsMutexes[operation.sourceAccountId].lock();
+        accountsMutexes[operation.destinationAccountId].lock();
         if (_accounts[operation.sourceAccountId].balance < operation.amount) {
-            accountsMutexes[operation.sourceAccountId].unlock();
             accountsMutexes[operation.destinationAccountId].unlock();
+            accountsMutexes[operation.sourceAccountId].unlock();
             return;
         }
         serialNumberMutex.lock();
