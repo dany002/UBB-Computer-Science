@@ -7,7 +7,7 @@
 #include <mutex>
 #include <thread>
 
-#define CREATOR_THREAD_COUNT 5
+#define CREATOR_THREAD_COUNT 100
 
 typedef struct {
     int sourceAccountId;
