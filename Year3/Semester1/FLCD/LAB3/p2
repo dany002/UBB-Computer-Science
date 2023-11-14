@@ -1,0 +1,19 @@
+BEGIN
+int x;
+int i;
+bool ok;
+ok $= 1;
+x $= 15;
+for (i $= 2; i -le x/2; i $= i+1){
+	if (x % i -eq 0){
+		ok $= false;
+	}
+}
+
+if(ok -eq 1){
+	write ("Prim");
+}
+else{
+	write ("Nu e prim");
+}
+END

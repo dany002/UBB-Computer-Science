@@ -1,0 +1,69 @@
+
+p1:
+BEGIN
+int x;
+x $= 7;
+if (x % 2 -eq 0){
+	ret 1;
+}
+ret 0;
+END
+
+p2
+BEGIN
+int x;
+int i;
+bool ok;
+ok $= true;
+x $= 15;
+for (i $= 2; i -le x/2; i $= i+1){
+	if (x % i -eq 0){
+		ok $= false;
+	}
+}
+
+if(ok -eq true){
+	write (Prim);
+}
+else{
+	write (Nu e prim);
+}
+END
+
+
+p3
+BEGIN
+int s;
+int i;
+int n;
+n $= 20;
+s $= 0;
+for (i $= 1; i -le n; i $= i+1){
+	s $= s + i;
+}
+write s;
+END
+
+
+p1err
+BEGIN
+int a;
+int b;
+int c
+a $= 10;
+b = 7;
+c $= 15;
+if (a -gt b && b -gt c){
+	write (A is the maximum)
+	ret;
+}
+if (b -gt a && b -gt c){
+	write (B is the maximum)
+	ret;
+}
+
+if (c -gt a && c -gt b){
+	write (C is the maximum)
+	ret;
+}
+END

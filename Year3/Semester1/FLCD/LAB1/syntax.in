@@ -1,0 +1,47 @@
+program ::= "BEGIN" decllist ";" cmpdstmt "END"
+
+decllist ::= declaration | declaration ";" decllist
+
+declaration ::= type IDENTIFIER
+
+type1 ::= "bool" | "char" | "int"
+
+arraydecl ::= "array" "[" nr "]" "OF" type1
+
+type ::= type1|arraydecl
+
+cmpdstmt ::= "{" stmtlist "}"
+
+stmtlist ::= stmt | stmt ";" stmtlist
+
+stmt ::= simplstmt | structstmt
+
+simplstmt ::= assignstmt ";"| iostmt ";"| retstmt ";"
+
+assignstmt ::= IDENTIFIER "$=" expression
+
+expression ::= expression "+" term | term
+
+term ::= term "*" factor | factor
+
+factor ::= "(" expression ")" | IDENTIFIER
+
+iostmt ::= "read" | "write" "(" IDENTIFIER ")"
+
+structstmt ::= cmpdstmt | ifstmt | whilestmt | forstmt
+
+ifstmt ::= "if" conditionstmt stmtlist ["else" stmtlist]
+
+whilestmt ::= "while" conditionstmt stmtlist
+
+conditionstmt ::= "condition" "logicOperator" "condition" | condition
+
+logicOperator ::= "&&" | "||"
+
+condition ::= expression RELATION expression
+
+forstmt ::= "for" assignstmt conditionstmt assignstmt stmtlist
+
+RELATION ::= "-lt" | "-le" | "-eq" | "-ne" | "-ge" | "-gt"
+
+retstmt ::= "ret" expression | "ret" ";"

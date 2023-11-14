@@ -1,0 +1,71 @@
+Class: HashTableSymbolTable
+
+Description:
+    This class implements a Symbol Table using a Hash Table data structure. It allows for efficient storage and retrieval of key-value pairs based on hash values.
+
+Constructor:
+    def __init__(self, size=100):
+    
+    Description:
+        Initialize a Hash Table-based Symbol Table with a specified size.
+
+    Parameters:
+        - size (int): The size of the hash table (default is 100).
+
+    Returns:
+        None
+
+Methods:
+1. _hash(self, key)
+    
+    Description:
+        Compute the hash value for a given key using the modulo operator.
+
+    Parameters:
+        - key: The key to be hashed.
+
+    Returns:
+        int: The hash value.
+
+2. insert(self, key, value)
+
+    Description:
+        Insert a key-value pair into the hash table.
+
+    Parameters:
+        - key: The key.
+        - value: The corresponding value.
+
+    Returns:
+        None
+
+3. lookup(self, key)
+
+    Description:
+        Look up a key in the hash table and return its value if it exists.
+
+    Parameters:
+        - key: The key to be looked up.
+
+    Returns:
+        value: The value associated with the key, or None if not found.
+
+4. delete(self, key)
+
+    Description:
+        Delete a key from the hash table if it exists.
+
+    Parameters:
+        - key: The key to be deleted.
+
+    Returns:
+        None
+
+5. display(self)
+
+    Description:
+        Retrieve and display the entire hash table, including its buckets.
+
+    Returns:
+        list: A list representing the hash table.
+

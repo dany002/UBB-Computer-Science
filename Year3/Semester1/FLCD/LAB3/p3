@@ -1,0 +1,11 @@
+BEGIN
+int s;
+int i;
+int n;
+n $= 20;
+s $= 0;
+for (i $= 1; i -le n; i $= i+1){
+	s $= s + i;
+}
+write s;
+END

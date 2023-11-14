@@ -1,0 +1,9 @@
+P
+F
+P 0 P
+P 0 b
+P 1 b
+P 1 a
+a 2 b
+b 3 F
+F 4 F

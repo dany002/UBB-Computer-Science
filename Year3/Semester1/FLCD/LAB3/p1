@@ -1,0 +1,8 @@
+BEGIN
+int x;
+x $= 7;
+if (x % 2 -eq 0){
+	ret 1;
+}
+ret 0;
+END

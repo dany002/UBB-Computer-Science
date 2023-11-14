@@ -1,0 +1,134 @@
+EBNF
+automaton = states, alphabet, transitions, initial_state, final_states;
+states = state, { state };
+state = "q", number;
+number = digit, { digit };
+alphabet = symbol, { symbol };
+symbol = "'" , character, "'" | '"', character, '"' | letter | digit;
+character = any valid character;
+transitions = transition, { transition };
+transition = state, symbol, state;
+initial_state = "q", number;
+final_states = state, { state };
+
+
+General information:
+- Statement: Write a program that:
+    1. Reads the elements of a FA (from file).
+    2. Displays its elements, using a menu: the set of states, the alphabet, all the transitions,
+    the initial state and the set of final states.
+    3. For a DFA, verifies if a sequence is accepted by the FA.
+- Data structures:
+    o Transition: Class that contains 3 values
+    o Finite Automata: Class that contains 5 lists
+- Language: Python
+
+General description
+At the runtime, you are required to choose from a list of possible actions. The actions allow the user to
+read a finite automata from a file, to print the initial, final and intermediary states, to print the alphabet
+and the transitions in the automata. Also, you can check whether a given sequence is part of the
+language generated or if it is not.
+
+Finite Automata: I have chosen to implement the automata as containing 5 lists, each one containing
+specific data for the automata. The lists resemble the set of states, initial states, final states, the
+alphabet and the set of transitions
+
+
+Documentation
+
+main.py
+Here I have the running code of the program. The console prints of the menu that the user can choose
+the operations from, the choice interpretation and calling of the corresponding functions from the
+service.
+
+
+service.py
+Here I have the function called from main.py. They call the necessary functions from FiniteAutomata.py,
+interpret the result and arrange it into readable data that is later printed in the console.
+
+states(fa):
+Arguments:
+    - fa: FiniteAutomata; it is a variable that represents the Finite Automata
+Description: It prints to the console the initial, final and intermediary states of the automata.
+Return value: -
+
+alphabet(fa):
+Arguments:
+    - fa: FiniteAutomata; it is a variable that represents the Finite Automata
+Description: It prints to the console the alphabet of the automata.
+Return value: -
+
+transitions(fa):
+Arguments:
+    - fa: FiniteAutomata; it is a variable that represents the Finite Automata
+Description: It prints to the console the transitions of the automata.
+Return value: -
+
+check_seq(fa):
+Arguments:
+    - fa: FiniteAutomata; it is a variable that represents the Finite Automata
+Description: It asks for a sequence of characters from the input, calls the function from the automata
+             responsible for the checking of a sequence, then it prints the result
+Return value: -
+
+transition.py
+class Transition
+Declaration: Transition(initial_states, values, final_states)
+Description: It is a class that models a transition. It contains its initial states, value and final states
+
+__init__(self, initial_states, values, final_states):
+Arguments:
+- initial_states: usually containing just a string value, representing the initial state of the transition
+- values: an item from the alphabet of the automata (usually a string or int)
+- final_states: usually containing just a string value, representing the final state of the transition
+Description: It is the constructor of the class Transition
+Return value: the Transition entity
+
+__str__(self):
+Arguments: -
+Description: it is used for the string conversion of a Transition entity
+Return value: the Transition entity
+
+FiniteAutomata.py
+class FiniteAutomata
+Declaration: FiniteAutomata(set_of_states, alphabet, set_of_transitions, initial_states, final_states)
+Description: It is a class that models a FiniteAutomata, containing the necessary functions for the
+operations that are required in the statement
+
+__init__(self, Q, E, S, q0, F):
+Arguments:
+- Q: list; the set containing all the states of the automata
+- E: list; the set representing the alphabet
+- S: list; the set of transitions of the automata
+- q0: list; the initial states of the automata
+- F: list; the final states of the automata
+Description: It is the constructor of the class FiniteAutomata
+Return value: the FiniteAutomata entity
+
+read_automata(self, file_name):
+Arguments:
+- file_name: string; represents the name of the file from which we will perform the reading of the
+finite automata
+
+Description: It performs the reading of the finite automata from the file. It goes through the file line by
+line. The first one should contain the initial states and the function interprets them accordingly (takes
+the values and adds them to the initial states set). The second line should contain the final states and
+the function interprets them accordingly (takes the values and adds them to the final states set). Then,
+line by line, it reads the transitions from the file. From the transition, it takes and adds additional states
+to the states list (including the initial and final), and adds the values of the alphabet into their
+corresponding set.
+Return value: -
+
+check_sequence(item, fa, initial_states):
+Arguments:
+- item: string; the sequence (or part of it) that needs to be checked
+- fa: FiniteAutomata; the finite automata for which we want the check to be performed
+- initial_states: list; a set containing the initial_states of the current sequence
+Description: It is a recursive function that checks, character by character, if the sequence received is
+part of the language of the finite automata provided as a parameter. For each character, it goes through
+the list of initial states for that character and checks whether there are any satisfying transitions starting
+from one of the initial ones and having the value equal to that character. If there are, they are put in a
+list and passed to the recursive call for the next character as its initial_states.
+Return value:
+- True: if the sequence comes to an end, and it reaches one of the final states
+- False: otherwise

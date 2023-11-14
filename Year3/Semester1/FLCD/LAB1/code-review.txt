@@ -1,0 +1,4 @@
+Code review for Moldovan Tudor
+
+-> he forgot about for loop to put it in syntax.in
+-> few small changes over the syntax in order to look the same as his program

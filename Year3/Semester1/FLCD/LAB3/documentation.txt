@@ -1,0 +1,45 @@
+Program Name: My Scanner
+
+Overview:
+This program is a scanner that reads a source code file and tokenizes it, generating a Program Internal Form (PIF) and a Symbol Table (ST).
+
+Table of Contents:
+1. Introduction
+2. Usage
+3. Class and Method Descriptions
+   3.1. Scanner Class
+   3.2. Scanner Methods
+4. Example
+5. References
+
+1. Introduction:
+My Scanner is a Python program designed to tokenize source code, identifying and categorizing elements such as identifiers, constants, reserved words, and more.
+
+2. Usage:
+To use the scanner, you can follow these steps:
+   - Provide a source code file as input.
+   - Run the program.
+   - The scanner will generate a Program Internal Form (PIF) and a Symbol Table (ST) as output.
+
+3. Class and Method Descriptions:
+   3.1. Scanner Class:
+       - This class represents the main scanner logic.
+   3.2. Scanner Methods:
+       - `read_tokens()`: Reads reserved words and tokens from a file.
+       - `skip_spaces()`: Skips whitespace characters.
+       - `skip_comments()`: Skips comments.
+       - `treat_string_constant()`: Treats string constants.
+       - `treat_int_constant()`: Treats integer constants.
+       - `check_if_valid()`: Checks if an identifier is valid.
+       - `treat_identifier()`: Treats identifiers.
+       - `treat_from_token_list()`: Treats tokens from the list.
+       - `next_token()`: Advances to the next token.
+       - `scan()`: Scans the source code file and generates PIF and ST.
+
+4. Example:
+   - Provide an example of how to use your program with a sample source code file and demonstrate the generated PIF and ST.
+   - You can check with p1, p2, p3, p1err
+
+5. References:
+   - https://moodle.cs.ubbcluj.ro/mod/assign/view.php?id=2657
+

@@ -1,0 +1,45 @@
+Alphabet:
+
+a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
+
+b. Underline character '_';
+
+c. Decimal digits (0-9);
+
+
+Lexic:
+a.Special symbols, representing:
+
+  - operators + - * / < <= >= % && || 
+
+  - separators [ ] { }  : ; space
+
+  - reserved words: array char const do else if int of program read while for then var write auto bool  
+
+b.identifiers:
+
+    -a sequence of letters and  digits, such that the first character is a letter; the rule is:
+
+    identifier ::= letter | letter{letter}{digit}
+
+    letter ::= "A" | "B" |...| "Z" | "a" | "b" | ... | "z"
+
+    digit ::= "0" | "1" |...| "9"
+
+
+c.constants:
+
+  1.integer - rule:
+      no:=digit{no}
+      noconst:="+"no|"-"no|no
+
+  2.character
+    character:='letter'|'digit'
+
+  3.string
+      constchar:="string"
+      string:=char{string}
+      char:=letter|digit
+  
+  4.bool
+      bool:='true' | 'false'
