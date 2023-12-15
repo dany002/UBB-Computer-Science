@@ -1,0 +1,4 @@
+Duration for PARALLEL KARATSUBA - degree 10000 and 20000: 1.423332147 seconds
+Duration for PARALLEL KARATSUBA - degree 10 and 20: 0.015771275 seconds
+Duration for SEQUENTIAL KARATSUBA - degree 10 and 20: 0.005859332 seconds
+Duration for PARALLEL KARATSUBA - degree 10 and 20: 0.020899985 seconds
