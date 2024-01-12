@@ -18,9 +18,9 @@ public class Main {
     private static final AlgorithmChoice ALGORITHM = AlgorithmChoice.KARATSUBA;
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
-        Polynomial p1 = new Polynomial(10);
+        Polynomial p1 = new Polynomial(1000);
         System.out.println("p1=" + p1);
-        Polynomial p2 = new Polynomial(20);
+        Polynomial p2 = new Polynomial(2000);
         System.out.println("p2=" + p2);
         long startTime = System.nanoTime();
         run(p1, p2);

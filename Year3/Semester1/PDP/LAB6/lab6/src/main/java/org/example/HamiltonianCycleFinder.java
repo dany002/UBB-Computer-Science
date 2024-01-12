@@ -40,7 +40,7 @@ public class HamiltonianCycleFinder {
         if (path.size() == graph.size()) {
             return;
         }
-
+        // un singur threadpool, iau featureul si astept sa fie gata si la final de tot sa inchid threadpool ul
         // check all possible vertices
         for (int i = 0; i < graph.size(); i++) {
             // if the node is not visited and there is an edge between the current node and the node
