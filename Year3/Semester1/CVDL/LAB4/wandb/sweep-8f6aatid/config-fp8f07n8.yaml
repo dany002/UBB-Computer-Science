@@ -1,0 +1,16 @@
+wandb_version: 1
+
+BATCH_SIZE:
+  value: 48
+INPUT_SHAPE:
+  value:
+  - 64
+  - 64
+INTERMEDIARY_FILTERS:
+  value: 8
+LR:
+  value: 0.01
+NUM_EPOCHS:
+  value: 10
+NUM_LAYERS:
+  value: 2

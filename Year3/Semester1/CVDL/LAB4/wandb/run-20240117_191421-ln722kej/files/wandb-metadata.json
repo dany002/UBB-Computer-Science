@@ -1,0 +1,79 @@
+{
+    "os": "Linux-5.18.0-kali7-amd64-x86_64-with-glibc2.36",
+    "python": "3.9.13",
+    "heartbeatAt": "2024-01-17T17:14:22.191345",
+    "startedAt": "2024-01-17T17:14:21.499831",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/Laboratory_4_Semantic_segmentation_part_1_final_[students].ipynb",
+    "codePathLocal": null,
+    "root": "/home/senzationall/Desktop/UBB-Computer-Science",
+    "git": {
+        "remote": "https://github.com/dany002/UBB-Computer-Science.git",
+        "commit": "bbcf144434b068e771f8be3ba4df56b26373ac17"
+    },
+    "email": "moldovandangelu@gmail.com",
+    "host": "SenZatIonALL",
+    "username": "senzationall",
+    "executable": "/home/senzationall/anaconda3/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2.861,
+        "min": 400.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.8,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2.403,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3.685,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2.8,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2.8,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2.8,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2.8,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2.8,
+            "min": 400.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 435.3596420288086,
+            "used": 284.54121017456055
+        }
+    },
+    "memory": {
+        "total": 15.420948028564453
+    }
+}

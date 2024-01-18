@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/ipykernel_22918/2015491873.py", line 3, in run_wandb
+    train(None, wandb.config)
+  File "/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/train.py", line 27, in train
+    if config['OPTIMIZER'] == 'Adam':
+  File "/home/senzationall/anaconda3/lib/python3.9/site-packages/wandb/sdk/wandb_config.py", line 130, in __getitem__
+    return self._items[key]
+KeyError: 'OPTIMIZER'

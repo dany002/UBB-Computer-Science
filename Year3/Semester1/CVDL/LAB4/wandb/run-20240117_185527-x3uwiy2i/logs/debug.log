@@ -1,0 +1,431 @@
+2024-01-17 18:55:27,524 INFO    MainThread:22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': 'x3uwiy2i', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-20q6hxl2/config-x3uwiy2i.yaml', 'sweep_id': '20q6hxl2'}
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_185527-x3uwiy2i/logs/debug.log
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_185527-x3uwiy2i/logs/debug-internal.log
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_init.py:_jupyter_setup():470] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x7f18fee4f040>
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {'NUM_EPOCHS': 30, 'BATCH_SIZE': 48, 'INPUT_SHAPE': (128, 128), 'NUM_LAYERS': 2, 'LR': 0.004, 'INTERMEDIARY_FILTERS': 32, 'OPTIMIZER': 'Adam'}
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_init.py:init():614] starting backend
+2024-01-17 18:55:27,525 INFO    MainThread:22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 18:55:27,528 INFO    MainThread:22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 18:55:27,528 INFO    MainThread:22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 18:55:27,538 INFO    MainThread:22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 18:55:27,540 INFO    MainThread:22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 18:55:27,540 INFO    MainThread:22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 18:55:27,540 INFO    MainThread:22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 18:55:27,578 INFO    MainThread:22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 18:55:28,549 INFO    MainThread:22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 18:55:28,726 INFO    MainThread:22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 18:55:28,727 INFO    MainThread:22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 18:55:34,105 INFO    MainThread:22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 18:55:34,106 INFO    MainThread:22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 18:55:34,106 INFO    MainThread:22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 18:55:34,106 INFO    MainThread:22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 18:55:34,107 INFO    MainThread:22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 18:55:34,109 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 18:55:34,109 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 18:56:21,755 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 18:56:21,760 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 18:56:21,760 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:13:26,364 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:13:26,365 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:13:26,366 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:13:27,299 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:13:27,747 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:13:27,747 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:13:29,264 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:13:29,266 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:13:29,266 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:13:30,672 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:13:30,676 INFO    MainThread:22918 [pyagent.py:run():314] Starting sweep agent: entity=None, project=cvdl, count=None
+2024-01-17 19:13:36,723 WARNING MsgRouterThr:22918 [router.py:message_loop():77] message_loop has been closed
+2024-01-17 19:13:38,701 INFO    Thread-19 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:13:38,701 INFO    Thread-19 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:13:38,701 INFO    Thread-19 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:13:38,701 INFO    Thread-19 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:13:38,702 INFO    Thread-19 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'sweep_id': '8f6aatid', 'run_id': 'aas1flh3', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-8f6aatid/config-aas1flh3.yaml'}
+2024-01-17 19:13:38,702 INFO    Thread-19 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:13:38,702 INFO    Thread-19 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:13:38,702 INFO    Thread-19 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191338-aas1flh3/logs/debug.log
+2024-01-17 19:13:38,702 INFO    Thread-19 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191338-aas1flh3/logs/debug-internal.log
+2024-01-17 19:13:38,702 INFO    Thread-19 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:13:38,702 INFO    Thread-19 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.004, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:13:38,703 INFO    Thread-19 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:13:38,703 INFO    Thread-19 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:13:38,711 INFO    Thread-19 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:13:38,712 INFO    Thread-19 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:13:38,733 INFO    Thread-19 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.004, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:13:38,734 INFO    Thread-19 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:13:38,734 INFO    Thread-19 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:13:38,734 INFO    Thread-19 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:13:38,762 INFO    Thread-19 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:13:39,183 INFO    Thread-19 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:13:39,355 INFO    Thread-19 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:13:39,355 INFO    Thread-19 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:13:44,844 INFO    Thread-19 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:13:44,845 INFO    Thread-19 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:13:44,845 INFO    Thread-19 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:13:44,845 INFO    Thread-19 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:13:44,846 INFO    Thread-19 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:13:47,703 INFO    Thread-19 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/aas1flh3
+2024-01-17 19:13:47,704 INFO    Thread-19 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:13:47,704 INFO    Thread-19 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:13:47,704 INFO    Thread-19 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:13:52,297 INFO    Thread-19 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:13:52,298 INFO    Thread-19 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:13:52,302 INFO    Thread-19 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:13:52,402 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run aas1flh3 errored: KeyError('OPTIMIZER')
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': 'hdyv7qfk', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-8f6aatid/config-hdyv7qfk.yaml', 'sweep_id': '8f6aatid'}
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191404-hdyv7qfk/logs/debug.log
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191404-hdyv7qfk/logs/debug-internal.log
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.008, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:14:04,503 INFO    Thread-22 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:14:04,506 INFO    Thread-22 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:14:04,507 INFO    Thread-22 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:14:04,516 INFO    Thread-22 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.008, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:14:04,517 INFO    Thread-22 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:14:04,517 INFO    Thread-22 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:14:04,517 INFO    Thread-22 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:14:04,549 INFO    Thread-22 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:14:05,099 INFO    Thread-22 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:14:05,282 INFO    Thread-22 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:14:05,282 INFO    Thread-22 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:14:10,830 INFO    Thread-22 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:14:10,830 INFO    Thread-22 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:14:10,830 INFO    Thread-22 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:14:10,830 INFO    Thread-22 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:14:10,831 INFO    Thread-22 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:14:13,591 INFO    Thread-22 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/hdyv7qfk
+2024-01-17 19:14:13,591 INFO    Thread-22 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:14:13,591 INFO    Thread-22 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:14:13,591 INFO    Thread-22 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:14:18,302 INFO    Thread-22 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:14:18,302 INFO    Thread-22 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:14:18,303 INFO    Thread-22 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:14:18,338 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run hdyv7qfk errored: KeyError('OPTIMIZER')
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': 'ln722kej', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-8f6aatid/config-ln722kej.yaml', 'sweep_id': '8f6aatid'}
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191421-ln722kej/logs/debug.log
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191421-ln722kej/logs/debug-internal.log
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:14:21,503 INFO    Thread-25 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:14:21,506 INFO    Thread-25 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:14:21,506 INFO    Thread-25 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:14:21,518 INFO    Thread-25 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:14:21,520 INFO    Thread-25 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:14:21,520 INFO    Thread-25 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:14:21,520 INFO    Thread-25 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:14:21,555 INFO    Thread-25 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:14:22,006 INFO    Thread-25 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:14:22,160 INFO    Thread-25 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:14:22,160 INFO    Thread-25 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:14:27,732 INFO    Thread-25 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:14:27,732 INFO    Thread-25 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:14:27,732 INFO    Thread-25 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:14:27,732 INFO    Thread-25 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:14:27,733 INFO    Thread-25 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:14:30,696 INFO    Thread-25 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/ln722kej
+2024-01-17 19:14:30,696 INFO    Thread-25 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:14:30,696 INFO    Thread-25 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:14:30,697 INFO    Thread-25 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:14:35,199 INFO    Thread-25 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:14:35,200 INFO    Thread-25 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:14:35,204 INFO    Thread-25 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:14:35,244 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run ln722kej errored: KeyError('OPTIMIZER')
+2024-01-17 19:14:38,503 INFO    Thread-28 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:14:38,503 INFO    Thread-28 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:14:38,503 INFO    Thread-28 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:14:38,503 INFO    Thread-28 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:14:38,504 INFO    Thread-28 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': 'cgy0e4ac', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-8f6aatid/config-cgy0e4ac.yaml', 'sweep_id': '8f6aatid'}
+2024-01-17 19:14:38,504 INFO    Thread-28 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:14:38,504 INFO    Thread-28 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:14:38,504 INFO    Thread-28 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191438-cgy0e4ac/logs/debug.log
+2024-01-17 19:14:38,504 INFO    Thread-28 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191438-cgy0e4ac/logs/debug-internal.log
+2024-01-17 19:14:38,504 INFO    Thread-28 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:14:38,504 INFO    Thread-28 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 48, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.004, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:14:38,505 INFO    Thread-28 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:14:38,505 INFO    Thread-28 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:14:38,513 INFO    Thread-28 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:14:38,514 INFO    Thread-28 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:14:38,527 INFO    Thread-28 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 48, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.004, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:14:38,529 INFO    Thread-28 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:14:38,529 INFO    Thread-28 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:14:38,529 INFO    Thread-28 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:14:38,568 INFO    Thread-28 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:14:39,341 INFO    Thread-28 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:14:39,517 INFO    Thread-28 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:14:39,518 INFO    Thread-28 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:14:44,916 INFO    Thread-28 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:14:44,916 INFO    Thread-28 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:14:44,916 INFO    Thread-28 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:14:44,917 INFO    Thread-28 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:14:44,918 INFO    Thread-28 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:14:47,724 INFO    Thread-28 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/cgy0e4ac
+2024-01-17 19:14:47,725 INFO    Thread-28 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:14:47,725 INFO    Thread-28 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:14:47,725 INFO    Thread-28 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:14:52,608 INFO    Thread-28 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:14:52,608 INFO    Thread-28 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:14:52,610 INFO    Thread-28 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:14:52,650 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run cgy0e4ac errored: KeyError('OPTIMIZER')
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': 'bqmw2tj7', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-8f6aatid/config-bqmw2tj7.yaml', 'sweep_id': '8f6aatid'}
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:14:58,882 INFO    Thread-31 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191458-bqmw2tj7/logs/debug.log
+2024-01-17 19:14:58,883 INFO    Thread-31 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191458-bqmw2tj7/logs/debug-internal.log
+2024-01-17 19:14:58,883 INFO    Thread-31 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:14:58,883 INFO    Thread-31 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 48, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.008, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:14:58,883 INFO    Thread-31 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:14:58,883 INFO    Thread-31 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:14:58,891 INFO    Thread-31 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:14:58,892 INFO    Thread-31 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:14:58,904 INFO    Thread-31 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 48, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.008, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:14:58,905 INFO    Thread-31 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:14:58,905 INFO    Thread-31 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:14:58,906 INFO    Thread-31 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:14:58,948 INFO    Thread-31 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:14:59,504 INFO    Thread-31 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:14:59,652 INFO    Thread-31 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:14:59,653 INFO    Thread-31 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:15:05,598 INFO    Thread-31 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:15:05,599 INFO    Thread-31 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:15:05,599 INFO    Thread-31 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:15:05,599 INFO    Thread-31 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:15:05,599 INFO    Thread-31 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:15:09,025 INFO    Thread-31 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/bqmw2tj7
+2024-01-17 19:15:09,025 INFO    Thread-31 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:15:09,025 INFO    Thread-31 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:15:09,025 INFO    Thread-31 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:15:13,539 INFO    Thread-31 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:15:13,539 INFO    Thread-31 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:15:13,542 INFO    Thread-31 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:15:13,577 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run bqmw2tj7 errored: KeyError('OPTIMIZER')
+2024-01-17 19:15:19,772 INFO    Thread-34 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': 'fp8f07n8', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-8f6aatid/config-fp8f07n8.yaml', 'sweep_id': '8f6aatid'}
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191519-fp8f07n8/logs/debug.log
+2024-01-17 19:15:19,773 INFO    Thread-34 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_191519-fp8f07n8/logs/debug-internal.log
+2024-01-17 19:15:19,774 INFO    Thread-34 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:15:19,774 INFO    Thread-34 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 48, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:15:19,774 INFO    Thread-34 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:15:19,774 INFO    Thread-34 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:15:19,782 INFO    Thread-34 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:15:19,783 INFO    Thread-34 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:15:19,792 INFO    Thread-34 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 48, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:15:19,794 INFO    Thread-34 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:15:19,794 INFO    Thread-34 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:15:19,794 INFO    Thread-34 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:15:19,841 INFO    Thread-34 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:15:20,298 INFO    Thread-34 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:15:20,494 INFO    Thread-34 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:15:20,494 INFO    Thread-34 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:15:26,241 INFO    Thread-34 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:15:26,241 INFO    Thread-34 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:15:26,241 INFO    Thread-34 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:15:26,241 INFO    Thread-34 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:15:26,243 INFO    Thread-34 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:15:29,003 INFO    Thread-34 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/fp8f07n8
+2024-01-17 19:15:29,003 INFO    Thread-34 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:15:29,003 INFO    Thread-34 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:15:29,003 INFO    Thread-34 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:15:33,465 INFO    Thread-34 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:15:33,465 INFO    Thread-34 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:15:33,469 INFO    Thread-34 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:15:33,506 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run fp8f07n8 errored: KeyError('OPTIMIZER')
+2024-01-17 19:15:33,507 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():251] Detected 5 failed runs in a row at start, killing sweep.
+2024-01-17 19:15:33,507 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:15:33,508 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:17:56,554 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:17:56,562 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:17:56,563 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:18:10,111 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:18:10,119 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:18:10,119 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:18:25,084 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:18:25,093 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:18:25,093 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:21:47,938 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:21:47,944 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:21:47,944 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:22:02,472 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:22:02,479 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:22:02,479 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:22:05,833 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:22:05,839 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:22:05,839 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:22:31,072 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:22:31,078 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:22:31,078 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:22:40,739 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:22:44,292 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:22:44,292 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:22:44,309 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:22:44,320 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:22:44,320 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:22:47,269 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:22:47,274 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:22:47,275 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:22:50,866 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:22:50,879 INFO    MainThread:22918 [pyagent.py:run():314] Starting sweep agent: entity=None, project=cvdl, count=None
+2024-01-17 19:22:53,819 INFO    Thread-38 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:22:53,819 INFO    Thread-38 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:22:53,819 INFO    Thread-38 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:22:53,820 INFO    Thread-38 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:22:53,820 INFO    Thread-38 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'sweep_id': 'zcj4gexp', 'run_id': 'fno5xwva', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-zcj4gexp/config-fno5xwva.yaml'}
+2024-01-17 19:22:53,820 INFO    Thread-38 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:22:53,820 INFO    Thread-38 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:22:53,820 INFO    Thread-38 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_192253-fno5xwva/logs/debug.log
+2024-01-17 19:22:53,820 INFO    Thread-38 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_192253-fno5xwva/logs/debug-internal.log
+2024-01-17 19:22:53,820 INFO    Thread-38 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:22:53,821 INFO    Thread-38 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.004, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:22:53,821 INFO    Thread-38 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:22:53,821 INFO    Thread-38 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:22:53,829 INFO    Thread-38 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:22:53,829 INFO    Thread-38 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:22:53,839 INFO    Thread-38 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.004, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:22:53,841 INFO    Thread-38 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:22:53,841 INFO    Thread-38 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:22:53,841 INFO    Thread-38 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:22:53,896 INFO    Thread-38 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:22:54,343 INFO    Thread-38 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:22:54,500 INFO    Thread-38 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:22:54,500 INFO    Thread-38 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:23:00,026 INFO    Thread-38 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:23:00,026 INFO    Thread-38 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:23:00,027 INFO    Thread-38 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:23:00,027 INFO    Thread-38 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:23:00,027 INFO    Thread-38 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:23:03,241 INFO    Thread-38 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/fno5xwva
+2024-01-17 19:23:03,242 INFO    Thread-38 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:23:03,242 INFO    Thread-38 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:23:03,242 INFO    Thread-38 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:23:07,570 INFO    Thread-38 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:23:07,570 INFO    Thread-38 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:23:07,571 INFO    Thread-38 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:23:07,605 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run fno5xwva errored: KeyError('OPTIMIZER')
+2024-01-17 19:23:13,999 INFO    Thread-41 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:23:13,999 INFO    Thread-41 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:23:13,999 INFO    Thread-41 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': 'inramad3', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-zcj4gexp/config-inramad3.yaml', 'sweep_id': 'zcj4gexp'}
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_192313-inramad3/logs/debug.log
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_192313-inramad3/logs/debug-internal.log
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.008, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:23:14,000 INFO    Thread-41 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:23:14,001 INFO    Thread-41 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:23:14,010 INFO    Thread-41 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:23:14,010 INFO    Thread-41 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:23:14,021 INFO    Thread-41 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.008, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:23:14,022 INFO    Thread-41 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:23:14,022 INFO    Thread-41 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:23:14,022 INFO    Thread-41 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:23:14,078 INFO    Thread-41 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:23:14,718 INFO    Thread-41 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:23:14,856 INFO    Thread-41 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:23:14,856 INFO    Thread-41 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:23:20,362 INFO    Thread-41 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:23:20,362 INFO    Thread-41 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:23:20,362 INFO    Thread-41 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:23:20,363 INFO    Thread-41 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:23:20,363 INFO    Thread-41 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:23:22,966 INFO    Thread-41 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/inramad3
+2024-01-17 19:23:22,966 INFO    Thread-41 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:23:22,966 INFO    Thread-41 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:23:22,966 INFO    Thread-41 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:23:27,918 INFO    Thread-41 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:23:27,918 INFO    Thread-41 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:23:27,919 INFO    Thread-41 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:23:27,952 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run inramad3 errored: KeyError('OPTIMIZER')
+2024-01-17 19:23:30,171 INFO    Thread-44 :22918 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2024-01-17 19:23:30,171 INFO    Thread-44 :22918 [wandb_setup.py:_flush():76] Configure stats pid to 22918
+2024-01-17 19:23:30,171 INFO    Thread-44 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/.config/wandb/settings
+2024-01-17 19:23:30,171 INFO    Thread-44 :22918 [wandb_setup.py:_flush():76] Loading settings from /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/settings
+2024-01-17 19:23:30,172 INFO    Thread-44 :22918 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cvdl', 'entity': 'moldovandangelu', 'root_dir': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4', 'run_id': '9t5o655o', 'sweep_param_path': '/home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/sweep-zcj4gexp/config-9t5o655o.yaml', 'sweep_id': 'zcj4gexp'}
+2024-01-17 19:23:30,172 INFO    Thread-44 :22918 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-01-17 19:23:30,172 INFO    Thread-44 :22918 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-01-17 19:23:30,172 INFO    Thread-44 :22918 [wandb_init.py:_log_setup():524] Logging user logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_192330-9t5o655o/logs/debug.log
+2024-01-17 19:23:30,172 INFO    Thread-44 :22918 [wandb_init.py:_log_setup():525] Logging internal logs to /home/senzationall/Desktop/UBB-Computer-Science/Year3/Semester1/CVDL/LAB4/wandb/run-20240117_192330-9t5o655o/logs/debug-internal.log
+2024-01-17 19:23:30,172 INFO    Thread-44 :22918 [wandb_init.py:init():564] calling init triggers
+2024-01-17 19:23:30,173 INFO    Thread-44 :22918 [wandb_init.py:init():571] wandb.init called with sweep_config: {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+config: {}
+2024-01-17 19:23:30,173 INFO    Thread-44 :22918 [wandb_init.py:init():614] starting backend
+2024-01-17 19:23:30,173 INFO    Thread-44 :22918 [wandb_init.py:init():618] setting up manager
+2024-01-17 19:23:30,181 INFO    Thread-44 :22918 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-01-17 19:23:30,182 INFO    Thread-44 :22918 [wandb_init.py:init():624] backend started and connected
+2024-01-17 19:23:30,193 INFO    Thread-44 :22918 [wandb_run.py:_config_callback():1342] config_cb None None {'BATCH_SIZE': 32, 'INPUT_SHAPE': [64, 64], 'INTERMEDIARY_FILTERS': 8, 'LR': 0.01, 'NUM_EPOCHS': 10, 'NUM_LAYERS': 2}
+2024-01-17 19:23:30,194 INFO    Thread-44 :22918 [wandb_run.py:_label_probe_notebook():1294] probe notebook
+2024-01-17 19:23:30,194 INFO    Thread-44 :22918 [wandb_run.py:_label_probe_notebook():1304] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-01-17 19:23:30,194 INFO    Thread-44 :22918 [wandb_init.py:init():716] updated telemetry
+2024-01-17 19:23:30,250 INFO    Thread-44 :22918 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2024-01-17 19:23:30,796 INFO    Thread-44 :22918 [wandb_run.py:_on_init():2254] communicating current version
+2024-01-17 19:23:30,972 INFO    Thread-44 :22918 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.16.2 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-01-17 19:23:30,972 INFO    Thread-44 :22918 [wandb_init.py:init():800] starting run threads in backend
+2024-01-17 19:23:36,373 INFO    Thread-44 :22918 [wandb_run.py:_console_start():2233] atexit reg
+2024-01-17 19:23:36,373 INFO    Thread-44 :22918 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2024-01-17 19:23:36,374 INFO    Thread-44 :22918 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2024-01-17 19:23:36,374 INFO    Thread-44 :22918 [wandb_run.py:_redirect():2178] Redirects installed.
+2024-01-17 19:23:36,374 INFO    Thread-44 :22918 [wandb_init.py:init():841] run started, returning control to user process
+2024-01-17 19:23:38,978 INFO    Thread-44 :22918 [wandb_run.py:_finish():1962] finishing run moldovandangelu/cvdl/9t5o655o
+2024-01-17 19:23:38,978 INFO    Thread-44 :22918 [wandb_run.py:_atexit_cleanup():2202] got exitcode: 1
+2024-01-17 19:23:38,978 INFO    Thread-44 :22918 [wandb_run.py:_restore():2185] restore
+2024-01-17 19:23:38,979 INFO    Thread-44 :22918 [wandb_run.py:_restore():2191] restore done
+2024-01-17 19:23:44,070 INFO    Thread-44 :22918 [wandb_run.py:_footer_history_summary_info():3837] rendering history
+2024-01-17 19:23:44,070 INFO    Thread-44 :22918 [wandb_run.py:_footer_history_summary_info():3869] rendering summary
+2024-01-17 19:23:44,073 INFO    Thread-44 :22918 [wandb_run.py:_footer_sync_info():3796] logging synced files
+2024-01-17 19:23:44,107 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():226] Run 9t5o655o errored: KeyError('OPTIMIZER')
+2024-01-17 19:23:44,108 ERROR   MainThread:22918 [pyagent.py:_run_jobs_from_queue():237] Detected 3 failed runs in the first 60 seconds, killing sweep.
+2024-01-17 19:23:44,109 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:23:44,110 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
+2024-01-17 19:23:44,156 INFO    MainThread:22918 [wandb_init.py:_resume_backend():440] resuming backend
+2024-01-17 19:23:44,160 INFO    MainThread:22918 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-01-17 19:23:44,160 INFO    MainThread:22918 [wandb_init.py:_pause_backend():435] pausing backend
